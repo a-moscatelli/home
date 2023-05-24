@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta charset="UTF-8"/>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=jA74dTIvSmq5mBHK19o3ixhBDXf7fCZH3jId2U81EtzACGcWqeL6GglhOAEisZip" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly93d3cuYXNjaWl0YWJsZS5jb20v"/><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=function(){var e=0,i=0,t=[],n=!1,o=[],s=[],r=!0,a=function(e,i,n,o,s,r,a){var l=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,c=this;this.name=e,this.funcName=i,this.parameters=null===n?null:p(n)?n:[n],this.isBlock=o,this.blockedBy=s,this.deleteWhenComplete=r,this.isError=!1,this.isComplete=!1,this.isInitialized=!1,this.proceedIfError=a,this.fWindow=l,this.isTimeDelay=!1,this.process=function(){f("... func = "+e),c.isInitialized=!0,c.isComplete=!0,f("... func.apply: "+e);var i=c.funcName.split("."),n=null,o=this.fWindow||window;i.length>3||(n=3===i.length?o[i[0]][i[1]][i[2]]:2===i.length?o[i[0]][i[1]]:o[c.funcName]),null!=n&&n.apply(null,this.parameters),!0===c.deleteWhenComplete&&delete t[e],!0===c.isBlock&&(f("----- F'D: "+c.name),u())}},l=function(e,i,t,n,o,s,r){var a=arguments.length>7&&void 0!==arguments[7]?arguments[7]:window,l=this;this.name=e,this.path=i,this.async=o,this.defer=s,this.isBlock=t,this.blockedBy=n,this.isInitialized=!1,this.isError=!1,this.isComplete=!1,this.proceedIfError=r,this.fWindow=a,this.isTimeDelay=!1,this.isPath=function(e){return"/"===e[0]&&"/"!==e[1]},this.getSrc=function(e){return void 0!==window.__ezScriptHost&&this.isPath(e)?window.__ezScriptHost+e:e},this.process=function(){l.isInitialized=!0,f("... file = "+e);var i=this.fWindow?this.fWindow.document:document,t=i.createElement("script");t.src=this.getSrc(this.path),!0===o?t.async=!0:!0===s&&(t.defer=!0),t.onerror=function(){f("----- ERR'D: "+l.name),l.isError=!0,!0===l.isBlock&&u()},t.onreadystatechange=t.onload=function(){var e=t.readyState;f("----- F'D: "+l.name),e&&!/loaded|complete/.test(e)||(l.isComplete=!0,!0===l.isBlock&&u())},i.getElementsByTagName("head")[0].appendChild(t)}},c=function(e,i){this.name=e,this.path="",this.async=!1,this.defer=!1,this.isBlock=!1,this.blockedBy=[],this.isInitialized=!0,this.isError=!1,this.isComplete=i,this.proceedIfError=!1,this.isTimeDelay=!1,this.process=function(){}};function d(e){!0!==h(e)&&0!=r&&e.process()}function h(e){if(!0===e.isTimeDelay&&!1===n)return f(e.name+" blocked = TIME DELAY!"),!0;if(p(e.blockedBy))for(var i=0;i<e.blockedBy.length;i++){var o=e.blockedBy[i];if(!1===t.hasOwnProperty(o))return f(e.name+" blocked = "+o),!0;if(!0===e.proceedIfError&&!0===t[o].isError)return!1;if(!1===t[o].isComplete)return f(e.name+" blocked = "+o),!0}return!1}function f(e){var i=window.location.href,t=new RegExp("[?&]ezq=([^&#]*)","i").exec(i);"1"===(t?t[1]:null)&&console.debug(e)}function u(){++e>200||(f("let's go"),m(o),m(s))}function m(e){for(var i in e)if(!1!==e.hasOwnProperty(i)){var t=e[i];!0===t.isComplete||h(t)||!0===t.isInitialized||!0===t.isError?!0===t.isError?f(t.name+": error"):!0===t.isComplete?f(t.name+": complete already"):!0===t.isInitialized&&f(t.name+": initialized already"):t.process()}}function p(e){return"[object Array]"==Object.prototype.toString.call(e)}return window.addEventListener("load",(function(){setTimeout((function(){n=!0,f("TDELAY -----"),u()}),5e3)}),!1),{addFile:function(e,i,n,r,a,c,h,f,u){var m=new l(e,i,n,r,a,c,h,u);!0===f?o[e]=m:s[e]=m,t[e]=m,d(m)},addDelayFile:function(e,i){var n=new l(e,i,!1,[],!1,!1,!0);n.isTimeDelay=!0,f(e+" ...  FILE! TDELAY"),s[e]=n,t[e]=n,d(n)},addFunc:function(e,n,r,l,c,h,f,u,m,p){!0===h&&(e=e+"_"+i++);var y=new a(e,n,r,l,c,f,u,p);!0===m?o[e]=y:s[e]=y,t[e]=y,d(y)},addDelayFunc:function(e,i,n){var o=new a(e,i,n,!1,[],!0,!0);o.isTimeDelay=!0,f(e+" ...  FUNCTION! TDELAY"),s[e]=o,t[e]=o,d(o)},items:t,processAll:u,setallowLoad:function(e){r=e},markLoaded:function(e){if(e&&0!==e.length){if(e in t){var i=t[e];!0===i.isComplete?f(i.name+" "+e+": error loaded duplicate"):(i.isComplete=!0,i.isInitialized=!0)}else t[e]=new c(e,!0);f("markLoaded dummyfile: "+t[e].name)}},logWhatsBlocked:function(){for(var e in t)!1!==t.hasOwnProperty(e)&&h(t[e])}}}();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.dot={};</script>
+<script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('fads.js', '/porpoiseant/fads.js?gcb=195-4&cb=11', true, [], true, false, false, true);</script>
+<script>window.ezslots_raw=[];var __sellerid='98ba9558c570005ca4fc58023c85b073';var __schain_domain='';var __ez_nid ='1254144';__advertiserRule=[''];var ezasVars = {'cid':'8966311186','pid':'pub-6744919314769019','ssid':44};if(typeof window.ezAutoAdsSetup == 'undefined'){window.google_reactive_ads_global_state = {
+                adCount: {},
+                floatingAdsStacking: { maxZIndexListeners: [], maxZIndexRestrictions: {}, nextRestrictionId: 0 },
+                messageValidationEnabled: false,
+                reactiveTypeDisabledByPublisher: {},
+                reactiveTypeEnabledInAsfe: {},
+                sideRailAvailableSpace: [],
+                sideRailOverlappableElements: [],
+                stateForType: {},
+                tagSpecificState: {},
+                wasPlaTagProcessed: true,
+                wasReactiveAdConfigReceived: { 1: true, 2: true, 8: true },
+                wasReactiveAdVisible: {},
+                wasReactiveTagRequestSent: true,
+                description: "Can't disable auto ads programmatically on the page, so here we are!"
+            };};var __ezasAggressive=false;!function(){window.ezasvEvent=function(e,t){if(!0===e[0].isIntersecting){var i=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);window.ezoSTPixelAdd(i,"viewed",1),t.disconnect()}},window.ezaslEvent=function(e,t){if(void 0!==e[0].target.attributes["data-ad-status"]){var i=e[0].target.attributes["data-ad-status"].value,o=e[0].target.attributes[0].value.substr(0,e[0].target.attributes[0].value.length-9);"filled"==i&&(window.ezoSTPixelAdd(o,"loaded",1),new IntersectionObserver(window.ezasvEvent,{threshold:[1]}).observe(document.getElementById(o+"-asloaded"))),"unfilled"==i&&setTimeout((function(){window.ezoAdBackFill(e)}),2e3),t.disconnect()}},window.ezoAdBackFill=function(e){var t=e[0].target,i=t.parentElement;t.style.display="none !important";var o,d=ezoGetSlotNum(i.id);if(o=void 0!==__ez.fads?__ez.fads.initslots[i.id]:__ez_fad_initslot[i.id],void 0===d&&"function"==typeof o&&(d=o(6)),void 0!==d)var n=window[d];if(void 0!==n){n.setTargeting("compid","0"),n.setTargeting("bkfl","1"),n.setTargeting("reft","t");var a=n.getTargeting("br2")[0];void 0!==window.ezoibfh&&void 0!==window.ezoibfh[a]&&(n.setTargeting("br1",a),n.setTargeting("eb_br",window.ezoibfh[a])),googletag.display(n),setTimeout((function(){googletag.pubads().refresh([n])}),500)}},window.ezoSTPixels=[];var e=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots&&window.ezslots_raw.length>0&&(window.ezoSTPixelFire(),clearInterval(e))}),250);window.ezoSTPixelAdd=function(e,t,i){window.ezoSTPixels.push({id:e,name:t,value:i}),window.ezoSTPixelFire()},window.ezoGetSlotById=function(e){var t=e.split("div-gpt-ad-")[1].split("-",3).join("-");for(var i in window.ezslots_raw)if(window.ezslots_raw[i].tap.includes(t))return window.ezslots_raw[i]},window.ezoGetSlotNum=function(e){if(void 0!==window.ezslots&&0!=window.ezslots)for(var t=0;t<window.ezslots.length;t++){var i=window[ezslots[t]];if(void 0!==i){var o=i.getSlotElementId();if(void 0!==o&&o==e)return ezslots[t]}}},window.ezoSTPixelFire=function(){if("undefined"!=typeof __ez&&"undefined"!=typeof __ezDotData&&"undefined"!=typeof ezslots)for(;window.ezoSTPixels.length>0;){var e=window.ezoSTPixels.shift(),t=window.ezoGetSlotById(e.id);if(void 0===t){var i;if(i=void 0!==__ez.fads?__ez.fads.initslots[e.id]:__ez_fad_initslot[e.id],void 0===googletag.defineSlot)return void window.ezoSTPixels.push(e);if(i(1),void 0===(t=window.ezoGetSlotById(e.id)))return void window.ezoSTPixels.push(e)}var o=[{type:"impression",impression_id:t.eid,domain_id:window.did.toString(),unit:e.id,t_epoch:__ez.dot.getEpoch(0),ad_position:parseInt(t.ap),country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:1,data:__ez.dot.dataToStr([new __ezDotData(e.name,e.value.toString())]),is_orig:0}],d=__ez.dot.getURL("/porpoiseant/army.gif")+"?orig=0&sts="+btoa(JSON.stringify(o));__ez.dot.Fire(d)}}}();</script>
+<script>!function(){var e=setInterval((function(){var t=document.querySelectorAll('[id^="outbrain_widget_"]');0!==t.length&&(function(e){e.forEach((function(e){if(e.parentElement.hasAttribute("data-ez-name")){var t=e.parentElement.attributes["data-ez-name"].value;new IntersectionObserver((function(e,i){e[0].isIntersecting&&(n({unit:t,name:"viewed"}),i.disconnect())}),{threshold:[1]}).observe(e);var i=e.attributes["data-widget-id"].value;window.OBREvents=window.OBREvents||[],OBREvents.push({event:"widgetDataReturned",widgetId:i,func:function(){n({unit:t,name:"loaded"})}})}}))}(t),clearInterval(e))}),250),t=[],i=setInterval((function(){"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData&&(o(),clearInterval(i))}),2500);function n(e){t.push(e),o()}var d="/porpoiseant/army.gif";function o(){var e,i;if(0!==t.length&&"undefined"!=typeof __ez&&"undefined"!=typeof _ezim_d&&"undefined"!=typeof __ezDotData)for(;t.length>0;){var n=t.shift(),o=(e=n.unit,i=n.name,[{type:"impression",impression_id:_ezim_d[e].full_id.split("/")[2],domain_id:window.did.toString(),unit:e,t_epoch:__ez.dot.getEpoch(0),ad_position:_ezim_d[e].position_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:2,data:__ez.dot.dataToStr([new __ezDotData(i,"1")]),is_orig:0}]),a=__ez.dot.getURL(d)+"?orig="+(!0===__ez.template.isOrig?1:0)+"&sts="+btoa(JSON.stringify(o));void 0!==window.ezWp&&ezWp&&void 0!==window._ezaq&&_ezaq.hasOwnProperty("visit_uuid")&&(a+="&visit_uuid="+window.visit_uuid),__ez.dot.Fire(a)}}}();</script>
+<script>window.ezhbopt=true;</script>
+<script>window.ezpbCache=true;</script>
+<link href="//ad.doubleclick.net" rel="dns-prefetch">
+<link href="//pagead2.googlesyndication.com" rel="dns-prefetch">
+<link href="//googleads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//tpc.googlesyndication.com" rel="dns-prefetch">
+<link href="//adservice.google.com" rel="dns-prefetch">
+<link href="//secureads.g.doubleclick.net" rel="dns-prefetch">
+<link href="//www.googletagservices.com" rel="dns-prefetch">
+<link rel='preload' as='script' href='//securepubads.g.doubleclick.net/tag/js/gpt.js'>
+<link rel='preload' as='script' href='//go.ezodn.com/hb/dall.js?cb=195-4-56' onerror="window.ezDallErr=true">
+<link rel='preload' as='script' href='/porpoiseant/fads.js?gcb=195-4&cb=11'>
+<script type="text/javascript">
+	var __banger_pmp_deals=function(){var d={17:{"DealId":17,"Floor":160},18:{"DealId":18,"Floor":25},19:{"DealId":19,"Floor":100},20:{"DealId":20,"Floor":300},1428:{"DealId":1428,"Floor":25},2310:{"DealId":2310,"Floor":400},2351:{"DealId":2351,"Floor":155},2526:{"DealId":2526,"Floor":300},2527:{"DealId":2527,"Floor":300},2610:{"DealId":2610,"Floor":125},2688:{"DealId":2688,"Floor":100},2693:{"DealId":2693,"Floor":50},2761:{"DealId":2761,"Floor":200},2763:{"DealId":2763,"Floor":250},2764:{"DealId":2764,"Floor":325},2765:{"DealId":2765,"Floor":400},3044:{"DealId":3044,"Floor":175},3045:{"DealId":3045,"Floor":75},3052:{"DealId":3052,"Floor":20},3053:{"DealId":3053,"Floor":37},3154:{"DealId":3154,"Floor":275},3684:{"DealId":3684,"Floor":375},3856:{"DealId":3856,"Floor":15},4276:{"DealId":4276,"Floor":65}};return[{"SlotName":"/1254144,21808144255/asciitable_com-medrectangle-2","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2310],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[2764],d[2765],d[3044],d[3045],d[3052],d[3053],d[3154],d[3684],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-box-1","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[2763],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-edge-2","Deals":[d[17],d[18],d[19],d[1428],d[2351],d[2610],d[2688],d[2693],d[2761],d[3044],d[3045],d[3052],d[3053],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-large-billboard-2","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[2764],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-box-2","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2310],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[2764],d[2765],d[3044],d[3045],d[3052],d[3053],d[3154],d[3684],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-edge-1","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[2764],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276]]},{"SlotName":"/1254144,21808144255/asciitable_com-medrectangle-3","Deals":[d[17],d[18],d[19],d[20],d[1428],d[2351],d[2526],d[2527],d[2610],d[2688],d[2693],d[2761],d[2763],d[2764],d[3044],d[3045],d[3052],d[3053],d[3154],d[3856],d[4276]]}]}();
+</script>
+<script type='text/javascript'>_ebcids=[138231308856,138231308940,138231308949,138231387842,138231421744,138231421759,138231421774,138231421783,138231421789,138231421792,138242067587,138242067590,138242067602,138242067605,138242067608,138242067614,138242229406,138242229415,138242229421,138242229430];</script>
+<script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>ezobv=228;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>__ez.fads=window.__ez.fads||{cmd:[],initslots:{},kvStore:{},divs:[[],[],[],[],[],[],[]],divsd:[],fadcount:0};var ez_ad_units=[];var ezslots=[];var ezrpos=[];var ezsrqt={};var __ez_fad_haspo=false;var __ez_fad_hascp=false;if(typeof PerformanceObserver!='undefined'&&typeof PerformanceObserver.supportedEntryTypes!='undefined'){if(PerformanceObserver.supportedEntryTypes.indexOf('largest-contentful-paint')>-1){__ez_fad_haspo=true;}}
+try{var __ez_fad_po=new PerformanceObserver((entryList)=>{window.__ez_fad_hascp=true;__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_hascp=true;});});__ez_fad_po.observe({type:'largest-contentful-paint',buffered:true});}catch(e){}
+var __ez_fad_floatshowd=false;__ez.fads.__ez_fad_floatshow=function(d){if(__ez_fad_floatshowd===true||typeof __ez_fad_floating==='undefined'){return;}
+__ez_fad_floatshowd=true;var e=document.getElementById('ezmobfooter');if(e!=null){e.classList.add('ezmobtrans');}else{var head=document.head||document.getElementsByTagName('head')[0],style=document.createElement('style');head.appendChild(style);var css="body > #ezmobfooter{bottom:0px;visibility:visible;}";style.type='text/css';if(style.styleSheet){style.styleSheet.cssText=css;}else{style.appendChild(document.createTextNode(css));}}
+googletag.cmd.push(function(){for(var i=0;i<__ez_fad_floating.length;i++){var s=__ez.fads.initslots[__ez_fad_floating[i]](null);googletag.display(__ez_fad_floating[i]);if(typeof window.adjustHbValues==='function'){window.adjustHbValues(window[s]);}
+if(typeof window.__ezWillLoadCnx!=='undefined'&&window[s].getTargeting('al')[0]=='1039'){window.__ezsbwcmd=window.__ezsbwcmd||[];let sr=[window[s]];window.__ezsbwcmd.push(function(){if(typeof __ezcnxPlayer==='undefined'||!__ezcnxPlayer.getSize()){googletag.pubads().refresh(sr);}else{__ezcnxPlayer.once('removed',function(){googletag.pubads().refresh(sr);})}});continue;}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(x){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh(x);}
+else{setTimeout(()=>{ezChkWfhb(x);},50);}}
+ezChkWfhb([window[s]]);}
+else{googletag.pubads().refresh([window[s]]);}}});};function __ez_fad_csnt(){return document.cookie.indexOf('ezCMPCookieConsent')!==-1||typeof __ez_conestreq=='undefined';}
+function __ez_fad_rdy(){var h=document.documentElement.scrollHeight;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(document.body!==null&&(__ez_fad_haspo===false&&h>vh||__ez_fad_hascp||document.readyState==='complete')){return true;}}
+function __ez_fad_position(id){if(__ez.fads.loaded){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.fadcount++;var did=document.getElementById(id);if(did===null){return;}
+var rect=did.getBoundingClientRect();var vs=window.scrollY||document.body.scrollTop||document.documentElement.scrollTop;var vh=vs+window.screen.height;var vw=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;var vh=window.innerHeight||Math.max(document.documentElement.clientHeight,document.body.clientHeight);if(rect.top>=vh){__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_position(id);});return;}
+__ez.fads.divs[0].push(id);__ez.fads.divsd.push(id);if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_display(id);}
+function __ez_fad_display(id){if(!__ez_fad_csnt()||!__ez_fad_rdy()){setTimeout(function(){__ez_fad_display(id);},50);return;}
+__ez_fad_gpt();if(__ez_fad_floating.indexOf(id)!==-1){setTimeout(__ez.fads.__ez_fad_floatshow,0);return;}
+googletag.cmd.push(function(){var sn=__ez.fads.initslots[id](0);if(!sn){return;}
+var s=window[sn];googletag.display(id);if(typeof window.ezasBuild==='function'){if(window.ezasBuild(s)){return;}}
+if(typeof window.adjustHbValues==='function'){window.adjustHbValues(s);}
+if(typeof window.__ezwfhb!=='undefined'){function ezChkWfhb(){if(typeof isHbFinished!=='undefined'&&isHbFinished){googletag.pubads().refresh([s]);}
+else{setTimeout(ezChkWfhb,50);}}
+ezChkWfhb();}
+else{googletag.pubads().refresh([s]);}});}
+function ezSetTargetingFromMap(slot,obj){if(typeof slot==='undefined'){return;}
+for(var key in obj){if(!obj.hasOwnProperty(key)){continue;}
+slot.setTargeting(key,obj[key]);}}
+function ezSetSlotTargeting(divid,key,value){var slot=ezGetSlotById(divid);if(slot){slot.setTargeting(key,value);}else{if(typeof __ez.fads.kvStore[divid]=='undefined'){__ez.fads.kvStore[divid]={};}
+__ez.fads.kvStore[divid][key]=value;}}
+function ezGetSlotById(id){if(typeof window.ezslots==='undefined'||window.ezslots==0){return;}
+for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var slotId=slot.getSlotElementId();if(typeof slotId!=='undefined'&&slotId==id){return slot;}}}
+function __ez_close_anchor(){googletag.cmd.push(function(slot){for(var i=0;i<window.ezslots.length;i++){var slot=window[ezslots[i]];if(typeof slot==='undefined'){continue;}
+var alS=slot.getTargeting('al')[0]%1000;if(alS==5){googletag.destroySlots([slot]);}}
+if(typeof window.ezdomain!=='undefined'){var d=new Date();d.setTime(d.getTime()+(2*60*60*1000));var expires="expires="+d.toGMTString();let cookie="ez_anchor_closed=true;domain=."+ezdomain+';'+expires+"; path=/";document.cookie=cookie;}
+if(typeof(__ez_set_outstream_floor)!=='undefined'){__ez_set_outstream_floor(0);}
+var anchor=document.getElementById('ezmobfooter');if(!anchor){return;}
+anchor.innerHTML='';anchor.style.paddingTop=0;var styleElement=document.getElementById('ezoicCSS');if(!styleElement){return;}
+var cert=document.getElementById('ezoic-certification-fixed');if(cert){cert.style.bottom='15px';}
+var styles=styleElement.sheet?styleElement.sheet:styleElement.styleSheet;for(var i=0;i<styles.cssRules.length;i++){var rules=styles.cssRules[i];if(rules.selectorText==='body'&&rules.style.height==='auto'&&(rules.style.paddingTop!==''||rules.style.paddingBottom!=='')){styles.deleteRule(i);}}});}</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.isEZABL=false;window.ezmadspc=300;window.ezoViewCheck=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezDisableInitialLoad=false;</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];</script><script data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer type='text/javascript'>window.ezogetbrkey = function(s){ var k = 'br1';var k2 = 'eb_br';if(window.ezogtk == ""){k='br1u';k2='eb_bru';}else if(window.ezogtk != "NT"){k='br1t';k2='eb_brt';} s.setTargeting('br1', s.getTargeting(k));s.setTargeting('eb_br', s.getTargeting(k2));};googletag.cmd.push(function() {ezslot_interstitial = googletag.defineOutOfPageSlot('/1254144,21808144255/asciitable_com-pixel1',googletag.enums.OutOfPageFormat.INTERSTITIAL); if(ezslot_interstitial != null) {ezslot_interstitial.addService(googletag.pubads()).setTargeting('br2', '300').setTargeting('ga', '2497208').setTargeting('tap', 'asciitable_com-pixel1-752706687634370').setTargeting('bra', 'mod183').setTargeting('ap', '9999').setTargeting('ic', '1').setTargeting('ezoic', '1').setTargeting('d', '61065').setTargeting('br1', '450').setTargeting('al', '1006').setTargeting('eb_br', '6e85b37de1b1ffc2593baa5d6e4b02fc').setTargeting('iid1', '752706687634370').setTargeting('bvr', '8').setTargeting('reft', 'n').setTargeting('avc', '307');}
+			googletag.pubads().enableSingleRequest();googletag.pubads().addEventListener('slotRenderEnded', function(event) { __ez.queue.addFunc("ezbanger", "ezbanger", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('impressionViewable', function(event) { __ez.queue.addFunc("ezvb", "ezvb", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotResponseReceived', function(event) { __ez.queue.addFunc("ezsr", "ezsr", event, false, ['banger.js'], true, true, false, true); });googletag.pubads().addEventListener('slotRequested', function(e) { window.ezsrqt[e.slot.getSlotElementId()] = Date.now();});googletag.pubads().disableInitialLoad();googletag.pubads().enableLazyLoad({fetchMarginPercent: 400, renderMarginPercent: 300, mobileScaling: 2.0});googletag.enableServices();});window.ezoll = false;window.ezoadxnc = '1254144';window.ezoadhb = '450';var ezaxmns={};var ezaucmns={};
+
+		var __ez_fad_floating = ['div-gpt-ad-asciitable_com-edge-2-0','div-gpt-ad-asciitable_com-edge-1-0','div-gpt-ad-asciitable_com-medrectangle-2-0'];
+		var __ez_fad_gptd = __ez_fad_gptd || false;var __ez_fad_ezpbinitd = false;var __ez_fad_pbt = setTimeout(function(){__ez_fad_pb();},5000);function __ez_fad_gpt(){if(__ez_fad_gptd == false){__ez_fad_gptd=true;!function(){var t=document.createElement("script");t.async=!0,t.type="text/javascript";var e="https:"==document.location.protocol;t.src=(e?"https:":"http:")+"//securepubads.g.doubleclick.net/tag/js/gpt.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(t,c)}();}}function __ez_fad_pb(){if(__ez_fad_ezpbinitd==false && typeof __ez_fad_ezpbinit == 'function'){__ez_fad_ezpbinitd = true;__ez_fad_ezpbinit()}};
+		
+	function __ez_init_slot(bvr, did, slotNum, defineFunc) {
+		googletag.cmd.push(function() {
+			defineFunc();
+			ezrpos[slotNum]=slotNum;
+			ezslots.push("ezslot_" + slotNum);
+			if(__ez.fads.kvStore[did] !== 'undefined') {
+				for (var name in __ez.fads.kvStore[did]) {
+					if (!__ez.fads.kvStore.hasOwnProperty(name)) {
+						ezSetSlotTargeting(did, name, __ez.fads.kvStore[did][name]);
+					}
+				}
+				__ez.fads.kvStore[did] = {};
+			}
+		});return "ezslot_" + slotNum;
+	}
+__ez.fads.initslots['div-gpt-ad-asciitable_com-box-1-0'] = function(bvr){
+				var defScript = function() {ezslot_2 = googletag.defineSlot('/1254144,21808144255/asciitable_com-box-1',[160,600],'div-gpt-ad-asciitable_com-box-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_2_raw = {'a':'1','iid1':'3396909513655045','eid':'3396909513655045','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1100','sap':'1100','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'2','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'0','al':'1000','compid':'0','tap':'asciitable_com-box-1-3396909513655045','eb_br':'c16fac08e79a971524b1c6834f5caad3','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'191','shp':'2','ftsn':'12','ftsng':'12','acptad':'1','br1':'280','br2':'140','ezoic':'1','nmau':'0','mau':'0','stl':[77,168,0,192,0,131,196,0,192,209,187,0,901,182,901,902,903],'deal1':[20,21,22,23,24,25,26,27,28,29,30,760,761,813,815,816,817,818,819,893,899,903,917,918,919,1794,2310,2339,2526,2527,2764,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3915,3919,3933,4184,4185,4186,4604,4605,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_2_raw);ezSetTargetingFromMap(ezslot_2,ezslot_2_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-box-1-0',2, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-edge-2-0'] = function(bvr){
+				var defScript = function() {ezslot_0 = googletag.defineSlot('/1254144,21808144255/asciitable_com-edge-2',[160,600],'div-gpt-ad-asciitable_com-edge-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_0_raw = {'a':'1','iid1':'2446750433654613','eid':'2446750433654613','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1976','sap':'1976','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'0','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'39','al':'1039','compid':'0','tap':'asciitable_com-edge-2-2446750433654613','eb_br':'86802a923a1f32517e4c5d3b6d550271','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'165','shp':'2','ftsn':'12','ftsng':'12','br1':'200','br2':'100','ezoic':'1','nmau':'0','mau':'0','sticky':'1','stl':[157,193,0,153,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[20,21,22,23,24,25,26,1794,2310,2339,2526,2527,2763,2764,2765,3054,3154,3430,3455,3456,3457,3458,3460,3682,3683,3684,4184,4185,4186,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_0_raw);ezSetTargetingFromMap(ezslot_0,ezslot_0_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-edge-2-0',0, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-box-2-0'] = function(bvr){
+				var defScript = function() {ezslot_5 = googletag.defineSlot('/1254144,21808144255/asciitable_com-box-2',[728,90],'div-gpt-ad-asciitable_com-box-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_5_raw = {'a':'1','iid1':'8910636855661807','eid':'8910636855661807','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1106','sap':'1106','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'5','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'1','al':'1001','compid':'0','tap':'asciitable_com-box-2-8910636855661807','eb_br':'76163170a8636ae5b88417f095893e08','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'154','shp':'1','ftsn':'12','ftsng':'12','acptad':'1','br1':'400','br2':'200','ezoic':'1','nmau':'0','mau':'0','stl':[84,0,162,67,65,168,89,20,26,180,0,0,165,191,901,902,903],'deal1':[21,22,23,24,25,26,27,28,760,815,816,817,899,919,1794,2339,3054,3430,3455,3456,3457,3458,3460,3682,3683,3919,3933,4184,4185,4186,4604,4605,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_5_raw);ezSetTargetingFromMap(ezslot_5,ezslot_5_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-box-2-0',5, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-medrectangle-3-0'] = function(bvr){
+				var defScript = function() {ezslot_3 = googletag.defineSlot('/1254144,21808144255/asciitable_com-medrectangle-3',[728,90],'div-gpt-ad-asciitable_com-medrectangle-3-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_3_raw = {'a':'1','iid1':'7854760637638545','eid':'7854760637638545','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1103','sap':'1103','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'3','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'21','al':'1021','compid':'0','tap':'asciitable_com-medrectangle-3-7854760637638545','eb_br':'9e0a1ce5b2455cb9b48d5df4c6bf4053','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'167','shp':'1','ftsn':'12','ftsng':'12','br1':'350','br2':'180','ezoic':'1','nmau':'0','mau':'0','stl':[32,168,0,153,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[21,22,23,24,25,26,27,28,29,760,761,815,816,817,893,899,903,919,1794,2310,2339,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3915,3919,3933,4184,4185,4186,4604,4605,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_3_raw);ezSetTargetingFromMap(ezslot_3,ezslot_3_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-medrectangle-3-0',3, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-edge-1-0'] = function(bvr){
+				var defScript = function() {ezslot_1 = googletag.defineSlot('/1254144,21808144255/asciitable_com-edge-1',[160,600],'div-gpt-ad-asciitable_com-edge-1-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_1_raw = {'a':'1','iid1':'413557215611759','eid':'413557215611759','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1975','sap':'1975','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'1','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'38','al':'1038','compid':'0','tap':'asciitable_com-edge-1-413557215611759','eb_br':'9e0a1ce5b2455cb9b48d5df4c6bf4053','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'165','shp':'2','ftsn':'12','ftsng':'12','br1':'350','br2':'180','ezoic':'1','nmau':'0','mau':'0','sticky':'1','stl':[157,193,0,153,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[21,22,23,24,25,26,1794,2310,2339,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,4184,4185,4186,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_1_raw);ezSetTargetingFromMap(ezslot_1,ezslot_1_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-edge-1-0',1, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-medrectangle-2-0'] = function(bvr){
+				var defScript = function() {ezslot_6 = googletag.defineSlot('/1254144,21808144255/asciitable_com-medrectangle-2',[970,90],'div-gpt-ad-asciitable_com-medrectangle-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_6_raw = {'a':'1','iid1':'7465618241635525','eid':'7465618241635525','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1105','sap':'1105','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'6','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'5','al':'1005','compid':'0','tap':'asciitable_com-medrectangle-2-7465618241635525','eb_br':'76163170a8636ae5b88417f095893e08','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'165','shp':'1','ftsn':'12','ftsng':'12','br1':'400','br2':'200','ezoic':'1','nmau':'0','mau':'0','stl':[146,152,194,4,97,168,93,20,26,0,205,0,198,137,901,902,903],'deal1':[21,22,23,24,25,26,1794,2339,3054,3430,3455,3456,3457,3458,3460,3682,3683,4184,4185,4186,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_6_raw);ezSetTargetingFromMap(ezslot_6,ezslot_6_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-medrectangle-2-0',6, defScript);
+			};__ez.fads.initslots['div-gpt-ad-asciitable_com-large-billboard-2-0'] = function(bvr){
+				var defScript = function() {ezslot_4 = googletag.defineSlot('/1254144,21808144255/asciitable_com-large-billboard-2',[[160,600],[120,600],[120,240],[125,125],['fluid']],'div-gpt-ad-asciitable_com-large-billboard-2-0').addService(googletag.pubads()).setCollapseEmptyDiv(false);var ezslot_4_raw = {'a':'1','iid1':'5792955881590105','eid':'5792955881590105','t':'134','d':'61065','t1':'134','pvc':'0','ap':'1102','sap':'1102','a':'|0|','as':'revenue','plat':'1','bra':'mod183','ic':'1','at':'mbf','adr':'399','ezosn':'4','reft':'tf','refs':'30','refa':'1','ga':'2497208','gala':'','rid':'99998','pt':'34','al':'1034','compid':'0','tap':'asciitable_com-large-billboard-2-5792955881590105','eb_br':'9e0a1ce5b2455cb9b48d5df4c6bf4053','eba':'1','ebss':[10082,10061,10063,11304,11307],'asau':'2622885333','bv':'20','bvm':'0','bvr':'10','avc':'164','shp':'2','ftsn':'12','ftsng':'12','br1':'350','br2':'180','ezoic':'1','nmau':'0','mau':'0','stl':[157,193,0,153,0,193,153,20,71,201,192,31,902,903,901,902,903],'deal1':[21,22,23,24,25,26,27,28,760,815,816,817,899,919,1794,2310,2339,2765,3054,3430,3455,3456,3457,3458,3460,3682,3683,3684,3919,3933,4184,4185,4186,4604,4605,2030,774,5022,5534,2030],'ax_ssid':'10082'}; window.ezslots_raw.push( ezslot_4_raw);ezSetTargetingFromMap(ezslot_4,ezslot_4_raw);};
+				return __ez_init_slot(bvr,'div-gpt-ad-asciitable_com-large-billboard-2-0',4, defScript);
+			};</script>
+<script type="text/javascript">(function(){function storageAvailable(type){var storage;try{storage=window[type];var x='__storage_test__';storage.setItem(x,x);storage.removeItem(x);return true;}
+catch(e){return e instanceof DOMException&&(e.code===22||e.code===1014||e.name==='QuotaExceededError'||e.name==='NS_ERROR_DOM_QUOTA_REACHED')&&(storage&&storage.length!==0);}}
+function remove_ama_config(){if(storageAvailable('localStorage')){localStorage.removeItem("google_ama_config");}}
+remove_ama_config()})()</script>
+<script type="text/javascript">var ezoicTestActive = true</script>
+<script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ab_test_id":"mod183","ad_cache_level":2,"ad_count_adjustment":1,"ad_lazyload_version":1,"ad_load_version":1,"ad_location_ids":"6,39,38,0,21,34,1,5","adx_ad_count":7,"bidder_method":1,"bidder_version":1,"city":"","country":"SG","days_since_last_visit":-1,"display_ad_count":4,"domain_id":61065,"domain_test_group":20230803,"ds_adsize_opt_id":-1,"engaged_time_visit":0,"ezcache_level":2,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"has_bad_image":0,"has_bad_words":0,"iab_category":"","is_from_recommended_pages":false,"is_return_visitor":false,"is_sitespeed":0,"last_page_load":"","last_pageview_id":"","lt_cache_level":0,"max_ads":3,"metro_code":0,"optimization_version":1,"page_ad_positions":"1006,1100,1102,1103,1105,1106,1975,1976","page_view_count":0,"page_view_id":"376e4e0a-368d-4663-6a83-cc8a4c0aa0de","position_selection_id":46,"postal_code":"","pv_event_count":0,"response_size_orig":8576,"response_time_orig":5,"serverid":"i-0c248101d1661c378","state":"","sub_page_ad_positions":"1006,1100,1102,1103,1105,1106,1975,1976","t_epoch":1684802442,"template_id":134,"time_on_site_visit":0,"url":"https://www.asciitable.com/","user_id":0,"weather_precipitation":0,"weather_summary":"","weather_temperature":0,"word_count":226,"worst_bad_word_level":0};var _ezim_d = {"asciitable_com-box-1":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-box-1/2023-05-22/3396909513655045","height":"600","position_id":1100,"sub_position_id":1100,"width":"160"},"asciitable_com-box-2":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-box-2/2023-05-22/8910636855661807","height":"90","position_id":1106,"sub_position_id":1106,"width":"728"},"asciitable_com-edge-1":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-edge-1/2023-05-22/413557215611759","height":"600","position_id":1975,"sub_position_id":1975,"width":"160"},"asciitable_com-edge-2":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-edge-2/2023-05-22/2446750433654613","height":"600","position_id":1976,"sub_position_id":1976,"width":"160"},"asciitable_com-large-billboard-2":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-large-billboard-2/2023-05-22/5792955881590105","height":"600","position_id":1102,"sub_position_id":1102,"width":"160"},"asciitable_com-medrectangle-2":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-medrectangle-2/2023-05-22/7465618241635525","height":"90","position_id":1105,"sub_position_id":1105,"width":"970"},"asciitable_com-medrectangle-3":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-medrectangle-3/2023-05-22/7854760637638545","height":"90","position_id":1103,"sub_position_id":1103,"width":"728"},"asciitable_com-pixel1":{"adsense_stat_source_id":5,"adx_ad_count":7,"adx_stat_source_id":35,"full_id":"asciitable_com-pixel1/2023-05-22/752706687634370","height":"3","position_id":1006,"sub_position_id":1006,"width":"3"}};var _ezat = {"domain_id":61065,"form_factor_id":1,"framework_id":1,"pageview_date":"2023-05-22","pageview_id":"376e4e0a-368d-4663-6a83-cc8a4c0aa0de","template_id":134,"url":"https://www.asciitable.com/","visit_uuid":"80a9e2c3-6940-4bf5-53d5-fe196c499c54"};</script><script data-ezscrex="false" data-pagespeed-no-defer data-cfasync="false" type="text/javascript">__ez.queue.addFile('banger.js', '/porpoiseant/banger.js?cb=195-4&bv=228&v=74&PageSpeed=off', true, [], true, false, false, true);</script>
+<script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>!function(){var e;__ez.vep=(e=[],{Add:function(i,t){__ez.dot.isDefined(i)&&__ez.dot.isValid(t)&&e.push({type:"video",video_impression_id:i,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(t)})},Fire:function(){if(void 0===document.visibilityState||"prerender"!==document.visibilityState){if(__ez.dot.isDefined(e)&&e.length>0)for(;e.length>0;){var i=5;i>e.length&&(i=e.length);var t=e.splice(0,i),o=__ez.dot.getURL("/detroitchicago/grapefruit.gif")+"?orig="+(!0===__ez.template.isOrig?1:0)+"&v="+btoa(JSON.stringify(t));__ez.dot.Fire(o)}e=[]}}})}();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer></script>
+  <title>ASCII Table - ASCII Character Codes, HTML, Octal, Hex, Decimal</title>
+  <meta name="description" content="Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions"/>
+  <meta name="keywords" content="ascii, ascii table, ascii code, ascii characters, conversion, conversions, unicode, unicode tables, ascii help, help with ascii, asci, aski, asky, acii, askii, askey, cod, cde, tabe, tble, char, translation, translator, convert, character, text, textual, american, standard, information, interchange, extended, html"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <link rel="stylesheet" type="text/css" href="/newstyle.css"/>
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://www.asciitable.com/mobile/"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+<!-- Ezoic Ad Testing Code-->
+
+<!-- Ezoic Ad Testing Code-->
+<style id='ezoicCSS'>.ezoic-at-0{margin-top:2px !important;margin-bottom:2px !important;min-height:600px;line-height:0px;margin-right:0px !important;float:none !important;min-width:160px;max-width:100% !important;padding:0;margin-left:0px !important;}
+.ezoic-ad.edge-2976{display:inline-block;}
+.ezoic-ad.box-1100{display:inline-block;}
+.ezoic-ad.box-2106{text-align:center !important;min-height:90px;margin-right:auto !important;margin-left:auto !important;display:block !important;min-width:728px;}
+.ezoic-ad.medrectangle-3103{margin-left:auto !important;display:block !important;text-align:center !important;min-height:90px;margin-right:auto !important;min-width:728px;}
+.ezoic-ad.large-billboard-2102{display:inline-block;}
+.ezoic-ad.edge-1975{display:inline-block;}
+.ezoic-ad.medrectangle-2105{min-height:90px;max-width:100% !important;line-height:0px;padding:0;float:none !important;display:inline-block;min-width:970px;}
+.ezoic-ad{display:inline-block;border:0px;}.ezoic-ad>div>iframe{margin:0px!important;padding:0px!important;}
+.ezmob-footer{position:fixed;left:0;bottom:0;width:100%;background:#fff;z-index:100000;line-height:0}.ezmob-footer-desktop{background-color:#fffc;border-top:1px solid #d3d3d3;padding-top:5px}.ezmob-footer-close{cursor:pointer;color:#b2b2b2;border:1px solid #b2b2b2;border-radius:20px;background:#fff;line-height:20px;display:inline-block;font-size:20px;font-family:arial,sans-serif;padding:0 5px;position:absolute;top:5px;right:5px;height:24px;width:21px;text-align:center}body {
+					padding-bottom: 100px !important;
+					height: auto;
+				}
+				
+
+.ez-rail-close {
+	color: #b2b2b2;
+	border: 1px solid #b2b2b2;
+	border-radius: 2px 2px 0px 0px;
+	background: #fff;
+	line-height: 17px;
+	display: inline-block;
+	font-size: 20px;
+	font-family: arial,sans-serif;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+.ez-sidebar-wall {
+	width: 160px;
+	height: 600px;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0);
+	top: calc(50vh - 300px);
+	margin: 0px 0px 0px 0px;
+	z-index: 0;
+}
+.ez-sidebar-wall-ad {
+	width: 160px;
+	height: 600px;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0);
+	top: calc(50vh - 300px);
+}</style><link rel='canonical' href='https://www.asciitable.com/' />
+<script type="text/javascript">var ezouid = "1";</script><base href="https://www.asciitable.com/"><script type='text/javascript'>
+var ezoTemplate = 'pub_site';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD -->
+<script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 61065;
+var ezdomain = 'asciitable.com';
+var ezoicSearchable = 1;
+</script>
+<!--{jquery}-->
+<!-- END EZHEAD -->
+<script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_61065=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["376e4e0a-368d-4663-6a83-cc8a4c0aa0de", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+<script type="text/javascript">var _audins_dom="asciitable_com",_audins_did=61065;__ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-4&cb=04-3y02-8y06-13y07-2y0b-6y0d-23y17-4y1b-5y25-3y33-4y3a-12y3b-6y5d-2y61-22y68-1&cmbcb=142&sj=x04x02x06x07x0bx0dx17x1bx25x33x3ax3bx5dx61x68&abt=PrebidHighAdxFloor', true, [], true, false, true, false);</script>
+<script type="text/javascript" defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-4&cb=03-8y0c-6y1c-5y62-22&cmbcb=142&sj=x03x0cx1cx62&abt=PrebidHighAdxFloor', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script></head>
+
+<body><script>var ezAardvarkDetected;function ezDetectAardvark(){if(typeof __ez!=='undefined'&&typeof __ez.bit!=='undefined'){let bait=document.createElement("div");bait.className="textads banner-ads banner_ads ad-unit ad-zone ad-space adsbox";bait.style.height="1px";document.body.appendChild(bait);let baitOffsetHeight=bait.offsetHeight;if(typeof window["_ezaq"]!="undefined"){if(baitOffsetHeight){ezAardvarkDetected=false;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',false))]);}
+else{ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}
+var observer=new MutationObserver(function(e){if(e[0].removedNodes){ezAardvarkDetected=true;__ez.bit.AddAndFire(window["_ezaq"]["page_view_id"],[(new __ezDotData('is_ad_blocked',true))]);}});}
+observer.observe(bait,{childList:true,attributes:true});}}
+window.addEventListener('load',(e)=>{ezDetectAardvark();});</script>
+
+<div id="header">
+ <div>
+   <p>
+   <a href="/">www.AsciiTable.com</a>
+   </p>
+ </div>
+</div>
+
+<table class="Global" cellpadding="0" cellspacing="2" border="1">
+  <tbody>
+
+  <tr>
+    <td colspan="3"> 
+
+      <table class="NavBar" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td>
+
+              <table class="NavBarMenu" cellspacing="0" border="0">
+                <tbody>
+                  <tr>
+                    <td><a href="https://www.asciitable.com/" class="menu">ASCII</a></td>
+                    <td>| <a href="https://www.lookuptables.com/" class="menu">Lookup Tables</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/ascii-table" class="menu">ASCII Table</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/extended-ascii-table" class="menu">Extended ASCII Table</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/alt-codes" class="menu">ALT Codes</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/html-character-codes" class="menu">HTML Character Codes</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/ebcdic" class="menu">EBCDIC</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/unicode-characters" class="menu">Unicode Characters</a></td>
+                    <td>| <a href="https://www.lookuptables.com/text/phonetic-alphabet" class="menu">Phonetic Alphabet</a></td>
+                    <td>| <a href="https://www.lookuptables.com/coding/keyboard-scan-codes" class="menu">Keyboard Scan Codes</a></td>
+                    <td>| <a href="https://www.dialingcode.com/" class="menu">Dialing Codes</a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </td>
+  </tr>
+
+  <tr>
+
+    <td class="Left" align="center">
+
+<p>
+<!-- Ezoic - left top - sidebar -->
+</p><span id="ezoic-pub-ad-placeholder-100"></span><span class="ezoic-ad ezoic-at-0 box-1 box-1100 adtester-container adtester-container-100" data-ez-name="asciitable_com-box-1"><span id="div-gpt-ad-asciitable_com-box-1-0" ezaw="160" ezah="600" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:600px;min-width:160px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[160,600],'asciitable_com-box-1','ezslot_2',100,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-box-1-0');</script></span><span style="width:160px;display:block;height:14px;margin:auto" class="reportline"><span style="text-align:center;font-size:12px !important;font-family: arial!important;float:left;line-height:normal;"><a href="https://www.ezoic.com/what-is-ezoic/" target="_blank" rel="noopener noreferrer nofollow" style="cursor:pointer"><img src="https://go.ezodn.com/utilcave_com/img/ezoic.png" alt="Ezoic" loading="lazy" style="height:12px !important; padding:2px !important; border:0px !important; cursor:pointer !important; width: 58px !important; margin:0 !important; box-sizing: content-box !important;"/></a></span><span class="ez-report-ad-button" name="?pageview_id=376e4e0a-368d-4663-6a83-cc8a4c0aa0de&amp;ad_position_id=100&amp;impression_group_id=asciitable_com-box-1/2023-05-22/3396909513655045&amp;ad_size=160x600&amp;domain_id=61065&amp;url=https://www.asciitable.com/" style="cursor: pointer!important; font-size:12px !important;color: #a5a5a5 ;float:right;text-decoration:none !important;font-family:arial !important;line-height:normal;">report this ad</span></span></span>
+<!-- End Ezoic - left top - sidebar -->
+<p></p>
+
+<p>
+<!-- Ezoic - left bottom - sidebar_bottom -->
+</p><span id="ezoic-pub-ad-placeholder-101"></span>
+<!-- End Ezoic - left bottom - sidebar_bottom -->
+<p></p>
+
+
+    </td>
+
+    <td class="middle">
+        <h1 class="Heading">ASCII Table</h1>
+  <p><span id="ezoic-pub-ad-placeholder-106" class="ezoic-adpicker-ad"></span><span class="ezoic-ad ezoic-at-0 box-2 box-2106 adtester-container adtester-container-106" data-ez-name="asciitable_com-box-2"><span id="div-gpt-ad-asciitable_com-box-2-0" ezaw="728" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[728,90],'asciitable_com-box-2','ezslot_5',106,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-box-2-0');</script></span></span>
+  ASCII stands for American Standard Code for Information Interchange.
+  Computers can only understand numbers, so an ASCII code is the numerical
+  representation of a character such as &#39;a&#39; or &#39;@&#39; or an action of some sort.  
+  ASCII was developed a long time ago and now the non-printing characters are
+  rarely used for their original purpose. Below is the ASCII character table
+  and this includes descriptions of the first 32 non-printing characters.
+  ASCII was actually designed for use with teletypes and so the descriptions
+  are somewhat obscure.  If someone says they want your CV however in ASCII format, all
+  this means is they want &#39;plain&#39; text with no formatting such as tabs, bold or
+  underscoring - the raw format that any computer can understand.  This is usually
+  so they can easily import the file into their own applications without issues.  
+  Notepad.exe creates ASCII text, or in MS Word you can save a file as &#39;text only&#39;
+  </p>
+
+  <p><img src="/asciifull.gif" width="715" height="488" border="0" alt="ASCII Table"/></p>
+
+  <p>
+<!-- Ezoic - middle - under_first_paragraph -->
+</p><span id="ezoic-pub-ad-placeholder-103"></span><span class="ezoic-ad ezoic-at-0 medrectangle-3 medrectangle-3103 adtester-container adtester-container-103" data-ez-name="asciitable_com-medrectangle-3"><span id="div-gpt-ad-asciitable_com-medrectangle-3-0" ezaw="728" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:728px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[728,90],'asciitable_com-medrectangle-3','ezslot_3',103,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-medrectangle-3-0');</script></span></span>
+<!-- End Ezoic - middle - under_first_paragraph -->
+  <p></p>
+
+
+  <p></p>
+
+  <h2 class="Heading">Extended ASCII Codes</h2>
+  <p><img src="/extend.gif" width="573" height="335" border="0" alt="Extended ASCII Table"/></p>
+
+    </td>
+
+    <td class="Right Padded">
+ 
+     <table class="RightPanelBox" cellspacing="0" border="0">
+        <tbody>
+         <tr>
+          <td class="Padded">
+
+<!-- Ezoic - top right - sidebar -->
+<span id="ezoic-pub-ad-placeholder-102"></span><span class="ezoic-ad ezoic-at-0 large-billboard-2 large-billboard-2102 adtester-container adtester-container-102" data-ez-name="asciitable_com-large-billboard-2"><span id="div-gpt-ad-asciitable_com-large-billboard-2-0" ezaw="160" ezah="600" style="position:relative;z-index:0;display:inline-block;padding:0;width:100%;max-width:1200px;margin-left:auto !important;margin-right:auto !important;min-height:600px;min-width:160px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[160,600],'asciitable_com-large-billboard-2','ezslot_4',102,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-large-billboard-2-0');</script></span><span style="width:160px;display:block;height:14px;margin:auto" class="reportline"><span style="text-align:center;font-size:12px !important;font-family: arial!important;float:left;line-height:normal;"><a href="https://www.ezoic.com/what-is-ezoic/" target="_blank" rel="noopener noreferrer nofollow" style="cursor:pointer"><img src="https://go.ezodn.com/utilcave_com/img/ezoic.png" alt="Ezoic" loading="lazy" style="height:12px !important; padding:2px !important; border:0px !important; cursor:pointer !important; width: 58px !important; margin:0 !important; box-sizing: content-box !important;"/></a></span><span class="ez-report-ad-button" name="?pageview_id=376e4e0a-368d-4663-6a83-cc8a4c0aa0de&amp;ad_position_id=102&amp;impression_group_id=asciitable_com-large-billboard-2/2023-05-22/5792955881590105&amp;ad_size=160x600&amp;domain_id=61065&amp;url=https://www.asciitable.com/" style="cursor: pointer!important; font-size:12px !important;color: #a5a5a5 ;float:right;text-decoration:none !important;font-family:arial !important;line-height:normal;">report this ad</span></span></span>
+<!-- End Ezoic - top right - sidebar -->
+            <br/>
+            <br/><br/><a href="http://www.allconversions.com" target="_blank">Unit Conversion</a>
+            <br/><br/><a href="http://www.perfume-click.co.uk/" target="_new">Cheap Perfume</a><br/>Perfume Click, UK&#39;s leading discount perfume, aftershave and beauty store
+          </td>
+         </tr>
+       </tbody>
+      </table>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" class="Footer" style="vertical-align: middle;">Copyright © https://www.asciitable.com | <a href="https://www.asciitable.com/privacy">Privacy Policy</a></td>
+  </tr>
+
+</tbody>
+</table>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16917666-8', 'asciitable.com');
+  ga('send', 'pageview');
+</script>
+
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"dark-bottom"};
+</script>
+<script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
+<!-- End Cookie Consent plugin -->
+
+
+<div class="ezmob-footer ezoic-floating-bottom ezo_ad ezmob-footer-desktop" id="ezmobfooter"><center><span id="ezoic-pub-ad-placeholder-105"></span><div class="ezmob-footer ezoic-floating-bottom ezo_ad ezmob-footer-desktop" id="ezmobfooter"><center><span class="ezoic-ad ezoic-at-4 medrectangle-2 medrectangle-2105 adtester-container adtester-container-105" data-ez-name="asciitable_com-medrectangle-2"><span id="div-gpt-ad-asciitable_com-medrectangle-2-0" ezaw="970" ezah="90" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:90px;min-width:970px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[970,90],'asciitable_com-medrectangle-2','ezslot_6',105,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-medrectangle-2-0');</script></span></span></center><span class="ezmob-footer-close" id="ezmob-footer-close" onclick="__ez_close_anchor()" style="display: none;">x</span></div></center></div><div id="ez-sidebar-wall-left" class="ez-sidebar-wall" style="left: 0px;">
+	<div class="ez-sidebar-wall-ad">
+		<span id="ezoic-pub-ad-placeholder-975"></span><span class="ezoic-ad ezoic-at-0 edge-1 edge-1975 adtester-container adtester-container-975" data-ez-name="asciitable_com-edge-1"><span id="div-gpt-ad-asciitable_com-edge-1-0" ezaw="160" ezah="600" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:600px;min-width:160px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[160,600],'asciitable_com-edge-1','ezslot_1',975,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-edge-1-0');</script></span></span>
+		<span class="ez-rail-close" id="ez-rail-close-left" style="top: 0; left: 0; display: none;" onclick="__ez_close_rail(this.parentElement.parentElement.id)">x</span>
+	</div>
+</div><div id="ez-sidebar-wall-right" class="ez-sidebar-wall" style="right: 0px;">
+	<div class="ez-sidebar-wall-ad">
+		<span id="ezoic-pub-ad-placeholder-976"></span><span class="ezoic-ad ezoic-at-0 edge-2 edge-2976 adtester-container adtester-container-976" data-ez-name="asciitable_com-edge-2"><span id="div-gpt-ad-asciitable_com-edge-2-0" ezaw="160" ezah="600" style="position:relative;z-index:0;display:inline-block;padding:0;min-height:600px;min-width:160px;" class="ezoic-ad"><script data-ezscrex="false" data-cfasync="false" type="text/javascript" style="display:none;">if(typeof ez_ad_units != 'undefined'){ez_ad_units.push([[160,600],'asciitable_com-edge-2','ezslot_0',976,'0','0'])};__ez_fad_position('div-gpt-ad-asciitable_com-edge-2-0');</script></span></span>
+		<span class="ez-rail-close" id="ez-rail-close-right" style="top: 0; right: 0; display: none;" onclick="__ez_close_rail(this.parentElement.parentElement.id)">x</span>
+	</div>
+</div><script async src="https://g.ezodn.com/cmp/v2/v.js?v=4"></script><script>(function(){if(typeof document.body==='undefined'||document.body===null){return;}
+var attachEvent=function(element,evt,func){if(element.addEventListener){element.addEventListener(evt,func,false);}else{element.attachEvent("on"+evt,func);}};attachEvent(document.body,"ezVigImpression",function(e){if(typeof(_ezaq)!=="undefined"&&typeof e==="object"){__ez.pel.AddAndFire(e.slot,[(new __ezDotData(e.key,e.value))]);}});})();</script><script>window.__ez_vig_close_wrapper=function(closeFunc,urlAddition){closeFunc();var vc={"enabled":false,"useVignetteLoader":true,"fireEventName":"ezVigImpression","impressionSource":"siderail","urlAddition":"utm_content=sr-left","disableFloor":true,"eventHandlerTest":false};if(typeof urlAddition=='string'){vc.urlAddition=urlAddition;}
+var v=newEzVignette(vc);v.handleClick();};</script>
+<script type="text/javascript">
+				var __inScopeForCCPA = false;
+		function __uspapi(command, version, callback) {
+			var response = null;
+			var successs = false;
+			if (command === "getUSPData" && version === 1) {
+				var uspString = "1"; // Version
+				if (__inScopeForCCPA) {
+					uspString += "N"; // Has Explicit Notice for Opt Out been provided (ex footer or minor consent modal)
+					var result;
+					var consentCookie = (result = new RegExp('(?:^|; )ezoccpaconsent=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
+					if (consentCookie === "nonconsent") {
+						uspString += "Y";
+					}
+					else {
+						uspString += "N";
+					}
+					uspString += "N" // Is pub a signatory to the IAB Limited Service Provider Agreement (http://www.iabprivacy.com/)
+				}
+				else {
+					uspString += "---";
+				}
+				response = {
+					uspString: uspString,
+					version: 1
+				};
+				success = true;
+			}
+			return callback(response, success);
+		};
+		function __receiveUspapiMessage(event) {
+			if (event.data.hasOwnProperty('__uspapiCall')) {
+				__uspapi('getUSPData', 1, function(uspData, success) {
+					event.source.postMessage({
+						__uspapiReturn: {
+							returnValue: uspData,
+							success: success,
+							callId: event.data.__uspapiCall.callId
+						}
+					},
+					event.origin);
+				});
+			}
+			return null;
+		};
+		window.addEventListener("message", __receiveUspapiMessage, false);
+</script>
+<script>
+__ez.queue.addFile("pubmaticOpenwrapJS", "https://ads.pubmatic.com/AdServer/js/pwt/162833/9311/pwt.js", true, [], true, false, true, true);
+var __ezPwtBidders=['onemobile','rubicon','amx','yieldmo','pubmatic'];
+__ez.queue.addFunc("openwrapRequestAdUnits", "openwrapRequestAdUnits", [[{code:"div-gpt-ad-asciitable_com-edge-2-0",divId:"div-gpt-ad-asciitable_com-edge-2-0",adUnitId:"/1254144,21808144255/asciitable_com-edge-2",adUnitIndex:"0",mediaTypes:{banner:{sizes:[[160,600]]}}},{code:"div-gpt-ad-asciitable_com-edge-1-0",divId:"div-gpt-ad-asciitable_com-edge-1-0",adUnitId:"/1254144,21808144255/asciitable_com-edge-1",adUnitIndex:"1",mediaTypes:{banner:{sizes:[[160,600]]}}},{code:"div-gpt-ad-asciitable_com-box-1-0",divId:"div-gpt-ad-asciitable_com-box-1-0",adUnitId:"/1254144,21808144255/asciitable_com-box-1",adUnitIndex:"2",mediaTypes:{banner:{sizes:[[160,600]]}}},{code:"div-gpt-ad-asciitable_com-medrectangle-3-0",divId:"div-gpt-ad-asciitable_com-medrectangle-3-0",adUnitId:"/1254144,21808144255/asciitable_com-medrectangle-3",adUnitIndex:"3",mediaTypes:{banner:{sizes:[[728,90]]}}},{code:"div-gpt-ad-asciitable_com-large-billboard-2-0",divId:"div-gpt-ad-asciitable_com-large-billboard-2-0",adUnitId:"/1254144,21808144255/asciitable_com-large-billboard-2",adUnitIndex:"4",mediaTypes:{banner:{sizes:[[160,600]]}}},{code:"div-gpt-ad-asciitable_com-box-2-0",divId:"div-gpt-ad-asciitable_com-box-2-0",adUnitId:"/1254144,21808144255/asciitable_com-box-2",adUnitIndex:"5",mediaTypes:{banner:{sizes:[[728,90]]}}},{code:"div-gpt-ad-asciitable_com-medrectangle-2-0",divId:"div-gpt-ad-asciitable_com-medrectangle-2-0",adUnitId:"/1254144,21808144255/asciitable_com-medrectangle-2",adUnitIndex:"6",mediaTypes:{banner:{sizes:[[970,90],[728,90]]}}}]], false, ['pubmaticOpenwrapJS'], true, true, true, true);
+var PWT={};var owpbjs=owpbjs||{};owpbjs.que=owpbjs.que||[];PWT.HookForPrebidSetConfig=function(config){var schain_domain="ezoic.ai";var dom="";if(typeof __ez_nid!="undefined"&&__ez_nid==21732118914){schain_domain="ezoic.co.uk";}
+if(typeof location.host!="undefined"){dom=location.host;}
+config.schain={validation:"strict",config:{ver:"1.0",complete:1,nodes:[{asi:schain_domain,sid:__sellerid,domain:dom,hp:1,}],},};};function openwrapRequestAdUnits(pwtConf){if(typeof __ezPwtBidders!='undefined'){PWT.HookForPrebidRequestBids=function(adUnits){for(var au_i in adUnits){var toRemove=[];for(var bid_i in adUnits[au_i].bids){if(!__ezPwtBidders.includes(adUnits[au_i].bids[bid_i].bidder)){toRemove.push(bid_i);}}
+for(var remove_i in toRemove.reverse()){adUnits[au_i].bids.splice(toRemove[remove_i],1);}}};}
+window.PWT.requestBids(pwtConf,openwrapBidsBackHandler);}
+function openwrapRefreshSlot(slot){var conf=PWT.generateConfForGPT([slot]);openwrapRequestAdUnits(conf);}
+function openwrapBidsBackHandler(response){if(typeof window.ezosetowbids=="function"){window.ezosetowbids(response);}else{window.ezosetowbidsInterval=setInterval(function(response){if(typeof window.ezosetowbids=='function'){window.ezosetowbids(response);}},150,response);}}
+owpbjs.que.push(function(){owpbjs.onEvent('adRenderSucceeded',function(e){var slot=getSlotForhb(e.bid.adUnitCode);var ic=slot.getTargeting('ic')[0];if(typeof ic!=='undefined'){var ic_int=parseInt(ic);if(!isNaN(ic_int)){__ez.pel.Add(slot,[(new __ezDotData('refresh_count',ic_int))]);}}
+var ebbr=slot.getTargeting('eb_br')[0];if(typeof ebbr!='undefined'){__ez.pel.Add(slot,[(new __ezDotData('filled_bid_hash',ebbr))]);}
+var last_bid_val=0;if(typeof slot.getTargeting("lb")[0]!="undefined"){last_bid_val=parseInt(slot.getTargeting("lb")[0])/100000.0;}
+var ssid=0;var ssidMap={"amx":11290,"ix":10082,"medianet":11307,"nobid":11319,"onetag":11291,"pubmatic":10061};if(typeof ssidMap[e.bid.bidder.toLowerCase()]!=="undefined"){ssid=ssidMap[e.bid.bidder.toLowerCase()];__ez.pel.Add(slot,[(new __ezDotData("stat_source_id",ssid))],e.bid.cpm/1000,0,e.bid.cpm/1000,last_bid_val,ssid);}
+var media_type=slot.getTargeting("hb_format");var prebid_source=slot.getTargeting("hb_rt");if(typeof media_type!==undefined&&media_type.length>0&&String(media_type[0])!==""){var media_type_str=String(media_type[0]);__ez.pel.Add(slot,[(new __ezDotData("media_type",media_type_str))]);}
+if(typeof prebid_source!==undefined&&prebid_source.length>0&&String(prebid_source[0])!==""){var prebid_source_str=String(prebid_source[0]);__ez.pel.Add(slot,[(new __ezDotData("prebid_source",prebid_source_str))]);}
+__ez.pel.Add(slot,[(new __ezDotData("loaded",1))],e.bid.cpm/1000,0,e.bid.cpm/1000,last_bid_val,ssid);__ez.pel.Fire();});});function getSlotForhb(adUnit){for(slot in window.ezslots){if(window[window.ezslots[slot]].getSlotElementId()==adUnit){return window[window.ezslots[slot]];}}}
+</script>
+<script>function __ez_fad_ezpbinit(){var s = document.createElement( 'script' );
+	s.setAttribute( 'src', '//go.ezodn.com/hb/dall.js?cb=195-4-56' );
+	s.onerror = function () {window.ezDallErr = true};
+	document.body.appendChild( s );}__ez.queue.addFile('/detroitchicago/kenai.js', '/detroitchicago/kenai.js?gcb=4&cb=6', false, [], true, false, true, false);var ezAMX={bidder:'amx',params:{tagId:'ZXpvaWMuY29t'}};var ezYieldmo={bidder:'yieldmo',params:{placementId:'2834942196124164132'}};var ezjsps=function(obj){return JSON.parse(JSON.stringify(obj));};var epbjs=epbjs||{};epbjs.que=epbjs.que||[];epbjs.bidderTimeout=2500;epbjs.useAdj=true;epbjs.SS={"amx":11290,"onemobile":11293,"pubmatic":10061,"rubicon":10063,"yieldmo":11315};epbjs.bidders=['amx','onemobile','pubmatic','rubicon','yieldmo'];epbjs.que.push(function(){});epbjs.bidderSettings={};epbjs.gadj=1.000000;var __enableAnalytics=false;epbjs.testFeatures=[''];
+var __s2sbidders=[];
+var __s2sinstreambidders=[];
+var __allBidders=['pubmatic','onemobile','rubicon','amx','yieldmo'];
+__ez.queue.addFile('/detroitchicago/portland.js', '/detroitchicago/portland.js?gcb=4&cb=3', true, [], true, false, true, false);__ez.queue.addFunc("epbjsRequestAdUnits", "epbjsRequestAdUnits", [[{code: 'div-gpt-ad-asciitable_com-edge-2-0', mediaTypes: {banner: { sizes:[[160,600]] }}, bids: [{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9691b20174742046e221125d9d01b3' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-edge-1-0', mediaTypes: {banner: { sizes:[[160,600]] }}, bids: [{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9691b20174742046e221125d9d01b3' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '351284', zoneId: '1868548' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-box-1-0', mediaTypes: {banner: { sizes:[[160,600]] }}, bids: [{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_sidebar_160x600' }},{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9691b20174742046e221125d9d01b3' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '290142', zoneId: '1458966' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-medrectangle-3-0', mediaTypes: {banner: { sizes:[[728,90]] }}, bids: [{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_under_first_paragraph_728x90' }},{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9699b701747420431021125b3b0010' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '290142', zoneId: '1458978' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-large-billboard-2-0', mediaTypes: {banner: { sizes:[[160,600]] }}, bids: [{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_sidebar_middle_160x600' }},{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9691b20174742046e221125d9d01b3' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '290142', zoneId: '1458986' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-box-2-0', mediaTypes: {banner: { sizes:[[728,90]] }}, bids: [{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_top_of_page_728x90' }},{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a9699b701747420431021125b3b0010' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '290142', zoneId: '1458968' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] },{code: 'div-gpt-ad-asciitable_com-medrectangle-2-0', mediaTypes: {banner: { sizes:[[970,90],[728,90]] }}, bids: [{bidder: 'pubmatic', params:{ publisherId: '156983', adSlot: 'e_bottom_floating_970x90' }},{bidder: 'onemobile', params:{ dcn: '8a9691b20174742046e2210bface012a', pos: '8a969573017474204a2a2112183c0007' }},{bidder: 'rubicon', params:{ accountId: '21150', siteId: '290142', zoneId: '1458976' }},ezjsps(ezAMX),ezjsps(ezYieldmo)] }]], false, ['/detroitchicago/portland.js'], true, true, true, true);var ez__id5pd = 'MTA9NTguMTgyLjg2LjEwOSYxMj1Nb3ppbGxhJTJGNS4wKyUyOFdpbmRvd3MrTlQrMTAuMCUzQitXaW42NCUzQit4NjQlM0IrcnYlM0ExMDkuMCUyOStHZWNrbyUyRjIwMTAwMTAxK0ZpcmVmb3glMkYxMTMuMA==';var ez__uIdHash = 'c45be12e3f50b396c40a8980897ec34ec11e429b500c4443976f7f4c518fccec';var ez__sspDomain = 'www.asciitable.com';</script>
+<script src="/detroitchicago/augusta.js?cb=24" async data-ezscrex="false"></script>
+<script async data-ezscrex="false">__ez.fads.cmd.push(function(){__ez.fads.__ez_fad_load(0,0);__ez.fads.__ez_fad_scrollmon();});</script>
+<script type='text/javascript' style='display:none;' async>
+window.__ez_edge_a = false;
+window.__ez_edge_mw = 1600;
+window.__ez_edge_v = 'top';
+window.__ez_edge_h = 'inner';
+window.__ez_edge_m = 0;
+__ez.queue.addFile('/detroitchicago/sidebarwall.js', '/detroitchicago/sidebarwall.js?gcb=4&cb=19', false, [], true, true, true, false);</script>
+
+		<script>setTimeout(function(){let cookieTest=getCookie("ezvignetteviewed");if(cookieTest==""){window.googletag=window.googletag||{};googletag.cmd=googletag.cmd||[];googletag.cmd.push(function(){if(ezslot_interstitial==null){return;}
+googletag.display(ezslot_interstitial);googletag.pubads().refresh([ezslot_interstitial]);});}},1000);function getCookie(cname){let name=cname+"=";let ca=document.cookie.split(';');for(let i=0;i<ca.length;i++){let c=ca[i];while(c.charAt(0)==' '){c=c.substring(1);}
+if(c.indexOf(name)==0){return c.substring(name.length,c.length);}}
+return "";}</script>
+<script type="text/javascript" data-cfasync="false"></script>
+<script type="text/javascript" style='display:none;'>var __ez_dims = (function() {
+		var setCookie = function( name, content, expiry ) {
+			return document.cookie = name+'='+content+((expiry)?';expires='+(new Date(Math.floor(new Date().getTime()+expiry*1000)).toUTCString()):'')+';path=/';
+		};
+		var ffid = 1;
+		var oh = window.screen.height;
+		var ow = window.screen.width;
+		var h = ffid === 1 ? oh : (oh > ow) ? oh : ow;
+		var w = ffid === 1 ? ow : (oh > ow) ? ow : oh;
+		var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+		var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+		setCookie('ezds', encodeURIComponent('ffid='+ffid+',w='+w+',h='+h), (31536e3*7));
+		setCookie('ezohw', encodeURIComponent('w='+uw+',h='+uh), (31536e3*7));
+	})();</script><script type='text/javascript' style='display:none;' async>
+</script>
+</body></html>
