@@ -1,0 +1,24 @@
+contract: CC1
+file: jpm.csv
+market: ICE
+desc: first cocoa. t = date of last close
+knock-in: "row.High < 108"
+knock-out: "row.Low >= 140"
+dates:
+    startdate: "2022-06-02"
+    enddate: "2023-05-22"
+    dateformat: "%Y-%m-%d"
+    filedateformat: "%Y-%m-%d"
+buy:
+  qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
+  at: "hist('High',T,0)"
+  when: "hist('Open',T,-1) > hist('Close',T,-1)"
+  #desc: if 1% down or more, buy
+sell:
+  qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
+  at: "hist('Low',T,0)"
+  when: "hist('Close',T,-1) > hist('Open',T,-1)"
+  off_at_: "avg(close[t],close[t-1])"
+  off_on_: "(close[t] - close[t-1]) / close[t-1] >= +0.02"
+  desc: if 2% up or more, sell
+missing: forward linear
