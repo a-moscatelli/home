@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="452px" preserveAspectRatio="none" style="width:2131px;height:452px;background:#FFFFFF;" version="1.1" viewBox="0 0 2131 452" width="2131px" zoomAndPan="magnify"><defs><filter height="300%" id="f17rjtoie07e4s" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="212" x="1906" y="9.2822">NB - this is NOT a UML USE-CASE diagram</text><!--MD5=[1b123cad1e3e61a534b0c6b10110320f]
+cluster problem-solution--><rect fill="#FFFFFF" filter="url(#f17rjtoie07e4s)" height="422" style="stroke:#000000;stroke-width:1.5;" width="1888" x="118" y="18.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="134" x="995" y="33.6357">problem-solution</text><!--MD5=[6e079e4676b4dab2f35ddb1f5a8c8925]
+cluster match--><rect fill="#FFFFFF" filter="url(#f17rjtoie07e4s)" height="257" style="stroke:#000000;stroke-width:1.5;" width="74" x="959" y="92.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="48" x="972" y="107.6357">match</text><ellipse cx="249.9153" cy="315.7115" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="123.9153" ry="37.5709" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="218.9153" y="302.2613">I want to</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="181.4153" y="318.5582">extract specific data</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="174.4153" y="334.8551">from unstructured text</text><ellipse cx="692.7853" cy="118.7115" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="150.7853" ry="37.5709" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="632.2853" y="105.2613">I want to develop</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="605.7853" y="121.5582">ad-hoc parsers-validators</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="598.2853" y="137.8551">that expect a fixed structure</text><ellipse cx="693.0118" cy="318.543" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="122.5118" ry="26.9024" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="610.0118" y="314.1421">I don't want to develop</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="641.5118" y="330.439">complex regex</text><ellipse cx="692.93" cy="406.6879" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="115.43" ry="26.0473" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="649.43" y="401.3861">I can't afford</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="623.43" y="417.683">a long learning curve</text><ellipse cx="692.9593" cy="223.7325" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="150.9593" ry="32.5919" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="605.4593" y="218.4307">the thousands separator</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="579.4593" y="234.7276">should not generate extra tokens</text><ellipse cx="1629.5656" cy="275.7537" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="83.5656" ry="19.1131" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="1565.6623" y="278.738">sequence labeling</text><ellipse cx="1284.8687" cy="270.8206" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="48.8687" ry="14.68" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="1255.8687" y="274.5681">CRF++</text><ellipse cx="1284.8807" cy="196.6168" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="67.8807" ry="15.9761" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="1238.3807" y="200.3643">Java Scanner</text><ellipse cx="1629.5612" cy="80.8529" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="76.5612" ry="17.7122" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="1571.5612" y="84.6004">advanced regex</text><ellipse cx="1285.1869" cy="348.704" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="39.1869" ry="14.5634" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1263.5666" y="352.2283">Keras</text><ellipse cx="1284.7771" cy="113.596" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="92.7771" ry="20.9554" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="1210.7771" y="116.4427">Java StreamTokenizer</text><ellipse cx="1939.5731" cy="178.4025" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="58.5731" ry="14.7619" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="1904.0731" y="182.1501">tokenizer</text><ellipse cx="1629.5271" cy="178.746" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="81.0271" ry="18.6054" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="1567.7415" y="182.0124">generic tokenizer</text><ellipse cx="1629.4096" cy="358.5225" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="62.4096" ry="14.8819" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="1590.9096" y="362.2701">LSTM RNN</text><ellipse cx="996.163" cy="326.6643" fill="#F08080" filter="url(#f17rjtoie07e4s)" rx="29.163" ry="14.5236" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="983.663" y="329.5109">2 ✗</text><ellipse cx="996.163" cy="198.6643" fill="#F08080" filter="url(#f17rjtoie07e4s)" rx="29.163" ry="14.5236" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="983.663" y="201.5109">2 ✗</text><ellipse cx="996.163" cy="134.6643" fill="#3CB371" filter="url(#f17rjtoie07e4s)" rx="29.163" ry="14.5236" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="983.663" y="137.5109">1 ✔</text><ellipse cx="996.163" cy="262.6643" fill="#3CB371" filter="url(#f17rjtoie07e4s)" rx="29.163" ry="14.5236" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="983.663" y="265.5109">2 ✔</text><!--MD5=[92848cbaf65985a669855153c5362c37]
+entity customer--><ellipse cx="35.5" cy="347.1406" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M35.5,355.1406 L35.5,382.1406 M22.5,363.1406 L48.5,363.1406 M35.5,382.1406 L22.5,397.1406 M35.5,382.1406 L48.5,397.1406 " fill="none" filter="url(#f17rjtoie07e4s)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="6" y="415.6357">BIZ.AN. :</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="6" y="431.9326">I need</text><!--MD5=[478fe4e23c1db6ff8eabed57c61226c2]
+entity architect--><ellipse cx="2091.5" cy="236.1406" fill="#FEFECE" filter="url(#f17rjtoie07e4s)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M2091.5,244.1406 L2091.5,271.1406 M2078.5,252.1406 L2104.5,252.1406 M2091.5,271.1406 L2078.5,286.1406 M2091.5,271.1406 L2104.5,286.1406 " fill="none" filter="url(#f17rjtoie07e4s)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="2059" y="304.6357">SOL.AR. :</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="2059" y="320.9326">I propose</text><!--MD5=[0e50a13919134a6852b9851c19ecc614]
+reverse link xtr to xtr2re--><path d="M316.5968,280.8121 C375.1995,250.7558 463.2184,207.0387 542,173.6406 C562.036,165.1467 583.8806,156.7229 604.5716,149.1149 " fill="none" id="xtr-backto-xtr2re" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="312.0772,283.133,321.9105,282.5799,316.525,280.8489,318.2559,275.4634,312.0772,283.133" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="436" y="197.7075">extend</text><!--MD5=[d2792cb053835abadbb142cfbe880651]
+reverse link xtr to xtr2sc--><path d="M379.0455,316.5145 C439.3174,316.9227 510.7198,317.4062 570.191,317.8089 " fill="none" id="xtr-backto-xtr2sc" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="373.9893,316.4803,382.962,320.5412,378.9892,316.5142,383.0162,312.5414,373.9893,316.4803" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="436" y="313.7075">extend</text><!--MD5=[f51de170a4ab351d8e90010996b57534]
+link customer to xtr--><path d="M65.3253,376.7684 C91.4563,368.1189 130.7176,355.1234 166.3296,343.3357 " fill="none" id="customer-xtr" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1d5aa95dd9519a9860c8d499b9e20e76]
+link customer to SLC--><path d="M65.0287,387.5388 C153.9857,390.2447 422.8356,398.4227 578.4077,403.1549 " fill="none" id="customer-SLC" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[873406870ad607b2812bb0f0d18bdab3]
+link THSX to u2--><path d="M834.2984,211.9823 C884.4405,207.8452 936.0796,203.5845 967.1117,201.0241 " fill="none" id="THSX-u2" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f725af48e1d5a8c1f75cf0b96a032edf]
+link THSX to m2--><path d="M822.8179,240.3498 C876.7874,247.2964 934.5053,254.7254 967.809,259.0121 " fill="none" id="THSX-m2" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c32ab4e96506dc7595347c9bb687ef8a]
+link xtr2re to m1--><path d="M840.9495,126.4531 C888.871,128.9836 937.2665,131.5392 966.9428,133.1062 " fill="none" id="xtr2re-m1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[92bfc663c0351264beec5dcd88cdcbca]
+link xtr2sc to m2--><path d="M787.2102,301.2288 C849.9243,289.6381 927.9985,275.2085 968.5952,267.7055 " fill="none" id="xtr2sc-m2" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ba0132d56359c03d21912e976fa9fd20]
+link SLC to u1--><path d="M768.2882,386.7625 C834.189,369.363 926.1045,345.0949 970.2849,333.4301 " fill="none" id="SLC-u1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5c1e165b8d3aa98b4675a98a475db055]
+reverse link THSX to sequence labeling--><path d="M790.9715,251.1307 C809.018,257.5714 827.3916,265.0928 844,273.6406 C900.2778,302.6049 899.8672,335.0699 959,357.6406 C1177.4183,441.0098 1265.8661,444.1104 1485,362.6406 C1514.721,351.5909 1518.8422,342.0079 1546,325.6406 C1563.8003,314.9128 1583.7716,302.9513 1599.7185,293.418 " fill="none" id="THSX-backto-sequence labeling" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="785.8919,249.3428,793.0534,256.104,790.6083,251.0029,795.7094,248.5578,785.8919,249.3428" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="43" x="1087" y="397.7075">expect</text><!--MD5=[46a4f76cb0e4ea2fbe67f5e2378f6e27]
+link m2 to CRF++--><path d="M1025.0336,263.4443 C1074.4877,264.8133 1175.5767,267.6116 1236.0942,269.2868 " fill="none" id="m2-CRF++" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[934b866accbbd53aec8e20c91cdec9cf]
+link m2 to Java Scanner--><path d="M1022.413,256.6086 C1070.8342,245.5504 1174.4877,221.8787 1236.0949,207.8092 " fill="none" id="m2-Java Scanner" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4e6db3b34b985d414a96f777164e9048]
+link m1 to advanced regex--><path d="M1004.915,120.5019 C1021.8253,95.6263 1061.1382,46.6406 1108.5,46.6406 C1108.5,46.6406 1108.5,46.6406 1462,46.6406 C1504.1355,46.6406 1551.0631,57.1017 1584.5023,66.4185 " fill="none" id="m1-advanced regex" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ba993ae623ed9f06eceb5594f6e61144]
+link u1 to Keras--><path d="M1024.767,328.8305 C1077.0215,332.8083 1187.5479,341.2221 1246.3334,345.6971 " fill="none" id="u1-Keras" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6515115aedebcd8466eb75b19ca62ee5]
+link u2 to Java StreamTokenizer--><path d="M1021.1413,191.2461 C1067.0088,177.7556 1165.3193,148.8408 1228.132,130.3665 " fill="none" id="u2-Java StreamTokenizer" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8c0156e2f30c3b40f16699105d174774]
+link advanced regex to tokenizer--><path d="M1674.5767,94.8906 C1734.5201,113.8405 1839.6537,147.0763 1897.827,165.4666 " fill="none" id="advanced regex-to-tokenizer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1902.6198,166.9817,1895.2443,160.4547,1897.8524,165.4744,1892.8327,168.0825,1902.6198,166.9817" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1775" y="122.7075">extend</text><!--MD5=[b05edcb973c892f425fdd167791dd8d8]
+link generic tokenizer to tokenizer--><path d="M1710.5439,178.6406 C1762.1242,178.6406 1827.9763,178.6406 1875.8046,178.6406 " fill="none" id="generic tokenizer-to-tokenizer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1880.9594,178.6406,1871.9594,174.6406,1875.9594,178.6406,1871.9594,182.6406,1880.9594,178.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1775" y="174.7075">extend</text><!--MD5=[ee1c5da5f4016ba154f6d30293c714ac]
+link Java Scanner to generic tokenizer--><path d="M1351.4231,193.17 C1406.5584,190.2892 1485.312,186.1744 1544.9433,183.0587 " fill="none" id="Java Scanner-to-generic tokenizer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1550.2891,182.7793,1541.0926,179.2546,1545.2959,183.0403,1541.5102,187.2437,1550.2891,182.7793" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1440" y="182.7075">extend</text><!--MD5=[159521b23646fa91af17c54ff138d9fa]
+link Java StreamTokenizer to generic tokenizer--><path d="M1356.3806,127.1086 C1416.764,138.5017 1502.6823,154.7127 1561.9515,165.8956 " fill="none" id="Java StreamTokenizer-to-generic tokenizer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1566.8858,166.8266,1558.7836,161.2271,1561.9725,165.8995,1557.3002,169.0884,1566.8858,166.8266" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1440" y="139.7075">extend</text><!--MD5=[133142a6cc33d205e3acdb167c8d55ff]
+link sequence labeling to architect--><path d="M1713.1647,275.6406 C1816.6569,275.6406 1987.8652,275.6406 2058.9757,275.6406 " fill="none" id="sequence labeling-architect" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6ec3b8e0ac65cfdcb6ef795b7508d27d]
+link CRF++ to sequence labeling--><path d="M1333.9926,271.3517 C1387.7632,272.1321 1475.1855,273.4009 1541.0235,274.3565 " fill="none" id="CRF++-to-sequence labeling" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1546.1242,274.4305,1537.1832,270.3003,1541.1247,274.358,1537.0671,278.2995,1546.1242,274.4305" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1440" y="269.7075">extend</text><!--MD5=[ecbe408fb6015c349aac9f52415eb24c]
+link tokenizer to architect--><path d="M1961.6021,192.7452 C1987.2091,209.0865 2029.6349,236.1609 2058.9993,254.9 " fill="none" id="tokenizer-architect" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[fb4487a0ed607c98a687e9f7eb28d5f4]
+link Keras to LSTM RNN--><path d="M1324.1831,349.778 C1382.1353,351.4602 1491.4686,354.6339 1562.3553,356.6916 " fill="none" id="Keras-to-LSTM RNN" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1567.3914,356.8377,1558.5113,352.5782,1562.3935,356.6926,1558.2791,360.5748,1567.3914,356.8377" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="1440" y="349.7075">extend</text><!--MD5=[7946da1dd0568aca0f2f76effdd78b70]
+link LSTM RNN to architect--><path d="M1679.8216,349.6001 C1775.1227,332.479 1979.5033,295.7612 2058.9621,281.4862 " fill="none" id="LSTM RNN-architect" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0970eff95dbfe344b7fb8522575f1f71]
+@startuml
+header NB - this is NOT a UML USE-CASE diagram
+left to right direction
+skinparam packageStyle rectangle
+
+actor "BIZ.AN. :\nI need" as customer
+actor "SOL.AR. :\nI propose" as architect
+
+'actor "BIZAN \n problem /\nrequirement" as customer
+'actor "SOLAR \n solution /\npotential" as architect
+
+'legend left
+'...
+'endlegend
+
+rectangle problem-solution {
+
+' LEFT = REQMT/DEMAND/NEEDS ''''''''''''''''''''''''''''''''''''''''''''''''
+
+  usecase xtr as "I want to \n extract specific data \n from unstructured text"
+  
+  usecase xtr2re as "I want to develop \n ad-hoc parsers-validators \n that expect a fixed structure"
+  usecase xtr2sc as "I don't want to develop \n complex regex"
+
+  usecase SLC as "I can't afford \n a long learning curve"
+  
+  usecase THSX as "the thousands separator \n should not generate extra tokens"
+  
+  (xtr) <.. (xtr2re) : extend
+	(xtr) <.. (xtr2sc) : extend
+
+  customer - - (xtr)
+  customer - - (SLC)
+  
+' MATCH ''''''''''''''''''''''''''''''''''''''''''''''''
+
+  rectangle match {
+  
+  usecase u1 as "2 ✗" #lightcoral
+  usecase u2 as "2 ✗" #lightcoral
+
+	usecase m1 as "1 ✔" #mediumseagreen
+  usecase m2 as "2 ✔" #mediumseagreen
+  
+  }
+
+  THSX - - u2
+  THSX - - m2
+  xtr2re - - m1
+  xtr2sc - - m2
+  SLC - - u1
+  THSX <.. (sequence labeling) : expect
+
+	m2 - - (CRF++)
+  m2 - - (Java Scanner)
+  m1 - - (advanced regex)
+  u1 - - (Keras)
+  u2 - - (Java StreamTokenizer)
+  
+' RIGHT=SOLUTN/SUPPLY/FEAT ''''''''''''''''''''''''''''''''''''''''''''''''
+
+	(advanced regex) ..> (tokenizer) : extend
+	(generic tokenizer) ..> (tokenizer) : extend
+  (Java Scanner) ..> (generic tokenizer) : extend  
+  (Java StreamTokenizer) ..> (generic tokenizer) : extend  
+	(sequence labeling) - - architect
+	(CRF++) ..> (sequence labeling) : extend
+	(tokenizer) - - architect
+	(Keras) ..> (LSTM RNN) : extend
+	(LSTM RNN) - - architect
+
+}
+@enduml
+
+@startuml
+header NB - this is NOT a UML USE-CASE diagram
+left to right direction
+skinparam packageStyle rectangle
+
+actor "BIZ.AN. :\nI need" as customer
+actor "SOL.AR. :\nI propose" as architect
+
+
+
+rectangle problem-solution {
+
+
+  usecase xtr as "I want to \n extract specific data \n from unstructured text"
+  
+  usecase xtr2re as "I want to develop \n ad-hoc parsers-validators \n that expect a fixed structure"
+  usecase xtr2sc as "I don't want to develop \n complex regex"
+
+  usecase SLC as "I can't afford \n a long learning curve"
+  
+  usecase THSX as "the thousands separator \n should not generate extra tokens"
+  
+  (xtr) <.. (xtr2re) : extend
+	(xtr) <.. (xtr2sc) : extend
+
+  customer - - (xtr)
+  customer - - (SLC)
+  
+
+  rectangle match {
+  
+  usecase u1 as "2 ✗" #lightcoral
+  usecase u2 as "2 ✗" #lightcoral
+
+	usecase m1 as "1 ✔" #mediumseagreen
+  usecase m2 as "2 ✔" #mediumseagreen
+  
+  }
+
+  THSX - - u2
+  THSX - - m2
+  xtr2re - - m1
+  xtr2sc - - m2
+  SLC - - u1
+  THSX <.. (sequence labeling) : expect
+
+	m2 - - (CRF++)
+  m2 - - (Java Scanner)
+  m1 - - (advanced regex)
+  u1 - - (Keras)
+  u2 - - (Java StreamTokenizer)
+  
+
+	(advanced regex) ..> (tokenizer) : extend
+	(generic tokenizer) ..> (tokenizer) : extend
+  (Java Scanner) ..> (generic tokenizer) : extend  
+  (Java StreamTokenizer) ..> (generic tokenizer) : extend  
+	(sequence labeling) - - architect
+	(CRF++) ..> (sequence labeling) : extend
+	(tokenizer) - - architect
+	(Keras) ..> (LSTM RNN) : extend
+	(LSTM RNN) - - architect
+
+}
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
