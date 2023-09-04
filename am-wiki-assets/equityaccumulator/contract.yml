@@ -5,11 +5,10 @@ market: NYSE
 desc: first cocoa. t = date of last close
 
 #simplified:
-knock-in: "row.AdjClose < 108"
-knock-out: "row.AdjClose >= 140"
-#advanced:
-#knock-in: "row.High < 108"
-#knock-out: "row.Low >= 140"
+knock-in: "row.AdjClose > 145"
+knock-out: "row.AdjClose <= 120"
+# ... only after KI was fired.
+
 
 dates:
     # hist: 2022-05-31 to 2023-05-26
@@ -25,27 +24,33 @@ missing: forward linear
 
 # T = Today's EOD.
 buy:
-  qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
+  #qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
+  #qty: "max(2,abs(hist('AdjClose',T,0)-140))"
+  qty: "6"
   at: "hist('AdjClose',T,0)"
   when: "hist('AdjClose',T,0) > hist('AdjClose',T,-1)"
 sell:
-  qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
+  qty: "5"
+  #qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
   at: "hist('AdjClose',T,0)"
   when: "hist('AdjClose',T,0) < hist('AdjClose',T,-1)"
 #  off_at_: "avg(close[t],close[t-1])"
 #  off_on_: "(close[t] - close[t-1]) / close[t-1] >= +0.02"
   desc: if 2% up or more, sell
 
-
-buy_offline:
-  qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
-  at: "hist('High',T,0)"
-  when: "hist('Open',T,-1) > hist('Close',T,-1)"
-  #desc: if 1% down or more, buy
-sell_offline:
-  qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
-  at: "hist('Low',T,0)"
-  when: "hist('Close',T,-1) > hist('Open',T,-1)"
-  off_at_: "avg(close[t],close[t-1])"
-  off_on_: "(close[t] - close[t-1]) / close[t-1] >= +0.02"
-  desc: if 2% up or more, sell
+offline:
+    #advanced:
+    knock-in: "row.High < 108"
+    knock-out: "row.Low >= 140"
+    buy:
+          qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
+          at: "hist('High',T,0)"
+          when: "hist('Open',T,-1) > hist('Close',T,-1)"
+          #desc: if 1% down or more, buy
+    sell:
+          qty: "math.ceil(hist('High',T,-1) - hist('Low',T,-1))"
+          at: "hist('Low',T,0)"
+          when: "hist('Close',T,-1) > hist('Open',T,-1)"
+          off_at_: "avg(close[t],close[t-1])"
+          off_on_: "(close[t] - close[t-1]) / close[t-1] >= +0.02"
+          desc: if 2% up or more, sell
