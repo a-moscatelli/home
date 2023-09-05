@@ -26,14 +26,14 @@ missing: forward linear
 buy:
   #qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
   #qty: "max(2,abs(hist('AdjClose',T,0)-140))"
-  qty: "6"
-  at: "hist('AdjClose',T,0)"
-  when: "hist('AdjClose',T,0) > hist('AdjClose',T,-1)"
+  qty: "BQ"
+  at: "hist('AdjClose',T,0,H)"
+  when: "hist('AdjClose',T,0,H) > hist('AdjClose',T,-1,H)"
 sell:
-  qty: "5"
+  qty: "SQ"
   #qty: "math.ceil(abs(hist('AdjClose',T,0) - hist('AdjClose',T,-1)))"
-  at: "hist('AdjClose',T,0)"
-  when: "hist('AdjClose',T,0) < hist('AdjClose',T,-1)"
+  at: "hist('AdjClose',T,0,H)"
+  when: "hist('AdjClose',T,0,H) < hist('AdjClose',T,-1,H)"
 #  off_at_: "avg(close[t],close[t-1])"
 #  off_on_: "(close[t] - close[t-1]) / close[t-1] >= +0.02"
   desc: if 2% up or more, sell
