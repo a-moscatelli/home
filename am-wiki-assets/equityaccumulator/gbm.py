@@ -490,13 +490,13 @@ for prs in range(20):
     prsdata.loc[len(prsdata)] = [BQ, SQ, Ploss, max_lastCumCF_array, min_lastCumCF_array]
 
 
-# In[37]:
+# In[33]:
 
 
 summary['exec_end'] = datetime.now()
 
 
-# In[40]:
+# In[34]:
 
 
 if False:
@@ -505,13 +505,13 @@ if False:
     None # to prevent non-required output
 
 
-# In[41]:
+# In[35]:
 
 
 print_summary()
 
 
-# In[42]:
+# In[36]:
 
 
 import json
@@ -520,7 +520,7 @@ devnull = contract_spec.pop('offline',None)
 print(json.dumps(contract_spec, indent=4))
 
 
-# In[36]:
+# In[37]:
 
 
 prsdata
@@ -528,50 +528,20 @@ prsdata
 
 # ## contract parameters (Buyqty,SellQty) that resulted in the lowest Probability of Loss
 
-# In[44]:
+# In[38]:
 
 
 print(prsdata[prsdata.P_Loss == prsdata.P_Loss.min()])
 
 
-# ### final plot
+# ### summary plot
 
-# In[103]:
+# In[47]:
 
 
-# https://matplotlib.org/stable/plot_types/3D/surface3d_simple.html
-#import matplotlib.pyplot as plt
-from matplotlib import cm
-#import numpy as np
-
-#plt.style.use('classic')
-
-# Make data
-X = prsdata.BQ.values
-Y = prsdata.SQ.values
-Z = prsdata.P_Loss.values
-
-# https://matplotlib.org/stable/gallery/color/colormap_reference.html +++
-cm = plt.get_cmap("RdYlGn")
-cm = plt.get_cmap("coolwarm")
-col = [ zz for zz in Z ] # [0.0,1.0]
-
-# print(plt.colormaps())
-
-# https://matplotlib.org/stable/gallery/mplot3d/scatter3d.html
-# https://stackoverflow.com/questions/1985856/how-to-make-a-3d-scatter-plot
-# https://stackoverflow.com/questions/8891994/3d-scatter-plot-with-color-gradient +++
-
-fig = plt.figure(figsize=(10, 10))
-ax = fig.add_subplot(projection='3d')
-
-sequence_containing_x_vals = X
-sequence_containing_y_vals = Y
-sequence_containing_z_vals = Z
-
-p = ax.scatter(sequence_containing_x_vals, sequence_containing_y_vals, sequence_containing_z_vals,c=col,cmap=cm)
-fig.colorbar(p, ax=ax,shrink=0.5)
-plt.show()
+ax = prsdata.plot(kind='scatter',x='BQ',y='SQ',c='P_Loss',title='PLoss(BQ,SQ)')
+ax.set(xlabel="buy qty", ylabel="sell qty")
+None
 
 
 # ## END

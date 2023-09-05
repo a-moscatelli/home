@@ -1,8 +1,8 @@
-contract: CC1
+contract: JPMC_NYSE
 file: jpm.csv
 market: NYSE
 #ICE
-desc: first cocoa. t = date of last close
+desc: "..."
 
 #simplified:
 knock-in: "row.AdjClose > 145"
