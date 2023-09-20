@@ -16,9 +16,21 @@ import numpy as np
 # In[2]:
 
 
+webretrieval = True
+import requests
+
+# FS
 folder = r'M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\equityaccumulator'+'\\'
 hist_csv_filename = folder + 'JPM.csv'
 contract_yml_filename = folder + 'contract.yml'
+
+# WEB
+if webretrieval:
+    urlpath='https://raw.githubusercontent.com/a-moscatelli/home/main/am-wiki-assets/equityaccumulator/'
+    hist_csv_filename = urlpath + 'JPM.csv'
+    contract_yml_url = urlpath + 'contract.yml'
+
+
 
 verbose = False
 bsaveChartsToFile = True # charts will be displayed and also saved as PNG 
@@ -368,7 +380,7 @@ if do_plot_example_of_paths:
         accpred.buildpath(noFutprices)
         full = accpred.get_past_n_fut1(xpast)
         fullpath.append(full)
-    summary['exec_example_gbm_end'] = datetime.now()
+    summary['exec_example_gbm_end__'] = datetime.now()
     
     for ipath in range(noPaths):
         plt.plot(fullpath[ipath])
@@ -451,8 +463,16 @@ if quick_for_testing:
     prescriptive_scenarios = range(10)
     noPaths = 10
 
-with open(contract_yml_filename, 'r') as cfile:
-    contract_dict = yaml.safe_load(cfile)
+def get_contract_dict(fromweb):
+    if not fromweb:
+        with open(contract_yml_filename, 'r') as cfile:
+            contract_dict = yaml.safe_load(cfile)
+    else:
+        txt = requests.get(contract_yml_url, allow_redirects=True).content
+        contract_dict = yaml.safe_load(txt)
+    return contract_dict
+        
+contract_dict = get_contract_dict(webretrieval)
 
 sample_histog_data = None # will be set to the last scn_lastCumCF_array
 sample_histog_data_scn = None
@@ -470,7 +490,7 @@ accpres = AccumulatorPrescriptive()
 
 for prs in prescriptive_scenarios:
     scn = accpres.build_scenario()
-    print('time:',datetime.now().strftime('%Y-%m-%d-%H:%M:%S'),'going to start pricing '+str(noPaths)+' paths with prescriptive scenario',prs,'(BQ,SQ)',scn)
+    print('time:',datetime.now().strftime('%Y-%m-%d-%H:%M:%S'),'going to start pricing '+str(noPaths)+' '+str(noFutprices)+'-day paths with prescriptive scenario',prs,'(BQ,SQ)',scn)
     
     # MAP
     
@@ -490,7 +510,7 @@ for prs in prescriptive_scenarios:
 # In[17]:
 
 
-summary['exec_prescriptive_loop_end'] = datetime.now()
+summary['exec_prescriptive_loop_end__'] = datetime.now()
 
 
 # In[18]:
