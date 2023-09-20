@@ -12,11 +12,11 @@ knock-out: "row.AdjClose <= 120"
 
 dates:
     # hist: 2022-05-31 to 2023-05-26
-    startdate: "2022-06-02"
-    enddate: "2024-05-22"
+    startdate: "2023-06-02"
+    # one week after the historical data - lastdate = 2023-05-26
+    enddate: "2025-02-22"
     #without GBM:
     #enddate: "2023-05-22"
-    dateformat: "%Y-%m-%d"
     filedateformat: "%Y-%m-%d"
 comments: "can use min, max, avg, abs, math.ceil(), ..."
 
@@ -40,6 +40,9 @@ sell:
 
 offline:
     #advanced:
+    old_startdate: "2022-06-02"
+    old_enddate: "2024-05-22"
+    dateformat: "%Y-%m-%d"
     knock-in: "row.High < 108"
     knock-out: "row.Low >= 140"
     buy:
