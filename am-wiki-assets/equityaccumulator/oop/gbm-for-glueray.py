@@ -30,8 +30,8 @@ import requests
 
 
 #GLUERAY_UNCOMMENT_BEGIN
-#import ray
-#ray.init('auto')
+import ray
+ray.init('auto')
 #GLUERAY_UNCOMMENT_END
 
 
@@ -550,7 +550,7 @@ sample_histog_data_scn = None
 # By adding the `@ray.remote` decorator, a regular Python function
 # becomes a Ray remote function.
 #GLUERAY_UNCOMMENT_BEGIN
-#@ray.remote
+@ray.remote
 #GLUERAY_UNCOMMENT_END
 def get_remote_task_result(acchist_stats_dict,contract_dict,noFutprices,scn,logger):
     logger.log('tag1',{'scn':scn})
@@ -570,11 +570,11 @@ for prs in prescriptive_scenarios:
     # MAP
     
     #GLUERAY_UNCOMMENT_BEGIN
-    #scn_lastCumCF_array = [ ray.get(get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,logger)) for pp in range(noPaths) ]
+    scn_lastCumCF_array = [ ray.get(get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,logger)) for pp in range(noPaths) ]
     #GLUERAY_UNCOMMENT_END
     
     #GLUERAY_DOCOMMENT_BEGIN
-    scn_lastCumCF_array = [ get_remote_task_result(acchist.stats,contract_dict,noFutprices,scn,logger) for pp in range(noPaths) ]
+#    scn_lastCumCF_array = [ get_remote_task_result(acchist.stats,contract_dict,noFutprices,scn,logger) for pp in range(noPaths) ]
     #GLUERAY_DOCOMMENT_END
     
     # REDUCE
@@ -653,7 +653,7 @@ if bsaveChartsToFile:
     fig.savefig('prescriptive_scatter.png')
 
 #GLUERAY_DOCOMMENT_BEGIN
-ax.show()
+#ax.show()
 #GLUERAY_DOCOMMENT_END
 
 

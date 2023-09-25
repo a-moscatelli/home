@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt upgrade -y
+
+sudo snap install docker
+
+#(copy docker-compose.yml wrt couchdb)
+sudo docker-compose up -d
+sudo docker-compose down
+
+sudo apt install python3 python3-pip -y
+pip3 install pandas
+pip3 install matplotlib
+

@@ -1,0 +1,20 @@
+version: "3.3"
+
+# docker-compose -f docker-compose--couchdb.yml up -d
+
+services:
+
+    couchdb:
+    # https://hub.docker.com/_/couchdb/
+        ports:
+        - "5984:5984"
+        image: "couchdb:3.3.2"
+        restart: always
+        #restart: always
+        environment:
+            COUCHDB_USER: am1
+            COUCHDB_PASSWORD: ampwd239
+        #volumes:
+        # ephemeral
+        
+        #- "/m/DEV/docker_volumes/pg4knime:/var/lib/postgresql/data"
