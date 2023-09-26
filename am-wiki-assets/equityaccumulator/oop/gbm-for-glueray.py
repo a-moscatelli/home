@@ -42,7 +42,6 @@ ray.init('auto')
 
 webretrieval = True
 verbose = False
-bsaveChartsToFile = True # charts will be displayed and also saved as PNG 
 
 quick_for_testing = True
 do_plot_example_of_paths = True
@@ -55,7 +54,15 @@ else:
     noPaths = 2*252
 
 noFutprices = 2*252
-logger_url = 'http://am1:ampwd239@127.0.0.1:5984/logdb'
+#GLUERAY_DOCOMMENT_BEGIN
+#logger_url = 'http://am1:ampwd239@127.0.0.1:5984/logdb'
+#bsaveChartsToFile = True # charts will be displayed and also saved as PNG 
+#GLUERAY_DOCOMMENT_END
+#GLUERAY_UNCOMMENT_BEGIN
+logger_url = 'http://am1:ampwd239@ip-172-31-29-155.eu-west-1.compute.internal:5984/logdb'
+logger_url = 'http://am1:ampwd239@ec2-54-246-150-66.eu-west-1.compute.amazonaws.com:5984/logdb'
+bsaveChartsToFile = False
+#GLUERAY_UNCOMMENT_END
 
 # FS
 folder = r'M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\equityaccumulator'+'\\'
@@ -552,8 +559,8 @@ sample_histog_data_scn = None
 #GLUERAY_UNCOMMENT_BEGIN
 @ray.remote
 #GLUERAY_UNCOMMENT_END
-def get_remote_task_result(acchist_stats_dict,contract_dict,noFutprices,scn,logger):
-    logger.log('tag1',{'scn':scn})
+def get_remote_task_result(acchist_stats_dict,contract_dict,noFutprices,scn,pxpath,tag,logger):
+    logger.log(tag,{'scn':scn,'pxpath':int(pxpath)})
     accpred = AccumulatorPredictive(acchist_stats_dict)
     accpred.load_contract_spec_dict(contract_dict,'unknown contract fname')
     accpred.buildpath(noFutprices)
@@ -569,12 +576,25 @@ for prs in prescriptive_scenarios:
     
     # MAP
     
+    #parallel template:
+    #tasks = [f.remote(i) for i in range(1,9)]
+    #ray.get(tasks) 
+    
     #GLUERAY_UNCOMMENT_BEGIN
-    scn_lastCumCF_array = [ ray.get(get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,logger)) for pp in range(noPaths) ]
+
+    if False:
+        scn_lastCumCF_array = [ ray.get(get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,pxpath,'wrong-par',logger)) for pxpath in range(noPaths) ]
+    if False:
+        scn_lastCumCF_array_futs = [ get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,pxpath,'par',logger) for pxpath in range(noPaths) ]
+        scn_lastCumCF_array = [ ray.get(fut) for fut in scn_lastCumCF_array_futs ]
+    if True:
+        scn_lastCumCF_array_futs = [ get_remote_task_result.remote(acchist.stats,contract_dict,noFutprices,scn,pxpath,'par',logger) for pxpath in range(noPaths) ]
+        scn_lastCumCF_array = ray.get(scn_lastCumCF_array_futs)
+    
     #GLUERAY_UNCOMMENT_END
     
     #GLUERAY_DOCOMMENT_BEGIN
-#    scn_lastCumCF_array = [ get_remote_task_result(acchist.stats,contract_dict,noFutprices,scn,logger) for pp in range(noPaths) ]
+#    scn_lastCumCF_array = [ get_remote_task_result(acchist.stats,contract_dict,noFutprices,scn,pxpath,'nopar',logger) for pxpath in range(noPaths) ]
     #GLUERAY_DOCOMMENT_END
     
     # REDUCE
