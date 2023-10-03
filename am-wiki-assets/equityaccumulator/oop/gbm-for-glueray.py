@@ -43,8 +43,16 @@ ray.init('auto')
 webretrieval = True
 verbose = False
 
-quick_for_testing = True
-do_plot_example_of_paths = True
+#GLUERAY_DOCOMMENT_BEGIN
+#quick_for_testing = True
+#do_plot_example_of_paths = True
+#GLUERAY_DOCOMMENT_END
+
+#GLUERAY_UNCOMMENT_BEGIN
+quick_for_testing = False
+do_plot_example_of_paths = False
+#GLUERAY_UNCOMMENT_END
+
 
 if quick_for_testing:
     prescriptive_scenarios = range(3)
@@ -59,8 +67,7 @@ noFutprices = 2*252
 #bsaveChartsToFile = True # charts will be displayed and also saved as PNG 
 #GLUERAY_DOCOMMENT_END
 #GLUERAY_UNCOMMENT_BEGIN
-logger_url = 'http://am1:ampwd239@ip-172-31-29-155.eu-west-1.compute.internal:5984/logdb'
-logger_url = 'http://am1:ampwd239@ec2-54-246-150-66.eu-west-1.compute.amazonaws.com:5984/logdb'
+logger_url = 'http://am1:ampwd239@ec2-54-246-150-66.eu-west-1.compute.amazonaws.com:80/log'
 bsaveChartsToFile = False
 #GLUERAY_UNCOMMENT_END
 
@@ -436,11 +443,11 @@ if do_plot_example_of_paths:
 # In[12]:
 
 
-import socket
+#import socket
 
 class Couchdbcli:
     #urlz = 'http://127.0.0.1:5984/'
-    urlc = 'http://am1:ampwd239@127.0.0.1:5984/logdb'
+    urlc = '' # 'http://am1:ampwd239@127.0.0.1:5984/logdb' # couchdb server
     #logdb = 'logdb'
     partitionid = 'tag'
     def __init__(self,urlc_):
@@ -461,9 +468,18 @@ class Couchdbcli:
         utctm = datetime.utcnow().isoformat() # 2020-03-20T01:30:08.180856
         return utctm
     def log(self,tag,bodydict):
-        payload = {'datetime':self.getnow__(),self.partitionid:tag,'body':bodydict,'hostname':socket.gethostname()}
-        response = requests.post(self.urlc, json=payload)
-        return (response.status_code,response.json())
+        # goal: urlencoding a nested dict to be sent via HEAD
+        #payload = {'datetime':self.getnow__(),self.partitionid:tag,'body':bodydict,'hostname':socket.gethostname()}
+        payload = { self.partitionid:tag,'body':bodydict}
+        #payload2 = payload.copy()
+        if 'scn' in bodydict.keys():
+            bodydict['scn'] = str(bodydict['scn'])
+        payload.update(bodydict)
+        response = requests.head(self.urlc, params=payload)
+        return response.status_code #,response.json())
+        #response = requests.post(self.urlc, json=payload)
+        #return (response.status_code,response.json())
+        
     def getall(self):
         payload = {"selector":{},
                    "fields": [ "datetime",  self.partitionid ]
