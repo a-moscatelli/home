@@ -1,0 +1,11 @@
+% mmind-datalog---entities.ps BEGIN
+
+isa(h0,ho). isa(h1,ho). isa(h2,ho). isa(h3,ho).
+isa(c0,co). isa(c1,co). isa(c2,co). isa(c3,co). isa(c4,co). isa(c5,co).
+isa(b,fb). isa(x,fb). % isa(x,fb). isa(x,fb).
+
+% sequencing
+follows(h1,h0,ho). follows(h2,h1,ho). follows(h3,h2,ho).
+% used by greater_than - used by itertools_combinations.
+
+% mmind-datalog---entities.ps END

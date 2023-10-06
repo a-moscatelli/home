@@ -1,0 +1,22 @@
+% mmind-datalog---queries.ps BEGIN
+
+
+% recursive:
+isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), ming(GN). % g0
+isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), % maxg(HIGHESTGN),
+	follows(GN,LOWERGN,gg),
+	isa_validguess_evenafter_gg_upto_gid(LOWERGN,CH0,CH1,CH2,CH3).
+
+isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3), maxg(GN).
+
+
+
+isa_notyet_ruledout_secret(CH0,CH1,CH2,CH3) :- isa_betterguess_post_allg(CH0,CH1,CH2,CH3), isa_validsecret(CH0,CH1,CH2,CH3).
+% if no output, the logic is wrong.
+
+off_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+isa_validguess(GN,GC0,GC1,GC2,GC3) :- isa_guess(GN,GC0,GC1,GC2,GC3), isa(GC0,co), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+isa_validfb(GN,FC0,FC1,FC2,FC3) :- isa_fback(GN,FC0,FC1,FC2,FC3), isa(FC0,fb), isa(FC1,fb), isa(FC2,fb), isa(FC3,fb).
+isa_validguesswithfb(GN) :- isa_validguess(GN,GC0,GC1,GC2,GC3), isa_validfb(GN,FC0,FC1,FC2,FC3).
+
+% mmind-datalog---queries.ps END

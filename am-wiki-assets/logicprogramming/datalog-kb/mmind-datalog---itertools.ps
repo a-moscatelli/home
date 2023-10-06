@@ -1,0 +1,44 @@
+% mmind-datalog---itertools.ps BEGIN
+
+% CL = class
+
+itertools_product(CH0,CH1,CH2,CH3,CL) :- isa(CH0,CL), isa(CH1,CL), isa(CH2,CL), isa(CH3,CL).    % sz = 1296 = NOC**NOH
+
+% reconciliations with python itertools are mentioned below.
+
+
+greater_than(HH,LL,CL) :- follows(HH,MID,CL), greater_than(MID,LL,CL).
+greater_than(HH,LL,CL) :- follows(HH,LL,CL).
+% ... recursive rule used for itertools_combinations.
+%
+% head(3) of greater_than(HH,LL,ho):
+% greater_than(h1, h0, ho)
+% greater_than(h2, h0, ho)
+% greater_than(h2, h1, ho)
+
+
+itertools_combinations(H0,H1,CL) :- isa(H0,CL), isa(H1,CL), greater_than(H1,H0,CL).
+% in python = itertools.combinations(range(4), r=2) %%% sz = 6
+itertools_combinations(H0,H1,H2,CL) :- itertools_combinations(H0,H1,CL), itertools_combinations(H0,H2,CL), itertools_combinations(H1,H2,CL).
+% in python = itertools.combinations(range(4), r=3) %%% sz = 4
+itertools_combinations(H0,H1,H2,H3,CL) :- itertools_combinations(H0,H1,H2,CL), itertools_combinations(H0,H1,H3,CL), itertools_combinations(H0,H2,H3,CL), itertools_combinations(H1,H2,H3,CL).
+% in python = itertools.combinations(range(4), r=4) %%% sz = 1
+% head(3) of itertools_combinations(H0,H1,H2,H3,ho):
+% itertools_combinations(h0, h1, h2, h3, ho)
+% (just one)
+
+itertools_permutations(CH0,CH1,CL) :- isa(CH0,CL), isa(CH1,CL), CH0 != CH1.
+% in python = itertools.permutations(range(6), r=2) %%% sz = 30
+itertools_permutations(CH0,CH1,CH2,CL) :- itertools_permutations(CH0,CH1,CL), itertools_permutations(CH0,CH2,CL), itertools_permutations(CH1,CH2,CL).
+% in python = itertools.permutations(range(6), r=3) %%% sz = 120
+itertools_permutations(CH0,CH1,CH2,CH3,CL) :- itertools_permutations(CH0,CH1,CH2,CL), itertools_permutations(CH0,CH1,CH3,CL), itertools_permutations(CH0,CH2,CH3,CL), itertools_permutations(CH1,CH2,CH3,CL).
+% in python = itertools.permutations(range(6), r=4) %%% sz = 360
+%
+% head(3) of itertools_permutations(c0, c5, c4, c2, co):
+% itertools_permutations(c0, c5, c4, c2, co)
+% itertools_permutations(c3, c5, c4, c1, co)
+% itertools_permutations(c2, c5, c0, c3, co)
+
+
+
+% mmind-datalog---itertools.ps END

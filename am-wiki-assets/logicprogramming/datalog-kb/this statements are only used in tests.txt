@@ -1,0 +1,8 @@
+isa_secret(c4,c3,c4,c1).   % singleton.
+
+isa_guess(g0,c0,c1,c1,c1). % id=seqno, h0co, h1co, h2co,h3co.
+isa_fb(g0,b,x,x,x).
+
+isa_guess(g1,c2,c0,c4,c1).
+isa_fb(g1,b,b,x,x).
+
