@@ -14,7 +14,7 @@ isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_
 isa_notyet_ruledout_secret(CH0,CH1,CH2,CH3) :- isa_betterguess_post_allg(CH0,CH1,CH2,CH3), isa_validsecret(CH0,CH1,CH2,CH3).
 % if no output, the logic is wrong.
 
-off_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+offline_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
 isa_validguess(GN,GC0,GC1,GC2,GC3) :- isa_guess(GN,GC0,GC1,GC2,GC3), isa(GC0,co), isa(GC1,co), isa(GC2,co), isa(GC3,co).
 isa_validfb(GN,FC0,FC1,FC2,FC3) :- isa_fback(GN,FC0,FC1,FC2,FC3), isa(FC0,fb), isa(FC1,fb), isa(FC2,fb), isa(FC3,fb).
 isa_validguesswithfb(GN) :- isa_validguess(GN,GC0,GC1,GC2,GC3), isa_validfb(GN,FC0,FC1,FC2,FC3).

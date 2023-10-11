@@ -6,17 +6,26 @@
 isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product(CH0,CH1,CH2,CH3,co).
 
 
-itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
+itertools_permutations_fb2(FBTRY, H0P,H0, H1P,H1) :-
 isa_validfb2h(FBTRY, H0P,H0),
 isa_validfb2h(FBTRY, H1P,H1),
-isa_validfb2h(FBTRY, H2P,H2),
-isa_validfb2h(FBTRY, H3P,H3),
-H0P != H1P, H0P != H2P, H0P != H3P,
-H1P != H2P, H1P != H3P,
-H2P != H3P.
+H0P != H1P.
+% as per itertools.combinations(range(2), r=1) = (0,) (1,)
 
-% projection
-isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3).
+itertools_permutations_fb3(FBTRY, H0P,H0, H1P,H1, H2P,H2) :-
+itertools_permutations_fb2(FBTRY, H0P,H0, H1P,H1),
+itertools_permutations_fb2(FBTRY, H0P,H0,         H2P,H2),
+itertools_permutations_fb2(FBTRY,         H1P,H1, H2P,H2).
+% as per itertools.combinations(range(3), r=2) = (0, 1) (0, 2) (1, 2)
+
+itertools_permutations_fb4(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
+itertools_permutations_fb3(FBTRY, H0P,H0, H1P,H1, H2P,H2),
+itertools_permutations_fb3(FBTRY, H0P,H0, H1P,H1,         H3P,H3),
+itertools_permutations_fb3(FBTRY, H0P,H0,         H2P,H2, H3P,H3),
+itertools_permutations_fb3(FBTRY,         H1P,H1, H2P,H2, H3P,H3).
+% as per itertools.combinations(range(4), r=3) = (0, 1, 2) (0, 1, 3) (0, 2, 3) (1, 2, 3)
+
+isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb4(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3).
 
 % head(3):
 % isa_feedbackpermut(g0, p3, x, p1, w, p0, b, p2, w)
@@ -38,17 +47,17 @@ isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX  = CHX, HX
 isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX=x.
 % mutex/mutexex on HX
 
-% this ordering is just used to enable the AND logic across all the guessnfeedbacks in the main query isa_validguess_evenafter_gg_upto_gid(.)
+% this ordering is just used to enable the AND logic across all the guessnfeedbacks in the main query isa_betterguess_post_gg()
 % predefined up to 10th
 follows(g1,g0,gg). follows(g2,g1,gg). follows(g3,g2,gg). follows(g4,g3,gg). follows(g5,g4,gg). follows(g6,g5,gg). follows(g7,g6,gg). follows(g8,g7,gg). follows(g9,g8,gg).
 
 maxg(GN) :- isa_validguesswithfb(GN), not belowming(GN).
 belowming(GN) :- CL=gg, follows(LOWERGN,GN,CL), not follows(GN,HIGHERGN,CL),
-    isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
+	isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
 
 ming(GN) :- isa_validguesswithfb(GN), not aboveming(GN).
 aboveming(GN) :- CL=gg, follows(GN,LOWERGN,CL), not follows(HIGHERGN,GN,CL),
-    isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
+	isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
 
 minandmaxg(MINGN,MAXGN) :- ming(MINGN), maxg(MAXGN).
 % mmind-datalog---bizlogic.ps END
