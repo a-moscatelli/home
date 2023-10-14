@@ -61,3 +61,23 @@ aboveming(GN) :- CL=gg, follows(GN,LOWERGN,CL), not follows(HIGHERGN,GN,CL),
 
 minandmaxg(MINGN,MAXGN) :- ming(MINGN), maxg(MAXGN).
 % mmind-datalog---bizlogic.ps END
+
+
+
+
+%old
+% isthe_latest_gid(GID) :- isa_validguesswithfb(GID), maxg(GID).
+% isthe_first_gid(GID) :- isa_validguesswithfb(GID), ming(GID).
+
+% maxg(GN) :- isa_validguesswithfb(GN), not belowming(GN).
+
+% belowming(GN) :- CL=gg, follows(LOWERGN,GN,CL), not follows(GN,HIGHERGN,CL),
+	% isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
+
+% ming(GN) :- isa_validguesswithfb(GN), not aboveming(GN).
+
+% aboveming(GN) :- CL=gg, follows(GN,LOWERGN,CL), not follows(HIGHERGN,GN,CL),
+	% isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
+
+% minandmaxg(MINGN,MAXGN) :- ming(MINGN), maxg(MAXGN).
+% ...old

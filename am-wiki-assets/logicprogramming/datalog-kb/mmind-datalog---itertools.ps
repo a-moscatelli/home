@@ -1,22 +1,33 @@
 % mmind-datalog---itertools.ps BEGIN
 
+% CHn = color of hole n
 % CL = class
 
-itertools_product(CH0,CH1,CH2,CH3,CL) :- isa(CH0,CL), isa(CH1,CL), isa(CH2,CL), isa(CH3,CL).    % sz = 1296 = NOC**NOH
+itertools_product4(CH0,CH1,CH2,CH3,CL) :- isa(CH0,CL), isa(CH1,CL), isa(CH2,CL), isa(CH3,CL).    % sz = 1296 = NOC**NOH
 
-% reconciliations with python itertools are mentioned below.
+% only valid when at least two items exists, with at least one follows()
+isNotTheFirstOfMany(X2,CL) :- follows(X2,X1,CL).
+isNotTheLastOfMany(X1,CL) :- follows(X2,X1,CL).
+isTheFirst(X1,CL) :- follows(X2,X1,CL), not isNotTheFirstOfMany(X1,CL).
+isTheFirst(X1,CL) :- isTheOnly(X1,CL).
+isTheLast(X2,CL) :- follows(X2,X1,CL), not isNotTheLastOfMany(X2,CL).
+isTheLast(X1,CL) :- isTheOnly(X1,CL).
+isNotTheOnly(X1,CL) :- isa(X1,CL), isa(X2,CL), X1 != X2.
+isTheOnly(X0,CL) :- not isNotTheOnly(X0,CL), isa(X0,CL).
 
-itertools_permutations(CH0,CH1,CH2,CH3,CL) :- itertools_product(CH0,CH1,CH2,CH3,CL),
-CH0 != CH1, CH0 != CH2, CH0 != CH3,
-CH1 != CH2, CH1 != CH3,
-CH2 != CH3.
-% in python: itertools.permutations(range(6), r=4) %%% sz = 360
-% size of itertools_permutations(CH0,CH1,CH2,CH3,co) = 360
-% size of itertools_permutations(CH0,CH1,CH2,CH3,ho) = 24
-% head(3) of itertools_permutations(c0, c5, c4, c2, co):
-% itertools_permutations(c0, c5, c4, c2, co)
-% itertools_permutations(c3, c5, c4, c1, co)
-% itertools_permutations(c2, c5, c0, c3, co)
+%to test:
+%isa(s0,single).
+
+%isa(d0,duo).
+%isa(d1,duo).
+%follows(d1,d0,duo).
+
+%isa(t0,trio).
+%isa(t1,trio).
+%isa(t2,trio).
+%follows(t1,t0,trio).
+%follows(t2,t1,trio).
+
 
 
 % mmind-datalog---itertools.ps END

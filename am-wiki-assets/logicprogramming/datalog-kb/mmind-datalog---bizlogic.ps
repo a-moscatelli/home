@@ -2,15 +2,17 @@
 
 % main query: TBC isa_betterguess_postAllG(CH0,CH1,CH2,CH3)
 
+% varnames:
+% CHn = guess color of hole n
 
-isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product(CH0,CH1,CH2,CH3,co).
+isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 
 itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
-isa_validfb2h(FBTRY, H0P,H0),
-isa_validfb2h(FBTRY, H1P,H1),
-isa_validfb2h(FBTRY, H2P,H2),
-isa_validfb2h(FBTRY, H3P,H3),
+isa_validfb2vert(FBTRY, H0P,H0),
+isa_validfb2vert(FBTRY, H1P,H1),
+isa_validfb2vert(FBTRY, H2P,H2),
+isa_validfb2vert(FBTRY, H3P,H3),
 H0P != H1P, H0P != H2P, H0P != H3P,
 H1P != H2P, H1P != H3P,
 H2P != H3P.
@@ -40,15 +42,17 @@ isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX
 
 % this ordering is just used to enable the AND logic across all the guessnfeedbacks in the main query isa_validguess_evenafter_gg_upto_gid(.)
 % predefined up to 10th
-follows(g1,g0,gg). follows(g2,g1,gg). follows(g3,g2,gg). follows(g4,g3,gg). follows(g5,g4,gg). follows(g6,g5,gg). follows(g7,g6,gg). follows(g8,g7,gg). follows(g9,g8,gg).
+%follows(g1,g0,gg). follows(g2,g1,gg). follows(g3,g2,gg). follows(g4,g3,gg). follows(g5,g4,gg). follows(g6,g5,gg). follows(g7,g6,gg). follows(g8,g7,gg). follows(g9,g8,gg).
 
-maxg(GN) :- isa_validguesswithfb(GN), not belowming(GN).
-belowming(GN) :- CL=gg, follows(LOWERGN,GN,CL), not follows(GN,HIGHERGN,CL),
-    isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
 
-ming(GN) :- isa_validguesswithfb(GN), not aboveming(GN).
-aboveming(GN) :- CL=gg, follows(GN,LOWERGN,CL), not follows(HIGHERGN,GN,CL),
-    isa_validguesswithfb(GN), isa_validguesswithfb(HIGHERGN), isa_validguesswithfb(LOWERGN).
+isa(GG,CL) :- isa_guess(GG,_,_,_,_), CL=gg.
+% when a user submits : isa_guess(g0,c0,c0,c0,c1). then you must assume that g0 is a gg.
 
-minandmaxg(MINGN,MAXGN) :- ming(MINGN), maxg(MAXGN).
+
+isthe_latest_gid(GID) :- isa_validguesswithfb(GID), isTheLast(GID,gg).
+isthe_first_gid(GID) :- isa_validguesswithfb(GID), isTheFirst(GID,gg).
+
+
+minandmaxg(MINGN,MAXGN) :- isTheFirst(MINGN,gg), isTheLast(MAXGN,gg).
+
 % mmind-datalog---bizlogic.ps END

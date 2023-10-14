@@ -60,7 +60,8 @@ class ExpertSystem():
 # In[4]:
 
 
-datalog_kb_folder = r'.'
+datalog_kb_folder = r'M:\DEV\github__a_moscatelli\repositories\DEV\logicprog\datalog-kb'
+datalog_kb_folder = r'M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\logicprogramming\datalog-kb'
 datalog_filename = datalog_kb_folder + '\\mmind-datalog.ps'
 
 es = ExpertSystem(servlet_url='http://localhost:8080/HelloWorldu')
@@ -70,22 +71,26 @@ ansdict = es.getkbstat()
 print('getkbstat:',ansdict)
 
 
-# ## on the desk: I submit my guess n. 1; I get a feedback; I update the KB with both;
-
 # In[5]:
 
 
+funnel = []
+
+
+# ## on the desk: I submit my guess n. 1; I get a feedback; I update the KB with both;
+
+# In[6]:
+
+
 more_knowledge = '''
-isa_guess(g0,c0,c0,c0,c1).
-isa_fback(g0,b,x,x,x).
-%follows(gy,gx,gg).
+isa_guess(g0,c0,c0,c0,c1). isa_fback(g0,b,x,x,x). % follows(gy,gx,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
 print('getkbstat:',ansdict)
 
 
-# In[6]:
+# In[7]:
 
 
 query = "minandmaxg(MINGN,MAXGN)?"
@@ -95,13 +100,13 @@ print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[7]:
+# In[8]:
 
 
 assert alen==1
 
 
-# In[8]:
+# In[9]:
 
 
 query = "isa_feedbackpermut(FBTRY, H0, H1, H2, H3)?"
@@ -111,12 +116,13 @@ print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[9]:
+# In[10]:
 
 
 query = "isa_solution_exante(CH0,CH1,CH2,CH3)?" # 1296
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 assert alen == 6**4 # == 1296
 devnull = [ print(a) for a in ans['ans'][0:10] ]
@@ -124,17 +130,18 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 # ## I get advice from the Engine (500 options out of 1296), based on the latest updates
 
-# In[10]:
+# In[11]:
 
 
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[11]:
+# In[12]:
 
 
 #delete:
@@ -148,20 +155,18 @@ if False:
 
 # ## on the desk: I submit my guess n.2; I get a feedback; I update the KB;
 
-# In[12]:
+# In[13]:
 
 
 more_knowledge = '''
-isa_guess(g1, c0, c5, c5, c5).
-isa_fback(g1,x,x,x,x).
-follows(g1,g0,gg).
+isa_guess(g1, c0, c5, c5, c5). isa_fback(g1,x,x,x,x). follows(g1,g0,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
 print('getkbstat:',ansdict)
 
 
-# In[13]:
+# In[14]:
 
 
 query = "minandmaxg(MINGN,MAXGN)?"
@@ -171,7 +176,7 @@ print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[14]:
+# In[15]:
 
 
 query = "isa_validguesswithfb(GN)?"
@@ -181,7 +186,7 @@ print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[15]:
+# In[16]:
 
 
 assert alen==2
@@ -189,33 +194,32 @@ assert alen==2
 
 # ## I get advice from the Engine (240 options), based on the latest updates
 
-# In[16]:
+# In[17]:
 
 
 #query = "isa_betterguess_post_g1(CH0,CH1,CH2,CH3)?"
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
 # ## on the desk: I submit my guess n.3; I get a feedback; I update the KB;
 
-# In[17]:
+# In[18]:
 
 
 more_knowledge = '''
-isa_guess(g2, c5, c4, c2, c1).
-isa_fback(g2,b,x,x,x).
-follows(g2,g1,gg).
+isa_guess(g2, c5, c4, c2, c1). isa_fback(g2,b,x,x,x). follows(g2,g1,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
 print('getkbstat:',ansdict)
 
 
-# In[18]:
+# In[19]:
 
 
 query = "isa_validguesswithfb(GN)?"
@@ -225,13 +229,13 @@ print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[19]:
+# In[20]:
 
 
 assert alen==3
 
 
-# In[20]:
+# In[21]:
 
 
 query = "minandmaxg(MINGN,MAXGN)?"
@@ -243,13 +247,13 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 # ## I get advice from the Engine (92 options), based on the latest updates
 
-# In[21]:
+# In[22]:
 
 
-#query = "isa_betterguess_post_g2(CH0,CH1,CH2,CH3)?"
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
@@ -260,9 +264,7 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
 more_knowledge = '''
-isa_guess(g3, c3, c0, c2, c0).
-isa_fback(g3,b,b,b,x).
-follows(g3,g2,gg).
+isa_guess(g3, c3, c0, c2, c0). isa_fback(g3,b,b,b,x). follows(g3,g2,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
@@ -290,10 +292,10 @@ assert alen==4
 # In[26]:
 
 
-query = "isa_betterguess_post_g3(CH0,CH1,CH2,CH3)?"
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
@@ -304,9 +306,7 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
 more_knowledge = '''
-isa_guess(g4, c3, c0, c2, c3).
-isa_fback(g4,b,b,b,x).
-follows(g4,g3,gg).
+isa_guess(g4, c3, c0, c2, c3). isa_fback(g4,b,b,b,x). follows(g4,g3,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
@@ -334,10 +334,10 @@ assert alen==5
 # In[30]:
 
 
-query = "isa_betterguess_post_g4(CH0,CH1,CH2,CH3)?"
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
@@ -348,9 +348,7 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
 more_knowledge = '''
-isa_guess(g5, c3, c0, c2, c4).
-isa_fback(g5,b,b,b,b).
-follows(g5,g4,gg).
+isa_guess(g5, c3, c0, c2, c4). isa_fback(g5,b,b,b,b). follows(g5,g4,gg).
 '''
 es.submitkb(datalog_text=more_knowledge,mode='a')
 ansdict = es.getkbstat()
@@ -378,15 +376,15 @@ assert alen==6
 # In[34]:
 
 
-query = "isa_betterguess_post_g5(CH0,CH1,CH2,CH3)?"
 query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
 ans = es.submitquery(query)
 alen = len(ans['ans'])
+funnel.append(alen)
 print('len(ans):',alen)
 devnull = [ print(a) for a in ans['ans'][0:10] ]
 
 
-# In[38]:
+# In[35]:
 
 
 success = alen==1
@@ -394,6 +392,18 @@ print('success:',success)
 
 
 # ## END - success: secret was (c3, c0, c2, c4)
+
+# In[36]:
+
+
+funnel
+
+
+# In[37]:
+
+
+print(funnel == [1296, 500, 240, 92, 6, 2, 1])
+
 
 # In[ ]:
 

@@ -2,12 +2,12 @@
 
 
 % recursive:
-isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), ming(GN). % g0
-isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), % maxg(HIGHESTGN),
+isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), isthe_first_gid(GN). % g0
+isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3),
 	follows(GN,LOWERGN,gg),
 	isa_validguess_evenafter_gg_upto_gid(LOWERGN,CH0,CH1,CH2,CH3).
 
-isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3), maxg(GN).
+isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3), isthe_latest_gid(GN).
 
 
 

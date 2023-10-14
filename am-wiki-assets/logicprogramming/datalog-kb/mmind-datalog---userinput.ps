@@ -1,10 +1,11 @@
 % mmind-datalog---userinput.ps BEGIN
 
-
-isa_validfb2h(GN,HO,FBCO0) :- isa_fback(GN,FBCO0,FBCO1,FBCO2,FBCO3), HO=h0.
-isa_validfb2h(GN,HO,FBCO1) :- isa_fback(GN,FBCO0,FBCO1,FBCO2,FBCO3), HO=h1.
-isa_validfb2h(GN,HO,FBCO2) :- isa_fback(GN,FBCO0,FBCO1,FBCO2,FBCO3), HO=h2.
-isa_validfb2h(GN,HO,FBCO3) :- isa_fback(GN,FBCO0,FBCO1,FBCO2,FBCO3), HO=h3.
+% FCHn = feedback color hole n
+% HO = hole
+isa_validfb2vert(GN,HO,FCH0) :- isa_fback(GN,FCH0,FCH1,FCH2,FCH3), HO=h0.
+isa_validfb2vert(GN,HO,FCH1) :- isa_fback(GN,FCH0,FCH1,FCH2,FCH3), HO=h1.
+isa_validfb2vert(GN,HO,FCH2) :- isa_fback(GN,FCH0,FCH1,FCH2,FCH3), HO=h2.
+isa_validfb2vert(GN,HO,FCH3) :- isa_fback(GN,FCH0,FCH1,FCH2,FCH3), HO=h3.
 
 
 %% vertical model
@@ -18,7 +19,7 @@ isa_validfb2h(GN,HO,FBCO3) :- isa_fback(GN,FBCO0,FBCO1,FBCO2,FBCO3), HO=h3.
 %isa_fb_vitem(g1,h2,x).
 %isa_fb_vitem(g1,h3,x).
 %isa_validfb_v(GN,HO,FBCO) :- isa_fb_vitem(GN,HO,FBCO), isa(HO,ho), isa(FBCO,fb).
-%isa_validfb_v(GN,HO,FBCO3) should return the same output of isa_validfb2h(GN,HO,FBCO)
+%isa_validfb_v(GN,HO,FCH3) should return the same output of isa_validfb2vert(GN,HO,FBCO)
 
 
 % mmind-datalog---userinput.ps END
