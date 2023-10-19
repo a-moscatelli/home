@@ -9,13 +9,13 @@ isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 
 itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
-isa_validfb2vert(FBTRY, H0P,H0),
-isa_validfb2vert(FBTRY, H1P,H1),
-isa_validfb2vert(FBTRY, H2P,H2),
-isa_validfb2vert(FBTRY, H3P,H3),
-H0P != H1P, H0P != H2P, H0P != H3P,
-H1P != H2P, H1P != H3P,
-H2P != H3P.
+	isa_validfb2vert(FBTRY, H0P,H0),
+	isa_validfb2vert(FBTRY, H1P,H1),
+	isa_validfb2vert(FBTRY, H2P,H2),
+	isa_validfb2vert(FBTRY, H3P,H3),
+	H0P != H1P, H0P != H2P, H0P != H3P,
+	H1P != H2P, H1P != H3P,
+	H2P != H3P.
 
 % projection
 isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3).

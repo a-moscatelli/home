@@ -7,9 +7,9 @@ itertools_product(CH0,CH1,CH2,CH3,CL) :- isa(CH0,CL), isa(CH1,CL), isa(CH2,CL), 
 % reconciliations with python itertools are mentioned below.
 
 offline__itertools_permutations4(CH0,CH1,CH2,CH3,CL) :- itertools_product4(CH0,CH1,CH2,CH3,CL),
-CH0 != CH1, CH0 != CH2, CH0 != CH3,
-CH1 != CH2, CH1 != CH3,
-CH2 != CH3.
+	CH0 != CH1, CH0 != CH2, CH0 != CH3,
+	CH1 != CH2, CH1 != CH3,
+	CH2 != CH3.
 % in python: itertools.permutations(range(6), r=4) %%% sz = 360
 % size of itertools_permutations4(CH0,CH1,CH2,CH3,co) = 360
 % size of itertools_permutations4(CH0,CH1,CH2,CH3,ho) = 24

@@ -9,13 +9,13 @@ isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 
 itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
-isa_validfb2vert(FBTRY, H0P,H0),
-isa_validfb2vert(FBTRY, H1P,H1),
-isa_validfb2vert(FBTRY, H2P,H2),
-isa_validfb2vert(FBTRY, H3P,H3),
-H0P != H1P, H0P != H2P, H0P != H3P,
-H1P != H2P, H1P != H3P,
-H2P != H3P.
+	isa_validfb2vert(FBTRY, H0P,H0),
+	isa_validfb2vert(FBTRY, H1P,H1),
+	isa_validfb2vert(FBTRY, H2P,H2),
+	isa_validfb2vert(FBTRY, H3P,H3),
+	H0P != H1P, H0P != H2P, H0P != H3P,
+	H1P != H2P, H1P != H3P,
+	H2P != H3P.
 
 % projection
 isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3).
@@ -74,17 +74,17 @@ follows(h1,h0,ho). follows(h2,h1,ho). follows(h3,h2,ho).
 
 itertools_product4(CH0,CH1,CH2,CH3,CL) :- isa(CH0,CL), isa(CH1,CL), isa(CH2,CL), isa(CH3,CL).    % sz = 1296 = NOC**NOH
 
-% only valid when at least two items exists, with at least one follows()
+% the rules based on follows are only valid when at least one follows() is defined ie when at least two items exist.
+isNotTheOnly(X1,CL) :- isa(X1,CL), isa(X2,CL), X1 != X2.
+isTheOnly(X0,CL) :- not isNotTheOnly(X0,CL), isa(X0,CL).
 isNotTheFirstOfMany(X2,CL) :- follows(X2,X1,CL).
 isNotTheLastOfMany(X1,CL) :- follows(X2,X1,CL).
 isTheFirst(X1,CL) :- follows(X2,X1,CL), not isNotTheFirstOfMany(X1,CL).
 isTheFirst(X1,CL) :- isTheOnly(X1,CL).
 isTheLast(X2,CL) :- follows(X2,X1,CL), not isNotTheLastOfMany(X2,CL).
 isTheLast(X1,CL) :- isTheOnly(X1,CL).
-isNotTheOnly(X1,CL) :- isa(X1,CL), isa(X2,CL), X1 != X2.
-isTheOnly(X0,CL) :- not isNotTheOnly(X0,CL), isa(X0,CL).
 
-%to test:
+%test case:
 %isa(s0,single).
 
 %isa(d0,duo).
@@ -116,7 +116,7 @@ isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_
 isa_notyet_ruledout_secret(CH0,CH1,CH2,CH3) :- isa_betterguess_post_allg(CH0,CH1,CH2,CH3), isa_validsecret(CH0,CH1,CH2,CH3).
 % if no output, the logic is wrong.
 
-offline_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+%offline_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
 isa_validguess(GN,GC0,GC1,GC2,GC3) :- isa_guess(GN,GC0,GC1,GC2,GC3), isa(GC0,co), isa(GC1,co), isa(GC2,co), isa(GC3,co).
 isa_validfb(GN,FC0,FC1,FC2,FC3) :- isa_fback(GN,FC0,FC1,FC2,FC3), isa(FC0,fb), isa(FC1,fb), isa(FC2,fb), isa(FC3,fb).
 isa_validguesswithfb(GN) :- isa_validguess(GN,GC0,GC1,GC2,GC3), isa_validfb(GN,FC0,FC1,FC2,FC3).

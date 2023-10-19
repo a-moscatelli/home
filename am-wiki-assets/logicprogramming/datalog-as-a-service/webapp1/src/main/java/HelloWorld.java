@@ -29,46 +29,68 @@ import org.json.JSONException;
 public class HelloWorld extends HttpServlet {
 
     // STATEFUL; it is kept across requests by curl.
-    private String kb;
-    private String kb_epoch;
-	private DatalogEngine en;
-    private String qq;
-	private int kb_sz;
+    private String kb_online;
+    private String kb_next;
+    private String kb_epoch; // of kb_next
+    //private String qq; // last query - discontinued.
+	private int kb_sz; // ref. kb_next
+	// NB this is a concurrent system with a shared KB. concurrency APIs are needed to avoid dirty data and results.
+	private DatalogEngine en_online; // used by run_query - run_query will perform an onthefly engine update before running the query if the KB is outdated.
+	private DatalogEngine en_next; // used by prepare_next_engine / submitkb in synchronized mode.
+	
+	
+	private boolean is_kb_outdated() {
+		return en_next != null;
+	}
+	private boolean is_kb_online_or_in_queue() {
+		return (en_online != null) || (en_next != null);
+	}
+	
+	private synchronized void switch_to_latest_engine_if_outdated() {
+		if(is_kb_outdated()) {
+			en_online = en_next;
+			en_next = null;
+			kb_online = kb_next;
+			kb_next = null;
+			System.out.println("INFO switch_to_latest_engine_if_outdated() was done. The next engine is online.");
+		}
+	}
 
-    public void init() throws ServletException {
-        System.out.println("INFO init()");
-        kb = ""; // "Hello World";
-    }
-
-    private synchronized void start_en(String kba_, boolean append) throws DatalogParseException,DatalogValidationException {
-        //assert rd != null;
-        // kb = kb_; too early!
-        System.out.println("INFO start_en() - new kb, size of text = " + kba_.length() + " append = "+append);
-        String xtra = kb.endsWith("\n") ? "" : "\n";
-		String kb_ = append ? kb + xtra + kba_ : kba_;
+    private synchronized void prepare_next_engine(String kba_, boolean append) throws DatalogParseException,DatalogValidationException {
+		// prepare_next_engine() works on kb_next only. kb_next may be empty.
 		
-		DatalogTokenizer tk = new DatalogTokenizer(new StringReader(kb_));
+		// called by doPost()
+        //assert rd != null;
+        // kb_online = kb_; too early!
+        System.out.println("INFO prepare_next_engine() - new KB, size of text = " + kba_.length() + " append = "+append);
+		
+		if(kb_next==null) {kb_next=kb_online;}	// init() ensures that kb_online is never null.
+
+		String xtra = kb_next.endsWith("\n") ? "" : "\n";
+		kb_next = append ? kb_next + xtra + kba_ : kba_;
+		
+		DatalogTokenizer tk = new DatalogTokenizer(new StringReader(kb_next));
         Set<Clause> prog = DatalogParser.parseProgram(tk);
-        System.out.println("INFO start_en() - new kb, size of compiled items = " + prog.size());
-        // AcbDatalog: You can choose what sort of engine you want here.
-        DatalogEngine neweng = SemiNaiveEngine.newEngine();
-        neweng.init(prog);
-		// the new values en, kb and kb_sz are (re)assigned only of the text was parsed successfully.
-		// if not, the previous kb remains.
-        en = neweng;
-        kb = kb_;
 		kb_sz = prog.size();
+        System.out.println("INFO prepare_next_engine() - new KB, size of compiled items = " + kb_sz);
+        // AcbDatalog: You can choose what sort of engine you want here.
+        en_next = SemiNaiveEngine.newEngine();
+        en_next.init(prog);
+		// the new values en_online, kb_online and kb_sz are (re)assigned only of the text was parsed successfully.
+		// if not, the previous kb_online remains.
+        //kb_next = kb_;
 		kb_epoch = Instant.now().toString();
-        System.out.println("INFO start_en() - done.");
+        System.out.println("INFO prepare_next_engine() - done. The next engine is offline but ready to move online.");
     }
 
     private synchronized List<String> run_query(String qs) throws DatalogParseException {
-        qq = qs;
+        //qq = qs;
         DatalogTokenizer tk = new DatalogTokenizer(new StringReader(qs));
         PositiveAtom qa = DatalogParser.parseQuery(tk);
-        assert en != null;
+		switch_to_latest_engine_if_outdated();
+        assert en_online != null;
         assert qa != null;
-        Set<PositiveAtom> results = en.query(qa);
+        Set<PositiveAtom> results = en_online.query(qa);
         List<String> ret = new LinkedList<>();
         for (PositiveAtom result : results) {
             ret.add(result.toString());
@@ -117,6 +139,14 @@ public class HelloWorld extends HttpServlet {
 		return uc;
 	}
 
+
+	// public methods:
+
+    public void init() throws ServletException {
+        System.out.println("INFO init()");
+        kb_online = ""; // "Hello World";
+    }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int rc = 501; // Not Implemented.
 		System.out.println("INFO doPost() starts.");
@@ -161,9 +191,9 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 					rc = 400;
 					try {
 						String kb_ = getPostValue(jsonpayload,"kb"); // jsonpayload.get("kb").toString();
-						if(false) System.out.println("INFO doPost() kb ===\n" + kb_ + "\n===\n");
+						if(false) System.out.println("INFO doPost() KB ===\n" + kb_ + "\n===\n");
 						if(kb_!=null) {
-							start_en(kb_,uc.equals("learnmore"));
+							prepare_next_engine( kb_, uc.equals("learnmore"));
 							setRetMsg(jo,"KB loaded");
 							rc = 201;
 							jo.put("KB size", kb_.length());
@@ -210,7 +240,7 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
        if(uc.equals("kb")) {  // ?uc=query&qs=........
  			rc = 400;
             try {
-				 if(en == null) {
+				if(! is_kb_online_or_in_queue()) {
 					jo.put("uc", uc);
 					jo.put("ans", 0);
 					rc = 204;
@@ -218,7 +248,7 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 				 } else {
 					rc = 200;
 					jo.put("uc", uc);
-					jo.put("ans_kb_text_sz", kb.length());
+					jo.put("ans_kb_text_sz", kb_online.length());
 					jo.put("ans_kb_sz", kb_sz);
 					jo.put("ans_kb_load_epoch", kb_epoch);
 					setRetMsg(jo,"valid KB.");
@@ -230,7 +260,7 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
  
         if(uc.equals("query")) {  // ?uc=query&qs=........
 			rc = 400;
-             if(en != null) {
+             if(is_kb_online_or_in_queue()) {
 				try {
 					String qq_ = getPostParam(postm,"qs");
 					//String qq_ = request.getParameter("qs");
@@ -258,15 +288,21 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 					}
 			 }
         }
+		response.setStatus(rc);
 		out.println(jo);
 		System.out.println("INFO doGet() - http request completed for uc=" + uc);
 		return;		
 
 	}
 
-		/*public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-				System.out.println("INFO - service() called.");
-		}*/
+	/*
+	KEEP THIS COMMENTED - THE SERVLET WILL HANG OTHERWISE
+	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+			// (not called)
+			System.out.println("INFO - service() called.");
+	}
+	*/
+	
 		
 // sample q:
 // tc(X, Y)?
