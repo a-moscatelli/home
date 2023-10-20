@@ -5,8 +5,6 @@
 % varnames:
 % CHn = guess color of hole n
 
-isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
-
 
 itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
 	isa_validfb2vert(FBTRY, H0P,H0),
@@ -25,10 +23,10 @@ isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0
 % isa_feedbackpermut(g0, p1, w, p3, x, p2, w, p0, b)
 % isa_feedbackpermut(g0, p3, x, p0, b, p1, w, p2, w)
 
-
+isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 isa_validguess_evenafter_gid(FBTRY,CH0,CH1,CH2,CH3) :-
-    isa_validguess(FBTRY,GC0,GC1,GC2,GC3),
+    isa_validatedGuess(FBTRY,GC0,GC1,GC2,GC3),
     isa_feedbackpermut(FBTRY, H0, H1, H2, H3),
     isa_solution_exante(CH0,CH1,CH2,CH3),
     isa_121match(GC0,H0,CH0),
@@ -45,14 +43,23 @@ isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX
 %follows(g1,g0,gg). follows(g2,g1,gg). follows(g3,g2,gg). follows(g4,g3,gg). follows(g5,g4,gg). follows(g6,g5,gg). follows(g7,g6,gg). follows(g8,g7,gg). follows(g9,g8,gg).
 
 
-isa(GG,CL) :- isa_guess(GG,_,_,_,_), CL=gg.
-% when a user submits : isa_guess(g0,c0,c0,c0,c1). then you must assume that g0 is a gg.
+isa(GG,CL) :- isa_validatedGuess(GG,_,_,_,_), CL=gg.
+% when a user submits : api_isa_guess(g0,c0,c0,c0,c1). then you must accept that g0 is a gg.
 
 
-isthe_latest_gid(GID) :- isa_validguesswithfb(GID), isTheLast(GID,gg).
-isthe_first_gid(GID) :- isa_validguesswithfb(GID), isTheFirst(GID,gg).
+% gid = guess label (example: g3)
+
+% recursive:
+isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GID,CH0,CH1,CH2,CH3), isa_validatedGuessWithFback(GID), isTheFirst(GID,gg).
+isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GID,CH0,CH1,CH2,CH3),
+	follows(GID,LOWERGID,gg),
+	isa_validguess_evenafter_gg_upto_gid(LOWERGID,CH0,CH1,CH2,CH3).
 
 
-minandmaxg(MINGN,MAXGN) :- isTheFirst(MINGN,gg), isTheLast(MAXGN,gg).
+%offline_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+isa_validatedGuess(GID,GC0,GC1,GC2,GC3) :- api_isa_guess(GID,GC0,GC1,GC2,GC3), isa(GC0,co), isa(GC1,co), isa(GC2,co), isa(GC3,co).
+isa_validatedFback(GID,FC0,FC1,FC2,FC3) :- api_isa_fback(GID,FC0,FC1,FC2,FC3), isa(FC0,fb), isa(FC1,fb), isa(FC2,fb), isa(FC3,fb).
+isa_validatedGuessWithFback(GID) :- isa_validatedGuess(GID,GC0,GC1,GC2,GC3), isa_validatedFback(GID,FC0,FC1,FC2,FC3).
+
 
 % mmind-datalog---bizlogic.ps END

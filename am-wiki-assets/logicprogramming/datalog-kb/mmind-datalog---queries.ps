@@ -1,22 +1,17 @@
 % mmind-datalog---queries.ps BEGIN
 
+% public rules
 
-% recursive:
-isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3), isthe_first_gid(GN). % g0
-isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gid(GN,CH0,CH1,CH2,CH3),
-	follows(GN,LOWERGN,gg),
-	isa_validguess_evenafter_gg_upto_gid(LOWERGN,CH0,CH1,CH2,CH3).
+% reading API:
 
-isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GN,CH0,CH1,CH2,CH3), isthe_latest_gid(GN).
+api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3), isa_validatedGuessWithFback(GID), isTheLast(GID,gg).
+api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3) :- isa_validatedGuess(GID,GC0,GC1,GC2,GC3), isa_validatedFback(GID,FC0,FC1,FC2,FC3).
+api_isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
+% writing API:
 
-
-isa_notyet_ruledout_secret(CH0,CH1,CH2,CH3) :- isa_betterguess_post_allg(CH0,CH1,CH2,CH3), isa_validsecret(CH0,CH1,CH2,CH3).
-% if no output, the logic is wrong.
-
-%offline_isa_validsecret(GC0,GC1,GC2,GC3) :- isa_secret(GC0,GC1,GC2,GC3), isa(GC1,co), isa(GC2,co), isa(GC3,co).
-isa_validguess(GN,GC0,GC1,GC2,GC3) :- isa_guess(GN,GC0,GC1,GC2,GC3), isa(GC0,co), isa(GC1,co), isa(GC2,co), isa(GC3,co).
-isa_validfb(GN,FC0,FC1,FC2,FC3) :- isa_fback(GN,FC0,FC1,FC2,FC3), isa(FC0,fb), isa(FC1,fb), isa(FC2,fb), isa(FC3,fb).
-isa_validguesswithfb(GN) :- isa_validguess(GN,GC0,GC1,GC2,GC3), isa_validfb(GN,FC0,FC1,FC2,FC3).
+%api_isa_fback(GID,FCH0,FCH1,FCH2,FCH3)
+%api_isa_guess(GID,GC0,GC1,GC2,GC3)
+%follows(X2,X1,OC)
 
 % mmind-datalog---queries.ps END

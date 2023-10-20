@@ -13,16 +13,27 @@
 
 
 import requests
-#import json  # for pretty-print with json.dump()
 from time import time  # time() is added to GET requests to prevent any caching
+#import json  # only required for pretty-print with json.dump()
 
 
 # In[3]:
 
 
+datalog_kb_folder = r'M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\logicprogramming\datalog-kb'
+datalog_filename = datalog_kb_folder + '\\mmind-datalog.ps'
+
+servlet_url='http://localhost:8080/HelloWorldu'
+
+
+# In[4]:
+
+
 class ExpertSystem():
+    
     # generic datalog servlet client
-    # servlet_url
+    
+    servlet_url = None
     
     def __init__(self,*,servlet_url):
         self.servlet_url = servlet_url
@@ -36,26 +47,26 @@ class ExpertSystem():
         if mode=='w': uc='learn'
         if mode=='a': uc='learnmore'
         rq = requests.post(self.servlet_url, json = {"uc":uc, "kb":datalog_text})
-        print('reply:',rq.text, rq.ok, rq.status_code)
+        print('reply: success=',rq.ok, 'status_code=',rq.status_code,'text:',rq.text)
         assert rq.status_code==201
         return rq.json()
     
     def getkbstat(self):
         rq = requests.get(self.servlet_url, params = {'uc':'kb',"tm":time()})
-        print('reply:',rq.ok, rq.status_code)
+        print('reply: success=',rq.ok, 'status_code=',rq.status_code)
         assert rq.status_code==200 or rq.status_code==204 
         return rq.json()
     
     def submitquery(self,query):
         rq = requests.get(self.servlet_url, params = {'uc':'query','qs':query,"tm":time()})
-        print('reply:',rq.ok, rq.status_code)
+        print('reply: success=',rq.ok, 'status_code=',rq.status_code)
         assert rq.status_code==200 or rq.status_code==204
         return rq.json()
 
 # https://stackoverflow.com/questions/2965271/how-can-we-force-naming-of-parameters-when-calling-a-function
 
 
-# In[4]:
+# In[5]:
 
 
 class ExpertSystemMasterMind(ExpertSystem):
@@ -64,8 +75,9 @@ class ExpertSystemMasterMind(ExpertSystem):
     
     def learnmore_GuessAndFeedback(self,*,gg,fb):
         skip_follows = '%' if self.guess==0 else ''
-        more_knowledge = "isa_guess(g{0},{1}). isa_fback(g{0},{2}). {3} follows(g{0},g{4},gg).".format(
-            self.guess,gg,fb,skip_follows,self.guess-1)
+        more_knowledge_template = "api_isa_guess(g{0},{1}). api_isa_fback(g{0},{2}). {3} follows(g{0},g{4},gg)."
+        more_knowledge = more_knowledge_template.format(self.guess,gg,fb,skip_follows,self.guess-1)
+        # example: "isa_guess(g1,c0, c5, c5, c5). isa_fback(g1,x,x,x,x).  follows(g1,g0,gg)."
         print('adding:',more_knowledge)
         self.submitkb(datalog_text=more_knowledge,mode='a')
         ansdict = self.getkbstat()
@@ -73,24 +85,48 @@ class ExpertSystemMasterMind(ExpertSystem):
         self.guess += 1
     
     def get_new_advice(self):
-        query = "isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
+        query = "api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?"
         ans = self.submitquery(query)
         alen = len(ans['ans'])
         self.funnel.append(alen)
         print('len(ans):',alen)
         print('first ten:')
         devnull = [ print(a) for a in ans['ans'][0:10] ]
+        return alen
+
+    def print_submitted_guessnfeedbacks(self):
+        query = "api_isa_validguessnfeedback(GN,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3)?"
+        ans = self.submitquery(query)
+        alen = len(ans['ans'])
+        print('len(ans):',alen)
+        devnull = [ print(a) for a in sorted(ans['ans'][0:10]) ]
+        return alen
+
+    def print_initial_possible_solutions(self):
+        query = "api_isa_solution_exante(CH0,CH1,CH2,CH3)?" # 1296
+        ans = self.submitquery(query)
+        alen = len(ans['ans'])
+        print('len(ans):',alen)
+        devnull = [ print(a) for a in sorted(ans['ans'][0:10]) ]
+        return alen
+
+
+# ### conventions
+
+# In[6]:
+
+
+# color codes: c0 c1 c2 c3 c4 c5 = red green blue yellow magenta cyan
+# h0 h h2 h3 = the four holes
+# b = black feedback peg, x = complementary meaning of black
 
 
 # ## I load the initial KNOWLEDGE BASE KB
 
-# In[5]:
+# In[7]:
 
 
-datalog_kb_folder = r'M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\logicprogramming\datalog-kb'
-datalog_filename = datalog_kb_folder + '\\mmind-datalog.ps'
-
-es = ExpertSystemMasterMind(servlet_url='http://localhost:8080/HelloWorldu')
+es = ExpertSystemMasterMind(servlet_url=servlet_url)
 
 es.submitkbfn(datalog_filename=datalog_filename,mode='w')
 ansdict = es.getkbstat()
@@ -98,142 +134,108 @@ print('- getkbstat -') #,ansdict)
 devnull = [ print(k,':',ansdict[k]) for k in ansdict.keys() ]
 
 
-# ## on the game app: I submit my guess n. 1
-# ## I get a feedback.
-# ## I update the KB:
-
-# In[6]:
-
-
-es.learnmore_GuessAndFeedback(gg='c0,c0,c0,c1',fb='b,x,x,x')
-
-
-# ### just testing
-
-# In[7]:
-
-
-query = "minandmaxg(MINGN,MAXGN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
-
+# ## possible solutions at start
 
 # In[8]:
 
 
-assert alen==1
+alen = es.print_initial_possible_solutions()
+assert alen == 6**4
 
 
 # In[9]:
 
 
-query = "isa_solution_exante(CH0,CH1,CH2,CH3)?" # 1296
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-assert alen == 6**4 # == 1296
-devnull = [ print(a) for a in ans['ans'][0:10] ]
+es.funnel.append(alen)
 
+
+# ## on the game app: I submit my guess n. 1 and I get a feedback. I update the KB:
 
 # In[10]:
 
 
-es.funnel.append(alen)
+es.learnmore_GuessAndFeedback(gg='c0,c0,c0,c1',fb='b,x,x,x') # fb='b,o,o,o'
+
+
+# In[11]:
+
+
+alen=es.print_submitted_guessnfeedbacks()
+assert alen==1
 
 
 # ## I get advice from the Engine (500 options out of 1296), based on the latest updates
 
-# In[11]:
+# In[12]:
 
 
 es.get_new_advice()
 
 
-# ## on the game app: I submit my guess n. 2
-# ## I get a feedback.
-# ## I update the KB:
-
-# In[12]:
-
-
-es.learnmore_GuessAndFeedback(gg='c0, c5, c5, c5',fb='x,x,x,x')
-
-
-# ### just testing
+# ## on the game app: I submit my guess n. 2 and I get a feedback. I update the KB:
 
 # In[13]:
 
 
-query = "minandmaxg(MINGN,MAXGN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
+es.learnmore_GuessAndFeedback(gg='c0, c5, c5, c5',fb='x,x,x,x') # fb='w,o,o,o'
 
 
 # In[14]:
 
 
-query = "isa_validguesswithfb(GN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
-
-
-# In[15]:
-
-
+alen=es.print_submitted_guessnfeedbacks()
 assert alen==2
 
 
 # ## I get advice from the Engine (240 options), based on the latest updates
 
-# In[16]:
+# In[15]:
 
 
 es.get_new_advice()
 
 
-# ## on the game app: I submit my guess n. 3
-# ## I get a feedback.
-# ## I update the KB:
+# ## on the game app: I submit my guess n. 3 and I get a feedback. I update the KB:
+
+# In[16]:
+
+
+es.learnmore_GuessAndFeedback(gg='c5, c4, c2, c1',fb='b,x,x,x') # fb='b,w,o,o'
+
+
+# ## I get advice from the Engine (92 options), based on the latest updates
 
 # In[17]:
 
 
-es.learnmore_GuessAndFeedback(gg='c5, c4, c2, c1',fb='b,x,x,x')
+es.get_new_advice()
 
+
+# ## on the game app: I submit my guess n. 4 and I get a feedback. I update the KB:
 
 # In[18]:
 
 
-query = "isa_validguesswithfb(GN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
+es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c0',fb='b,b,b,x') # fb='b,b,b,o'
 
+
+# ## I get advice from the Engine (6 options), based on the latest updates
 
 # In[19]:
 
 
-assert alen==3
+es.get_new_advice()
 
+
+# ## on the game app: I submit my guess n. 5 and I get a feedback. I update the KB:
 
 # In[20]:
 
 
-query = "minandmaxg(MINGN,MAXGN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
+es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c3',fb='b,b,b,x') # fb='b,b,b,o'
 
 
-# ## I get advice from the Engine (92 options), based on the latest updates
+# ## I get advice from the Engine (4 options), based on the latest updates
 
 # In[21]:
 
@@ -241,129 +243,53 @@ devnull = [ print(a) for a in ans['ans'][0:10] ]
 es.get_new_advice()
 
 
-# ## on the game app: I submit my guess n. 4
-# ## I get a feedback.
-# ## I update the KB:
+# ## on the game app: I submit my guess n. 6 and I get a feedback. I update the KB:
 
 # In[22]:
 
 
-es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c0',fb='b,b,b,x')
+es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c4',fb='b,b,b,b') # fb='b,b,b,b'
 
+
+# ## I get advice from the Engine (1 option), based on the latest updates
 
 # In[23]:
 
 
-query = "isa_validguesswithfb(GN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
+alen=es.get_new_advice()
 
 
 # In[24]:
 
 
-assert alen==4
-
-
-# ## I get advice from the Engine (6 options), based on the latest updates
-
-# In[25]:
-
-
-es.get_new_advice()
-
-
-# ## on the game app: I submit my guess n. 5
-# ## I get a feedback.
-# ## I update the KB:
-
-# In[26]:
-
-
-es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c3',fb='b,b,b,x')
-
-
-# In[27]:
-
-
-query = "isa_validguesswithfb(GN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
-
-
-# In[28]:
-
-
-assert alen==5
-
-
-# ## I get advice from the Engine (4 options), based on the latest updates
-
-# In[29]:
-
-
-es.get_new_advice()
-
-
-# ## on the game app: I submit my guess n. 6
-# ## I get a feedback.
-# ## I update the KB:
-
-# In[30]:
-
-
-es.learnmore_GuessAndFeedback(gg='c3, c0, c2, c4',fb='b,b,b,b')
-
-
-# ### just testing
-
-# In[31]:
-
-
-query = "isa_validguesswithfb(GN)?"
-ans = es.submitquery(query)
-alen = len(ans['ans'])
-print('len(ans):',alen)
-devnull = [ print(a) for a in ans['ans'][0:10] ]
-
-
-# In[32]:
-
-
-assert alen==6
-
-
-# ## I get advice from the Engine (1 option), based on the latest updates
-
-# In[33]:
-
-
-es.get_new_advice()
-
-
-# In[34]:
-
-
-success = alen==1
+success = alen == 1
 print('success:',success)
 
 
 # ## END - success: secret was (c3, c0, c2, c4)
 
-# In[35]:
+# In[25]:
 
 
 es.funnel
 
 
-# In[36]:
+# In[26]:
 
 
 print(es.funnel == [1296, 500, 240, 92, 6, 2, 1])
+
+
+# In[27]:
+
+
+alen=es.print_submitted_guessnfeedbacks()
+
+
+# In[28]:
+
+
+assert alen==6 and success
 
 
 # In[ ]:

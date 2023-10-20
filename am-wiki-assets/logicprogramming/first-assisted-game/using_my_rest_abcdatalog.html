@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>using_my_rest_abcdatalog</title><script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=qL8c7BwObRPNb52_FygGMfmq0gJ9R1hznbAFEitUPczmTLocFu3HZ4bsghNedVulpdrmIEckwanuHhmTMyZivQ3_y-6-rqRrrGobHEyJQR2wlZo-SDWqJYjZNdjAkUPD9niFpInYVeRa4MoBlWWuLEaSE_xNGvW3tuiSZ8J4uns" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4ODg4L25iY29udmVydC9odG1sL2RhdGFsb2ctbWFzdGVybWluZC91c2luZ19teV9yZXN0X2FiY2RhdGFsb2cuaXB5bmI_ZG93bmxvYWQ9dHJ1ZQ"/><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>using_my_rest_abcdatalog</title><script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ag79pmfDySz_grt-KGvuW9BqF2PbcS8aYOvQeCagfkhW3R_lEpEQ-RSiwbcV0gBEcKulKop5Nx4ma55Jdz-f9Vp9aTCuO4N5a9OoUOLUkiuT8sw9JnHUlsJzV7aBvf3JkfDsT9GCkl6c6pyCKTuiQ-K7oZbDEdVYtpDNT3hbKuQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4ODg4L25iY29udmVydC9odG1sL2RhdGFsb2ctbWFzdGVybWluZC91c2luZ19teV9yZXN0X2FiY2RhdGFsb2cuaXB5bmI_ZG93bmxvYWQ9dHJ1ZQ"/><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14599,8 +14599,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="c1">#import json  # for pretty-print with json.dump()</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>  <span class="c1"># time() is added to GET requests to prevent any caching</span>
+<span class="c1">#import json  # only required for pretty-print with json.dump()</span>
 </pre></div>
 
      </div>
@@ -14616,9 +14616,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datalog_kb_folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\logicprogramming\datalog-kb&#39;</span>
+<span class="n">datalog_filename</span> <span class="o">=</span> <span class="n">datalog_kb_folder</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">mmind-datalog.ps&#39;</span>
+
+<span class="n">servlet_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080/HelloWorldu&#39;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ExpertSystem</span><span class="p">():</span>
+    
     <span class="c1"># generic datalog servlet client</span>
-    <span class="c1"># servlet_url</span>
+    
+    <span class="n">servlet_url</span> <span class="o">=</span> <span class="kc">None</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">servlet_url</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">servlet_url</span> <span class="o">=</span> <span class="n">servlet_url</span>
@@ -14632,19 +14653,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="k">if</span> <span class="n">mode</span><span class="o">==</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">uc</span><span class="o">=</span><span class="s1">&#39;learn&#39;</span>
         <span class="k">if</span> <span class="n">mode</span><span class="o">==</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">uc</span><span class="o">=</span><span class="s1">&#39;learnmore&#39;</span>
         <span class="n">rq</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servlet_url</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;uc&quot;</span><span class="p">:</span><span class="n">uc</span><span class="p">,</span> <span class="s2">&quot;kb&quot;</span><span class="p">:</span><span class="n">datalog_text</span><span class="p">})</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply:&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply: success=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="s1">&#39;status_code=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span><span class="s1">&#39;text:&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="o">==</span><span class="mi">201</span>
         <span class="k">return</span> <span class="n">rq</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     
     <span class="k">def</span> <span class="nf">getkbstat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">rq</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servlet_url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uc&#39;</span><span class="p">:</span><span class="s1">&#39;kb&#39;</span><span class="p">,</span><span class="s2">&quot;tm&quot;</span><span class="p">:</span><span class="n">time</span><span class="p">()})</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply:&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply: success=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="s1">&#39;status_code=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="o">==</span><span class="mi">200</span> <span class="ow">or</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="o">==</span><span class="mi">204</span> 
         <span class="k">return</span> <span class="n">rq</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     
     <span class="k">def</span> <span class="nf">submitquery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">query</span><span class="p">):</span>
         <span class="n">rq</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">servlet_url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uc&#39;</span><span class="p">:</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;qs&#39;</span><span class="p">:</span><span class="n">query</span><span class="p">,</span><span class="s2">&quot;tm&quot;</span><span class="p">:</span><span class="n">time</span><span class="p">()})</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply:&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reply: success=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="s1">&#39;status_code=&#39;</span><span class="p">,</span><span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="o">==</span><span class="mi">200</span> <span class="ow">or</span> <span class="n">rq</span><span class="o">.</span><span class="n">status_code</span><span class="o">==</span><span class="mi">204</span>
         <span class="k">return</span> <span class="n">rq</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
@@ -14661,7 +14682,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">ExpertSystemMasterMind</span><span class="p">(</span><span class="n">ExpertSystem</span><span class="p">):</span>
@@ -14670,8 +14691,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     
     <span class="k">def</span> <span class="nf">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">gg</span><span class="p">,</span><span class="n">fb</span><span class="p">):</span>
         <span class="n">skip_follows</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">guess</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
-        <span class="n">more_knowledge</span> <span class="o">=</span> <span class="s2">&quot;isa_guess(g</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{1}</span><span class="s2">). isa_fback(g</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{2}</span><span class="s2">). </span><span class="si">{3}</span><span class="s2"> follows(g</span><span class="si">{0}</span><span class="s2">,g</span><span class="si">{4}</span><span class="s2">,gg).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">guess</span><span class="p">,</span><span class="n">gg</span><span class="p">,</span><span class="n">fb</span><span class="p">,</span><span class="n">skip_follows</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">guess</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">more_knowledge_template</span> <span class="o">=</span> <span class="s2">&quot;api_isa_guess(g</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{1}</span><span class="s2">). api_isa_fback(g</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{2}</span><span class="s2">). </span><span class="si">{3}</span><span class="s2"> follows(g</span><span class="si">{0}</span><span class="s2">,g</span><span class="si">{4}</span><span class="s2">,gg).&quot;</span>
+        <span class="n">more_knowledge</span> <span class="o">=</span> <span class="n">more_knowledge_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">guess</span><span class="p">,</span><span class="n">gg</span><span class="p">,</span><span class="n">fb</span><span class="p">,</span><span class="n">skip_follows</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">guess</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># example: &quot;isa_guess(g1,c0, c5, c5, c5). isa_fback(g1,x,x,x,x).  follows(g1,g0,gg).&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adding:&#39;</span><span class="p">,</span><span class="n">more_knowledge</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">submitkb</span><span class="p">(</span><span class="n">datalog_text</span><span class="o">=</span><span class="n">more_knowledge</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
         <span class="n">ansdict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getkbstat</span><span class="p">()</span>
@@ -14679,13 +14701,59 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
         <span class="bp">self</span><span class="o">.</span><span class="n">guess</span> <span class="o">+=</span> <span class="mi">1</span>
     
     <span class="k">def</span> <span class="nf">get_new_advice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?&quot;</span>
         <span class="n">ans</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
         <span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">funnel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alen</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;first ten:&#39;</span><span class="p">)</span>
         <span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">alen</span>
+
+    <span class="k">def</span> <span class="nf">print_submitted_guessnfeedbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;api_isa_validguessnfeedback(GN,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3)?&quot;</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
+        <span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">alen</span>
+
+    <span class="k">def</span> <span class="nf">print_initial_possible_solutions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;api_isa_solution_exante(CH0,CH1,CH2,CH3)?&quot;</span> <span class="c1"># 1296</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
+        <span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">alen</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="conventions">conventions<a class="anchor-link" href="#conventions">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># color codes: c0 c1 c2 c3 c4 c5 = red green blue yellow magenta cyan</span>
+<span class="c1"># h0 h h2 h3 = the four holes</span>
+<span class="c1"># b = black feedback peg, x = complementary meaning of black</span>
 </pre></div>
 
      </div>
@@ -14709,13 +14777,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datalog_kb_folder</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;M:\DEV\github__a_moscatelli\repositories\home\am-wiki-assets\logicprogramming\datalog-kb&#39;</span>
-<span class="n">datalog_filename</span> <span class="o">=</span> <span class="n">datalog_kb_folder</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">mmind-datalog.ps&#39;</span>
-
-<span class="n">es</span> <span class="o">=</span> <span class="n">ExpertSystemMasterMind</span><span class="p">(</span><span class="n">servlet_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8080/HelloWorldu&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span> <span class="o">=</span> <span class="n">ExpertSystemMasterMind</span><span class="p">(</span><span class="n">servlet_url</span><span class="o">=</span><span class="n">servlet_url</span><span class="p">)</span>
 
 <span class="n">es</span><span class="o">.</span><span class="n">submitkbfn</span><span class="p">(</span><span class="n">datalog_filename</span><span class="o">=</span><span class="n">datalog_filename</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="n">ansdict</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">getkbstat</span><span class="p">()</span>
@@ -14742,13 +14807,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: {&#34;KB size&#34;:5325,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learn&#34;}
- True 201
-reply: True 200
+<pre>reply: success= True status_code= 201 text: {&#34;KB size&#34;:5505,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learn&#34;}
+
+reply: success= True status_code= 200
 - getkbstat -
-ans_kb_text_sz : 0
-ans_kb_load_epoch : 2023-10-19T03:58:38.986Z
-ans_kb_sz : 45
+ans_kb_text_sz : 5990
+ans_kb_load_epoch : 2023-10-20T08:27:35.207Z
+ans_kb_sz : 43
 ret_msg : valid KB.
 uc : kb
 </pre>
@@ -14766,7 +14831,7 @@ uc : kb
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-1">on the game app: I submit my guess n. 1<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-1">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
+<h2 id="possible-solutions-at-start">possible solutions at start<a class="anchor-link" href="#possible-solutions-at-start">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14775,10 +14840,11 @@ uc : kb
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c0,c0,c0,c1&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,x,x,x&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">print_initial_possible_solutions</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">alen</span> <span class="o">==</span> <span class="mi">6</span><span class="o">**</span><span class="mi">4</span>
 </pre></div>
 
      </div>
@@ -14800,17 +14866,40 @@ uc : kb
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g0,c0,c0,c0,c1). isa_fback(g0,b,x,x,x). % follows(g0,g-1,gg).
-reply: {&#34;KB size&#34;:71,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 0, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:39.133Z&#39;, &#39;ans_kb_sz&#39;: 47, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
+<pre>reply: success= True status_code= 200
+len(ans): 1296
+api_isa_solution_exante(c0, c5, c1, c0)
+api_isa_solution_exante(c1, c4, c3, c2)
+api_isa_solution_exante(c2, c4, c1, c3)
+api_isa_solution_exante(c3, c1, c1, c4)
+api_isa_solution_exante(c3, c4, c3, c2)
+api_isa_solution_exante(c3, c5, c4, c1)
+api_isa_solution_exante(c3, c5, c4, c4)
+api_isa_solution_exante(c4, c4, c0, c5)
+api_isa_solution_exante(c4, c5, c1, c0)
+api_isa_solution_exante(c5, c3, c0, c4)
 </pre>
 </div>
 </div>
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alen</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
@@ -14820,127 +14909,11 @@ getkbstat: {&#39;ans_kb_text_sz&#39;: 0, &#39;ans_kb_load_epoch&#39;: &#39;2023-
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="just-testing">just testing<a class="anchor-link" href="#just-testing">&#182;</a></h3>
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-1-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 1 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-1-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;minandmaxg(MINGN,MAXGN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 1
-minandmaxg(g0, g0)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">1</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_solution_exante(CH0,CH1,CH2,CH3)?&quot;</span> <span class="c1"># 1296</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">alen</span> <span class="o">==</span> <span class="mi">6</span><span class="o">**</span><span class="mi">4</span> <span class="c1"># == 1296</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 1296
-isa_solution_exante(c5, c4, c2, c4)
-isa_solution_exante(c5, c4, c5, c1)
-isa_solution_exante(c3, c4, c3, c1)
-isa_solution_exante(c0, c4, c2, c3)
-isa_solution_exante(c5, c4, c5, c4)
-isa_solution_exante(c2, c1, c1, c5)
-isa_solution_exante(c0, c4, c5, c3)
-isa_solution_exante(c3, c5, c1, c3)
-isa_solution_exante(c5, c0, c4, c2)
-isa_solution_exante(c5, c4, c0, c2)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14948,12 +14921,81 @@ isa_solution_exante(c5, c4, c0, c2)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alen</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c0,c0,c0,c1&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,x,x,x&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;b,o,o,o&#39;</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>adding: api_isa_guess(g0,c0,c0,c0,c1). api_isa_fback(g0,b,x,x,x). % follows(g0,g-1,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:79,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5505, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:35.446Z&#39;, &#39;ans_kb_sz&#39;: 45, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">1</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>reply: success= True status_code= 200
+len(ans): 1
+api_isa_validguessnfeedback(g0, c0, c0, c0, c1, b, x, x, x)
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14972,7 +15014,7 @@ isa_solution_exante(c5, c4, c0, c2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -14997,75 +15039,35 @@ isa_solution_exante(c5, c4, c0, c2)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
+<pre>reply: success= True status_code= 200
 len(ans): 500
 first ten:
-isa_validguess_evenafter_all_gg(c0, c1, c3, c5)
-isa_validguess_evenafter_all_gg(c2, c0, c5, c2)
-isa_validguess_evenafter_all_gg(c0, c1, c2, c3)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
-isa_validguess_evenafter_all_gg(c0, c1, c5, c3)
-isa_validguess_evenafter_all_gg(c5, c1, c2, c1)
-isa_validguess_evenafter_all_gg(c5, c1, c5, c1)
-isa_validguess_evenafter_all_gg(c0, c5, c3, c0)
-isa_validguess_evenafter_all_gg(c2, c2, c0, c4)
-isa_validguess_evenafter_all_gg(c0, c5, c1, c2)
+api_isa_validguess_evenafter_all_gg(c2, c0, c4, c4)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
+api_isa_validguess_evenafter_all_gg(c0, c5, c2, c5)
+api_isa_validguess_evenafter_all_gg(c0, c1, c5, c2)
+api_isa_validguess_evenafter_all_gg(c5, c4, c0, c3)
+api_isa_validguess_evenafter_all_gg(c3, c5, c5, c1)
+api_isa_validguess_evenafter_all_gg(c1, c0, c3, c0)
+api_isa_validguess_evenafter_all_gg(c0, c5, c1, c3)
+api_isa_validguess_evenafter_all_gg(c4, c1, c0, c0)
+api_isa_validguess_evenafter_all_gg(c5, c0, c1, c4)
 </pre>
 </div>
 </div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-2">on the game app: I submit my guess n. 2<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-2">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c0, c5, c5, c5&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;x,x,x,x&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g1,c0, c5, c5, c5). isa_fback(g1,x,x,x,x).  follows(g1,g0,gg).
-reply: {&#34;KB size&#34;:72,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 5397, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:39.556Z&#39;, &#39;ans_kb_sz&#39;: 50, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>500</pre>
 </div>
+
 </div>
 
 </div>
@@ -15079,7 +15081,7 @@ getkbstat: {&#39;ans_kb_text_sz&#39;: 5397, &#39;ans_kb_load_epoch&#39;: &#39;20
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="just-testing">just testing<a class="anchor-link" href="#just-testing">&#182;</a></h3>
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-2-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 2 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-2-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15091,11 +15093,7 @@ getkbstat: {&#39;ans_kb_text_sz&#39;: 5397, &#39;ans_kb_load_epoch&#39;: &#39;20
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;minandmaxg(MINGN,MAXGN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c0, c5, c5, c5&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;x,x,x,x&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;w,o,o,o&#39;</span>
 </pre></div>
 
      </div>
@@ -15117,9 +15115,11 @@ getkbstat: {&#39;ans_kb_text_sz&#39;: 5397, &#39;ans_kb_load_epoch&#39;: &#39;20
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 1
-minandmaxg(g0, g1)
+<pre>adding: api_isa_guess(g1,c0, c5, c5, c5). api_isa_fback(g1,x,x,x,x).  follows(g1,g0,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5585, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:35.715Z&#39;, &#39;ans_kb_sz&#39;: 48, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
 </pre>
 </div>
 </div>
@@ -15136,11 +15136,8 @@ minandmaxg(g0, g1)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguesswithfb(GN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">2</span>
 </pre></div>
 
      </div>
@@ -15162,32 +15159,16 @@ minandmaxg(g0, g1)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
+<pre>reply: success= True status_code= 200
 len(ans): 2
-isa_validguesswithfb(g1)
-isa_validguesswithfb(g0)
+api_isa_validguessnfeedback(g0, c0, c0, c0, c1, b, x, x, x)
+api_isa_validguessnfeedback(g1, c0, c5, c5, c5, x, x, x, x)
 </pre>
 </div>
 </div>
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">2</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
@@ -15206,7 +15187,7 @@ isa_validguesswithfb(g0)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15231,21 +15212,35 @@ isa_validguesswithfb(g0)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
+<pre>reply: success= True status_code= 200
 len(ans): 240
 first ten:
-isa_validguess_evenafter_all_gg(c4, c4, c3, c1)
-isa_validguess_evenafter_all_gg(c1, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c2, c1, c1, c1)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
-isa_validguess_evenafter_all_gg(c5, c1, c2, c1)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c3)
-isa_validguess_evenafter_all_gg(c2, c2, c0, c4)
-isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c4, c1, c0, c0)
-isa_validguess_evenafter_all_gg(c4, c0, c1, c3)
+api_isa_validguess_evenafter_all_gg(c2, c0, c4, c4)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
+api_isa_validguess_evenafter_all_gg(c2, c2, c0, c4)
+api_isa_validguess_evenafter_all_gg(c5, c4, c0, c3)
+api_isa_validguess_evenafter_all_gg(c1, c0, c3, c0)
+api_isa_validguess_evenafter_all_gg(c4, c1, c0, c0)
+api_isa_validguess_evenafter_all_gg(c4, c0, c3, c0)
+api_isa_validguess_evenafter_all_gg(c1, c1, c0, c0)
+api_isa_validguess_evenafter_all_gg(c4, c0, c1, c2)
+api_isa_validguess_evenafter_all_gg(c5, c0, c1, c4)
 </pre>
 </div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>240</pre>
+</div>
+
 </div>
 
 </div>
@@ -15259,7 +15254,7 @@ isa_validguess_evenafter_all_gg(c4, c0, c1, c3)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-3">on the game app: I submit my guess n. 3<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-3">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-3-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 3 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-3-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15268,10 +15263,10 @@ isa_validguess_evenafter_all_gg(c4, c0, c1, c3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c5, c4, c2, c1&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,x,x,x&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c5, c4, c2, c1&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,x,x,x&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;b,w,o,o&#39;</span>
 </pre></div>
 
      </div>
@@ -15293,119 +15288,11 @@ isa_validguess_evenafter_all_gg(c4, c0, c1, c3)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g2,c5, c4, c2, c1). isa_fback(g2,b,x,x,x).  follows(g2,g1,gg).
-reply: {&#34;KB size&#34;:72,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 5470, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:39.904Z&#39;, &#39;ans_kb_sz&#39;: 53, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
-</pre>
-</div>
-</div>
+<pre>adding: api_isa_guess(g2,c5, c4, c2, c1). api_isa_fback(g2,b,x,x,x).  follows(g2,g1,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguesswithfb(GN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 3
-isa_validguesswithfb(g1)
-isa_validguesswithfb(g2)
-isa_validguesswithfb(g0)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">3</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;minandmaxg(MINGN,MAXGN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 1
-minandmaxg(g0, g2)
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5666, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:36.032Z&#39;, &#39;ans_kb_sz&#39;: 51, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
 </pre>
 </div>
 </div>
@@ -15422,6 +15309,262 @@ minandmaxg(g0, g2)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="I-get-advice-from-the-Engine-(92-options),-based-on-the-latest-updates">I get advice from the Engine (92 options), based on the latest updates<a class="anchor-link" href="#I-get-advice-from-the-Engine-(92-options),-based-on-the-latest-updates">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>reply: success= True status_code= 200
+len(ans): 92
+first ten:
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
+api_isa_validguess_evenafter_all_gg(c2, c3, c1, c1)
+api_isa_validguess_evenafter_all_gg(c5, c3, c0, c4)
+api_isa_validguess_evenafter_all_gg(c1, c2, c4, c1)
+api_isa_validguess_evenafter_all_gg(c3, c3, c3, c1)
+api_isa_validguess_evenafter_all_gg(c5, c0, c1, c4)
+api_isa_validguess_evenafter_all_gg(c3, c1, c1, c1)
+api_isa_validguess_evenafter_all_gg(c3, c3, c1, c1)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
+api_isa_validguess_evenafter_all_gg(c4, c2, c3, c1)
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>92</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-4-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 4 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-4-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c0&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,x&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;b,b,b,o&#39;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>adding: api_isa_guess(g3,c3, c0, c2, c0). api_isa_fback(g3,b,b,b,x).  follows(g3,g2,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5747, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:36.301Z&#39;, &#39;ans_kb_sz&#39;: 54, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="I-get-advice-from-the-Engine-(6-options),-based-on-the-latest-updates">I get advice from the Engine (6 options), based on the latest updates<a class="anchor-link" href="#I-get-advice-from-the-Engine-(6-options),-based-on-the-latest-updates">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>reply: success= True status_code= 200
+len(ans): 6
+first ten:
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
+api_isa_validguess_evenafter_all_gg(c2, c0, c2, c0)
+api_isa_validguess_evenafter_all_gg(c1, c0, c2, c0)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c3)
+api_isa_validguess_evenafter_all_gg(c4, c0, c2, c0)
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>6</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-5-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 5 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-5-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c3&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,x&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;b,b,b,o&#39;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>adding: api_isa_guess(g4,c3, c0, c2, c3). api_isa_fback(g4,b,b,b,x).  follows(g4,g3,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5828, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:36.568Z&#39;, &#39;ans_kb_sz&#39;: 57, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="I-get-advice-from-the-Engine-(4-options),-based-on-the-latest-updates">I get advice from the Engine (4 options), based on the latest updates<a class="anchor-link" href="#I-get-advice-from-the-Engine-(4-options),-based-on-the-latest-updates">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15455,21 +15598,27 @@ minandmaxg(g0, g2)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 92
+<pre>reply: success= True status_code= 200
+len(ans): 2
 first ten:
-isa_validguess_evenafter_all_gg(c5, c3, c0, c0)
-isa_validguess_evenafter_all_gg(c2, c3, c3, c1)
-isa_validguess_evenafter_all_gg(c5, c3, c0, c2)
-isa_validguess_evenafter_all_gg(c1, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
-isa_validguess_evenafter_all_gg(c2, c1, c1, c1)
-isa_validguess_evenafter_all_gg(c5, c3, c0, c3)
-isa_validguess_evenafter_all_gg(c4, c3, c1, c1)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 </pre>
 </div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2</pre>
+</div>
+
 </div>
 
 </div>
@@ -15483,7 +15632,7 @@ isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-4">on the game app: I submit my guess n. 4<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-4">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
+<h2 id="on-the-game-app:-I-submit-my-guess-n.-6-and-I-get-a-feedback.-I-update-the-KB:">on the game app: I submit my guess n. 6 and I get a feedback. I update the KB:<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-6-and-I-get-a-feedback.-I-update-the-KB:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15495,7 +15644,7 @@ isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c0&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,x&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c4&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,b&#39;</span><span class="p">)</span> <span class="c1"># fb=&#39;b,b,b,b&#39;</span>
 </pre></div>
 
      </div>
@@ -15517,443 +15666,17 @@ isa_validguess_evenafter_all_gg(c2, c0, c2, c2)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g3,c3, c0, c2, c0). isa_fback(g3,b,b,b,x).  follows(g3,g2,gg).
-reply: {&#34;KB size&#34;:72,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 5543, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:40.342Z&#39;, &#39;ans_kb_sz&#39;: 56, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
+<pre>adding: api_isa_guess(g5,c3, c0, c2, c4). api_isa_fback(g5,b,b,b,b).  follows(g5,g4,gg).
+reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+
+reply: success= True status_code= 200
+getkbstat: {&#39;ans_kb_text_sz&#39;: 5909, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-20T08:27:36.956Z&#39;, &#39;ans_kb_sz&#39;: 60, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
 </pre>
 </div>
 </div>
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguesswithfb(GN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 4
-isa_validguesswithfb(g1)
-isa_validguesswithfb(g3)
-isa_validguesswithfb(g2)
-isa_validguesswithfb(g0)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">4</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="I-get-advice-from-the-Engine-(6-options),-based-on-the-latest-updates">I get advice from the Engine (6 options), based on the latest updates<a class="anchor-link" href="#I-get-advice-from-the-Engine-(6-options),-based-on-the-latest-updates">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 6
-first ten:
-isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c4, c0, c2, c0)
-isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
-isa_validguess_evenafter_all_gg(c1, c0, c2, c0)
-isa_validguess_evenafter_all_gg(c2, c0, c2, c0)
-isa_validguess_evenafter_all_gg(c3, c0, c2, c3)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-5">on the game app: I submit my guess n. 5<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-5">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c3&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,x&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g4,c3, c0, c2, c3). isa_fback(g4,b,b,b,x).  follows(g4,g3,gg).
-reply: {&#34;KB size&#34;:72,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 5616, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:40.706Z&#39;, &#39;ans_kb_sz&#39;: 59, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguesswithfb(GN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 5
-isa_validguesswithfb(g1)
-isa_validguesswithfb(g4)
-isa_validguesswithfb(g3)
-isa_validguesswithfb(g2)
-isa_validguesswithfb(g0)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">5</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="I-get-advice-from-the-Engine-(4-options),-based-on-the-latest-updates">I get advice from the Engine (4 options), based on the latest updates<a class="anchor-link" href="#I-get-advice-from-the-Engine-(4-options),-based-on-the-latest-updates">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 2
-first ten:
-isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
-isa_validguess_evenafter_all_gg(c3, c0, c2, c2)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="on-the-game-app:-I-submit-my-guess-n.-6">on the game app: I submit my guess n. 6<a class="anchor-link" href="#on-the-game-app:-I-submit-my-guess-n.-6">&#182;</a></h2><h2 id="I-get-a-feedback.">I get a feedback.<a class="anchor-link" href="#I-get-a-feedback.">&#182;</a></h2><h2 id="I-update-the-KB:">I update the KB:<a class="anchor-link" href="#I-update-the-KB:">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="s1">&#39;c3, c0, c2, c4&#39;</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,b&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>adding: isa_guess(g5,c3, c0, c2, c4). isa_fback(g5,b,b,b,b).  follows(g5,g4,gg).
-reply: {&#34;KB size&#34;:72,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
- True 201
-reply: True 200
-getkbstat: {&#39;ans_kb_text_sz&#39;: 5689, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-19T03:58:41.076Z&#39;, &#39;ans_kb_sz&#39;: 62, &#39;ret_msg&#39;: &#39;valid KB.&#39;, &#39;uc&#39;: &#39;kb&#39;}
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="just-testing">just testing<a class="anchor-link" href="#just-testing">&#182;</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;isa_validguesswithfb(GN)?&quot;</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitquery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;len(ans):&#39;</span><span class="p">,</span><span class="n">alen</span><span class="p">)</span>
-<span class="n">devnull</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[</span><span class="s1">&#39;ans&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
-len(ans): 6
-isa_validguesswithfb(g5)
-isa_validguesswithfb(g1)
-isa_validguesswithfb(g4)
-isa_validguesswithfb(g3)
-isa_validguesswithfb(g2)
-isa_validguesswithfb(g0)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">6</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
@@ -15972,10 +15695,10 @@ isa_validguesswithfb(g0)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15997,10 +15720,10 @@ isa_validguesswithfb(g0)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>reply: True 200
+<pre>reply: success= True status_code= 200
 len(ans): 1
 first ten:
-isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
+api_isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 </pre>
 </div>
 </div>
@@ -16014,10 +15737,10 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">alen</span><span class="o">==</span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="n">alen</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;success:&#39;</span><span class="p">,</span><span class="n">success</span><span class="p">)</span>
 </pre></div>
 
@@ -16040,7 +15763,7 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>success: False
+<pre>success: True
 </pre>
 </div>
 </div>
@@ -16065,7 +15788,7 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span>
@@ -16086,7 +15809,7 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -16106,7 +15829,7 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1296</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -16138,6 +15861,68 @@ isa_validguess_evenafter_all_gg(c3, c0, c2, c4)
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>reply: success= True status_code= 200
+len(ans): 6
+api_isa_validguessnfeedback(g0, c0, c0, c0, c1, b, x, x, x)
+api_isa_validguessnfeedback(g1, c0, c5, c5, c5, x, x, x, x)
+api_isa_validguessnfeedback(g2, c5, c4, c2, c1, b, x, x, x)
+api_isa_validguessnfeedback(g3, c3, c0, c2, c0, b, b, b, x)
+api_isa_validguessnfeedback(g4, c3, c0, c2, c3, b, b, b, x)
+api_isa_validguessnfeedback(g5, c3, c0, c2, c4, b, b, b, b)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">alen</span><span class="o">==</span><span class="mi">6</span> <span class="ow">and</span> <span class="n">success</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
