@@ -4,8 +4,13 @@
 
 % reading API:
 
-api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3), isa_validatedGuessWithFback(GID), isTheLast(GID,gg).
-api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3) :- isa_validatedGuess(GID,GC0,GC1,GC2,GC3), isa_validatedFback(GID,FC0,FC1,FC2,FC3).
+api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- 
+	isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3), 
+	isa_validatedGuessWithFback(GID), 
+	isTheLast(GID,gg).
+api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3) :- 
+	isa_validatedGuess(GID,GC0,GC1,GC2,GC3), 
+	isa_validatedFback(GID,FC0,FC1,FC2,FC3).
 api_isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 % writing API:

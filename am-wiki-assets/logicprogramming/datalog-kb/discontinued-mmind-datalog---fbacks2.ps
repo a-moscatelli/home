@@ -1,0 +1,28 @@
+% discontinued-mmind-datalog---readlbacks.ps BEGIN
+
+% api_isa_fback2(GN,F0,F1,F2,F3)?
+api_isa_fback2(g0,b,o,o,o).
+api_isa_fback2(g1,w,o,o,o).
+api_isa_fback2(g2,b,w,o,o).
+api_isa_fback2(g3,b,b,b,o).
+%api_isa_fback2(g4,b,b,b,o).
+%api_isa_fback2(g5,b,b,b,b).
+
+%isa_transposed_fback2_of_gid(GID,HO,FCH0) :- api_isa_fback2(GID,FCH0,FCH1,FCH2,FCH3), HO=h0.
+%isa_transposed_fback2_of_gid(GID,HO,FCH1) :- api_isa_fback2(GID,FCH0,FCH1,FCH2,FCH3), HO=h1.
+%isa_transposed_fback2_of_gid(GID,HO,FCH2) :- api_isa_fback2(GID,FCH0,FCH1,FCH2,FCH3), HO=h2.
+%isa_transposed_fback2_of_gid(GID,HO,FCH3) :- api_isa_fback2(GID,FCH0,FCH1,FCH2,FCH3), HO=h3.
+
+% api_isa_guess(GN,C0,C1,C2,C3)?
+api_isa_guess(g0, c0, c0, c0, c1).
+api_isa_guess(g1, c0, c5, c5, c5).
+api_isa_guess(g2, c5, c4, c2, c1).
+api_isa_guess(g3, c3, c0, c2, c0).
+%api_isa_guess(g4, c3, c0, c2, c3).
+%api_isa_guess(g5, c3, c0, c2, c4).
+% with the first 4 I should have 6 options
+
+
+
+% discontinued-mmind-datalog---readlbacks.ps END
+

@@ -6,17 +6,17 @@
 % CHn = guess color of hole n
 
 
-itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
-	isa_validfb2vert(FBTRY, H0P,H0),
-	isa_validfb2vert(FBTRY, H1P,H1),
-	isa_validfb2vert(FBTRY, H2P,H2),
-	isa_validfb2vert(FBTRY, H3P,H3),
+itertools_permutations_fb(GID, H0P,H0, H1P,H1, H2P,H2, H3P,H3) :-
+	isa_validfb2vert(GID, H0P,H0),
+	isa_validfb2vert(GID, H1P,H1),
+	isa_validfb2vert(GID, H2P,H2),
+	isa_validfb2vert(GID, H3P,H3),
 	H0P != H1P, H0P != H2P, H0P != H3P,
 	H1P != H2P, H1P != H3P,
 	H2P != H3P.
 
 % projection
-isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0, H1P,H1, H2P,H2, H3P,H3).
+isa_feedbackpermut(GID,H0,H1,H2,H3) :- itertools_permutations_fb(GID, H0P,H0, H1P,H1, H2P,H2, H3P,H3).
 
 % head(3):
 % isa_feedbackpermut(g0, p3, x, p1, w, p0, b, p2, w)
@@ -25,17 +25,33 @@ isa_feedbackpermut(FBTRY,H0,H1,H2,H3) :- itertools_permutations_fb(FBTRY, H0P,H0
 
 isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
-isa_validguess_evenafter_gid(FBTRY,CH0,CH1,CH2,CH3) :-
-    isa_validatedGuess(FBTRY,GC0,GC1,GC2,GC3),
-    isa_feedbackpermut(FBTRY, H0, H1, H2, H3),
+isa_validguess_evenafter_gid(GID,CH0,CH1,CH2,CH3) :-
+    isa_validatedGuess(GID,GC0,GC1,GC2,GC3),
+    isa_feedbackpermut(GID, H0, H1, H2, H3),
     isa_solution_exante(CH0,CH1,CH2,CH3),
     isa_121match(GC0,H0,CH0),
     isa_121match(GC1,H1,CH1),
     isa_121match(GC2,H2,CH2),
-    isa_121match(GC3,H3,CH3).
+    isa_121match(GC3,H3,CH3),
+    isa_12anymatch(GC0,H0,CH0,CH1,CH2,CH3),
+    isa_12anymatch(GC1,H1,CH0,CH1,CH2,CH3),
+    isa_12anymatch(GC2,H2,CH0,CH1,CH2,CH3),
+    isa_12anymatch(GC3,H3,CH0,CH1,CH2,CH3).
 
 isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX  = CHX, HX=b.
-isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX=x.
+isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX=w.
+isa_121match(GCX,HX,CHX) :- isa(GCX,co), isa(HX,fb), isa(CHX,co), GCX != CHX, HX=o.
+
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=w, GCX  = CH0, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=w, GCX  = CH1, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=w, GCX  = CH2, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=w, GCX  = CH3, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=b, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+isa_12anymatch(GCX,HX,CH0,CH1,CH2,CH3) :- HX=o, isa_solution_exante(CH0,CH1,CH2,CH3), isa(GCX,co).
+
+%is_empty_excluded(CH0,CH1,CH2,CH3,) :-
+
+
 % mutex/mutexex on HX
 
 % this ordering is just used to enable the AND logic across all the guessnfeedbacks in the main query isa_validguess_evenafter_gg_upto_gid(.)
@@ -70,7 +86,8 @@ isa(h0,ho). isa(h1,ho). isa(h2,ho). isa(h3,ho).
 %peg colors:
 isa(c0,co). isa(c1,co). isa(c2,co). isa(c3,co). isa(c4,co). isa(c5,co).
 %feedback peg colors:
-isa(b,fb). isa(x,fb). % isa(x,fb). isa(x,fb).
+%isa(b,fb). isa(x,fb). % isa(x,fb). isa(x,fb).
+isa(b,fb). isa(w,fb). isa(o,fb). % isa(x,fb). isa(x,fb).
 
 % sequencing
 follows(h1,h0,ho). follows(h2,h1,ho). follows(h3,h2,ho).
@@ -115,8 +132,13 @@ isTheLast(X1,OC) :- isTheOnly(X1,OC).
 
 % reading API:
 
-api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3), isa_validatedGuessWithFback(GID), isTheLast(GID,gg).
-api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3) :- isa_validatedGuess(GID,GC0,GC1,GC2,GC3), isa_validatedFback(GID,FC0,FC1,FC2,FC3).
+api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3) :- 
+	isa_validguess_evenafter_gg_upto_gid(GID,CH0,CH1,CH2,CH3), 
+	isa_validatedGuessWithFback(GID), 
+	isTheLast(GID,gg).
+api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3) :- 
+	isa_validatedGuess(GID,GC0,GC1,GC2,GC3), 
+	isa_validatedFback(GID,FC0,FC1,FC2,FC3).
 api_isa_solution_exante(CH0,CH1,CH2,CH3) :- itertools_product4(CH0,CH1,CH2,CH3,co).
 
 % writing API:
