@@ -32,6 +32,7 @@ public class HelloWorld extends HttpServlet {
     private String kb_online;
     private String kb_next;
     private String kb_epoch; // of kb_next
+	private Object mutex = new Object();
     //private String qq; // last query - discontinued.
 	private int kb_sz; // ref. kb_next
 	// NB this is a concurrent system with a shared KB. concurrency APIs are needed to avoid dirty data and results.
@@ -46,7 +47,7 @@ public class HelloWorld extends HttpServlet {
 		return (en_online != null) || (en_next != null);
 	}
 	
-	private synchronized void switch_to_latest_engine_if_outdated() {
+	private void switch_to_latest_engine_if_outdated() {
 		if(is_kb_outdated()) {
 			en_online = en_next;
 			en_next = null;
@@ -56,7 +57,7 @@ public class HelloWorld extends HttpServlet {
 		}
 	}
 
-    private synchronized void prepare_next_engine(String kba_, boolean append) throws DatalogParseException,DatalogValidationException {
+    private void prepare_next_engine(String kba_, boolean append) throws DatalogParseException,DatalogValidationException {
 		// prepare_next_engine() works on kb_next only. kb_next may be empty.
 		
 		// called by doPost()
@@ -83,7 +84,7 @@ public class HelloWorld extends HttpServlet {
         System.out.println("INFO prepare_next_engine() - done. The next engine is offline but ready to move online.");
     }
 
-    private synchronized List<String> run_query(String qs) throws DatalogParseException {
+    private List<String> run_query(String qs) throws DatalogParseException {
         //qq = qs;
         DatalogTokenizer tk = new DatalogTokenizer(new StringReader(qs));
         PositiveAtom qa = DatalogParser.parseQuery(tk);
@@ -110,7 +111,7 @@ public class HelloWorld extends HttpServlet {
 		System.out.println("ERROR15 - setRetMsg - " + exj); }
     }
 	
-	private synchronized JSONObject getJsonPayload(BufferedReader reader) {
+	private JSONObject getJsonPayload(BufferedReader reader) {
 		// https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data
 		StringBuffer jb = new StringBuffer();
 		String line = null;
@@ -130,7 +131,7 @@ public class HelloWorld extends HttpServlet {
 		return jsonpayload;
 	}
 
-	private synchronized String getPostValue(JSONObject jsonpayload, String key) {
+	private String getPostValue(JSONObject jsonpayload, String key) {
 		String uc=null;
 		try { uc = jsonpayload.get(key).toString(); } catch(JSONException je) {
 			System.out.println("INFO getPostValue() " + key + " = " + je);
@@ -147,6 +148,12 @@ public class HelloWorld extends HttpServlet {
         kb_online = ""; // "Hello World";
     }
 
+	// https://www.geeksforgeeks.org/rest-api-introduction/
+	// https://docs.couchdb.org/en/stable/intro/api.html#databases
+	// https://docs.couchdb.org/en/stable/intro/api.html#documents
+	
+	// https://www.baeldung.com/java-mutex
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int rc = 501; // Not Implemented.
 		System.out.println("INFO doPost() starts.");
@@ -160,14 +167,6 @@ public class HelloWorld extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         
 		JSONObject jo = new JSONObject();  // https://www.baeldung.com/java-org-json
-		/*
-        Map<String,String[]> postm = request.getParameterMap();
-        String uc = getPostParam(postm,"uc");
-		String height = request.getParameter("uc");
-		String fromQuery2 = request.getParameterValues("name")[0];
-		String[] fromForm2 = request.getParameterValues("kb");
-		*/
-		
 		String uc = getPostValue(jsonpayload,"uc");
 		try {
 			jo.put("uc", uc);
@@ -193,7 +192,11 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 						String kb_ = getPostValue(jsonpayload,"kb"); // jsonpayload.get("kb").toString();
 						if(false) System.out.println("INFO doPost() KB ===\n" + kb_ + "\n===\n");
 						if(kb_!=null) {
-							prepare_next_engine( kb_, uc.equals("learnmore"));
+							
+							synchronized (mutex) {
+								prepare_next_engine( kb_, uc.equals("learnmore"));
+							}
+							
 							setRetMsg(jo,"KB loaded");
 							rc = 201;
 							jo.put("KB size", kb_.length());
@@ -225,7 +228,7 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
-		System.out.println("INFO doGet() starts.");
+		//System.out.println("INFO doGet() starts.");
         //String httpmet = request.getMethod().toUpperCase(); // toUpperCase is redundant.
         //System.out.println("HTTP Method = " + httpmet);
         //assert httpmet.equals("POST");
@@ -240,53 +243,57 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
        if(uc.equals("kb")) {  // ?uc=query&qs=........
  			rc = 400;
             try {
-				if(! is_kb_online_or_in_queue()) {
-					jo.put("uc", uc);
-					jo.put("ans", 0);
-					rc = 204;
-					setRetMsg(jo,"no KB.");
-				 } else {
-					rc = 200;
-					jo.put("uc", uc);
-					jo.put("ans_kb_text_sz", kb_online.length());
-					jo.put("ans_kb_sz", kb_sz);
-					jo.put("ans_kb_load_epoch", kb_epoch);
-					setRetMsg(jo,"valid KB.");
-				 }
-				} catch(JSONException exj) {
-					System.out.println("ERROR12 - uc=" + uc + " " + exj);
+				synchronized (mutex) {
+					if(! is_kb_online_or_in_queue()) {
+						jo.put("uc", uc);
+						jo.put("ans", 0);
+						rc = 204;
+						setRetMsg(jo,"no KB.");
+					 } else {
+						rc = 200;
+						jo.put("uc", uc);
+						jo.put("ans_kb_text_sz", kb_online.length());
+						jo.put("ans_kb_sz", kb_sz);
+						jo.put("ans_kb_load_epoch", kb_epoch);
+						setRetMsg(jo,"valid KB.");
+					 }
 				}
+			} catch(JSONException exj) {
+				System.out.println("ERROR12 - uc=" + uc + " " + exj);
+			}
 		}
  
         if(uc.equals("query")) {  // ?uc=query&qs=........
 			rc = 400;
-             if(is_kb_online_or_in_queue()) {
-				try {
-					String qq_ = getPostParam(postm,"qs");
-					//String qq_ = request.getParameter("qs");
-					List<String> ss = new LinkedList<>();
-					ss = run_query(qq_);
-					int sz = ss.size();
-					jo.put("uc", uc);
-					jo.put("qs", qq_);
-					jo.put("ans_sz", sz);
-					jo.put("ans", ss);
-					setRetMsg(jo,"query executed.");
-					rc = sz==0 ? 204 : 200;
-				} catch(DatalogParseException exp) {
-					setRetMsg(jo,exp.toString());
-				} catch(JSONException exj) {
-					System.out.println("ERROR13 - uc=" + uc + " " + exj);
-				}
-			 } else {
-					setRetMsg(jo,"query not executed because no KB was loaded.");
-					rc = 404; // not found
+			synchronized (mutex) {
+				 if(is_kb_online_or_in_queue()) {
 					try {
-						jo.put("uc", uc);				 
+						String qq_ = getPostParam(postm,"qs");
+						//String qq_ = request.getParameter("qs");
+						List<String> ss = new LinkedList<>();
+						ss = run_query(qq_);
+						int sz = ss.size();
+						jo.put("uc", uc);
+						jo.put("qs", qq_);
+						jo.put("ans_sz", sz);
+						jo.put("ans", ss);
+						setRetMsg(jo,"query executed.");
+						rc = sz==0 ? 204 : 200;
+					} catch(DatalogParseException exp) {
+						setRetMsg(jo,exp.toString());
 					} catch(JSONException exj) {
-						System.out.println("ERROR14 - uc=" + uc + " " + exj);
+						System.out.println("ERROR13 - uc=" + uc + " " + exj);
 					}
-			 }
+				 } else {
+						setRetMsg(jo,"query not executed because no KB was loaded.");
+						rc = 404; // not found
+						try {
+							jo.put("uc", uc);				 
+						} catch(JSONException exj) {
+							System.out.println("ERROR14 - uc=" + uc + " " + exj);
+						}
+				 }
+			}
         }
 		response.setStatus(rc);
 		out.println(jo);
