@@ -154,9 +154,69 @@ public class HelloWorld extends HttpServlet {
 	
 	// https://www.baeldung.com/java-mutex
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		long epocha = System.currentTimeMillis(); // doDelete
+		System.out.println("INFO doDelete() starts at "+ epocha);
+
+		//	 curl -X DELETE http://localhost:8080/AbcDatalogREST	// implemented
+
+
 		int rc = 501; // Not Implemented.
-		System.out.println("INFO doPost() starts.");
+		//Instant ta = Instant.now(); // doPost
+		
+        PrintWriter out = response.getWriter();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
+        
+		JSONObject jo = new JSONObject();  // https://www.baeldung.com/java-org-json
+		
+		rc = 500;
+		try {
+			String kb_ = "";
+			if(kb_!=null) {		
+				synchronized (mutex) {
+					prepare_next_engine( kb_, false);
+				}
+				rc = 200;
+				setRetMsg(jo,"KB deleted");
+				jo.put("KB size", kb_.length());
+
+			} else {
+				rc = 204;
+				setRetMsg(jo,"KB null and not deleted.");							
+			}
+			long epochz = System.currentTimeMillis(); jo.put("elapsed_ms", epochz-epocha);	// doDelete
+			System.out.println("doDelete: elapsed_ms: " + epocha + " > " + epochz + " = " + (epochz-epocha));
+			
+		} catch(JSONException exj) {
+			System.out.println("ERROR77 - " + exj);
+			setRetMsg(jo,exj.toString());
+		} catch(DatalogParseException ex1) {
+			System.out.println("ERROR70 - " + ex1);
+			setRetMsg(jo,ex1.toString());
+		} catch(DatalogValidationException ex2) {
+			System.out.println("ERROR71 - " + ex2);
+			setRetMsg(jo,ex2.toString());
+		} catch (Exception eee) {
+			System.out.println("ERROR76 - " + eee);
+		}
+        
+		response.setStatus(rc);	
+		out.println(jo);
+		System.out.println("INFO doDelete() - http request completed");
+		return;
+		
+	}
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//	 curl -X POST -H "Content-Type: application/json" -d '{"kb":"isa(a,b)."}' http://localhost:8080/AbcDatalogREST		implemented.
+		
+		int rc = 501; // Not Implemented.
+		//Instant ta = Instant.now(); // doPost
+		long epocha = System.currentTimeMillis(); // doPost
+		System.out.println("INFO doPost() starts at "+ epocha);
 		// https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data
 		//request.getReader()
 		BufferedReader reader = request.getReader();
@@ -167,7 +227,10 @@ public class HelloWorld extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         
 		JSONObject jo = new JSONObject();  // https://www.baeldung.com/java-org-json
-		String uc = getPostValue(jsonpayload,"uc");
+		
+		//String uc = getPostValue(jsonpayload,"uc");
+		String uc = "learnmore";
+
 		try {
 			jo.put("uc", uc);
 		} catch(JSONException exj) {
@@ -186,6 +249,7 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 
 // edge(a, b). edge(b, c). edge(c, d). edge(d, c). tc(X, Y) :- edge(X, Y). tc(X, Y) :- tc(X, Z), tc(Z, Y).
 		
+		
 		if(uc.equals("learn") || uc.equals("learnmore")) {  // ?uc=learn&kb=........
 					rc = 400;
 					try {
@@ -203,6 +267,8 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 						} else {
 							setRetMsg(jo,"KB null and not loaded.");							
 						}
+						long epochz = System.currentTimeMillis(); jo.put("elapsed_ms", epochz-epocha); // doPost learn || learnmore
+						System.out.println("doPost: uc="+uc+" elapsed_ms: " + epocha + " > " + epochz + " = " + (epochz-epocha));
 					} catch(JSONException exj) {
 						System.out.println("ERROR17 - uc=" + uc + " " + exj);
 						setRetMsg(jo,exj.toString());
@@ -224,8 +290,19 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+		//  curl http://localhost:8080/AbcDatalogREST/		// not yet implemented this way.
+		//  curl http://localhost:8080/AbcDatalogREST?rule=isa(X,Y)					// not yet implemented this way.
+		//  curl http://localhost:8080/AbcDatalogREST/_query?rule=isa(X,Y)			// not yet implemented this way.
+		
 		int rc = 501; // Not Implemented.
-        PrintWriter out = response.getWriter();
+		long epocha = System.currentTimeMillis(); // doGet
+		System.out.println("INFO doGet() starts at "+ epocha+ " for "+ request.getRequestURI() + " and " + request.getQueryString() + " and "+ request.getRequestURL());
+        // INFO doGet() starts at 1698570206572 for /AbcDatalogREST and uc=kb&tm=1698570206.5624733 and http://localhost:8080/AbcDatalogREST
+		// INFO doGet() starts at 1698570208207 for /AbcDatalogREST and uc=query&qs=api_isa_validguessnfeedback%28GID%2CGC0%2CGC1%2
+		
+		PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
 		//System.out.println("INFO doGet() starts.");
@@ -237,10 +314,13 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
         // https://docs.oracle.com/javaee/5/api/javax/servlet/ServletRequest.html#getParameter(java.lang.String)
         // The keys in the parameter map are of type String. The values in the parameter map are of type String array.
 
-        String uc = getPostParam(postm,"uc");
-		System.out.println("INFO doGet() starts with uc=" + uc);
+        //String uc = getPostParam(postm,"uc");
+		String uc = getPostParam(postm,"rule");
+		
+		System.out.println("INFO doGet() starts with rule=" + uc);
 
-       if(uc.equals("kb")) {  // ?uc=query&qs=........
+       if(request.getQueryString().equals("")) {  // ?uc=query&qs=........
+       //if(uc.equals("rule")) {  // ?uc=query&qs=........
  			rc = 400;
             try {
 				synchronized (mutex) {
@@ -261,14 +341,13 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 			} catch(JSONException exj) {
 				System.out.println("ERROR12 - uc=" + uc + " " + exj);
 			}
-		}
- 
-        if(uc.equals("query")) {  // ?uc=query&qs=........
+		} else if(! uc.equals("")) {  // ?uc=query&qs=........
 			rc = 400;
 			synchronized (mutex) {
 				 if(is_kb_online_or_in_queue()) {
 					try {
-						String qq_ = getPostParam(postm,"qs");
+						String qq_ = uc; // getPostParam(postm,"qs");
+						//System.out.println("ERROR12 - uc=" + uc + " " + exj);
 						//String qq_ = request.getParameter("qs");
 						List<String> ss = new LinkedList<>();
 						ss = run_query(qq_);
@@ -288,13 +367,19 @@ tc(X, Y) :- tc(X, Z), tc(Z, Y).
 						setRetMsg(jo,"query not executed because no KB was loaded.");
 						rc = 404; // not found
 						try {
-							jo.put("uc", uc);				 
+							jo.put("uc", uc);
 						} catch(JSONException exj) {
 							System.out.println("ERROR14 - uc=" + uc + " " + exj);
 						}
 				 }
 			}
         }
+		try {
+			long epochz = System.currentTimeMillis();	jo.put("elapsed_ms", epochz-epocha);	// doGet query
+			System.out.println("doGet: uc="+uc+" elapsed_ms: " + epocha + " > " + epochz + " = " + (epochz-epocha));
+		} catch(JSONException exj) {
+			System.out.println("ERROR84 - uc=" + uc + " " + exj);
+		}
 		response.setStatus(rc);
 		out.println(jo);
 		System.out.println("INFO doGet() - http request completed for uc=" + uc);

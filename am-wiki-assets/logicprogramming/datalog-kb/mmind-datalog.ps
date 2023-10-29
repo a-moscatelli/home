@@ -98,15 +98,20 @@ follows(h1,h0,ho). follows(h2,h1,ho). follows(h3,h2,ho).
 
 % OC = class
 
-itertools_product4(X0,X1,X2,X3,OC) :- isa(X0,OC), isa(X1,OC), isa(X2,OC), isa(X3,OC).    % sz = 1296 = NOC**NOH
+
+itertools_product3(X0,X1,X2,OC) :- isa(X0,OC), isa(X1,OC), isa(X2,OC).
+itertools_product4(X0,X1,X2,X3,OC) :- isa(X3,OC), itertools_product3(X0,X1,X2,OC).    % sz = 1296 = NOC**NOH
+itertools_product5(X0,X1,X2,X3,X4,OC) :- isa(X4,OC), itertools_product4(X0,X1,X2,X3,OC).
 
 % the rules based on follows are only valid when at least one follows() is defined ie when at least two items exist.
 isNotTheOnly(X1,OC) :- isa(X1,OC), isa(X2,OC), X1 != X2.
 isTheOnly(X0,OC) :- not isNotTheOnly(X0,OC), isa(X0,OC).
 isNotTheFirst(X2,OC) :- follows(X2,X1,OC).
 isNotTheLast(X1,OC) :- follows(X2,X1,OC).
+
 isTheFirst(X1,OC) :- follows(X2,X1,OC), not isNotTheFirst(X1,OC).
 isTheFirst(X1,OC) :- isTheOnly(X1,OC).
+
 isTheLast(X2,OC) :- follows(X2,X1,OC), not isNotTheLast(X2,OC).
 isTheLast(X1,OC) :- isTheOnly(X1,OC).
 
