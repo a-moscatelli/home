@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>using_my_rest_abcdatalog_as_an_assistant_game2</title><script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LDRqPiuCXXU0C9B5mrbRVk_Ez7Kv5yKhcZAFPNp7HJami8WWTN0fXJ7obnr5Mzafeg-Tzs9UTd_ADrXseAhn5Brty7yGAHQ4qo55aUX_FW_MLJPZjftxM3mpsGPJg9tiis5CYZA8ng1HKBrFRcPXSYWtseH6T58SLjH5BDXiE7T1rc7xLOmGL_pTXwHmgFKq" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4ODg4L25iY29udmVydC9odG1sL2RhdGFsb2ctbWFzdGVybWluZC91c2luZ19teV9yZXN0X2FiY2RhdGFsb2dfYXNfYW5fYXNzaXN0YW50X2dhbWUyLmlweW5iP2Rvd25sb2FkPXRydWU"/><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>using_my_rest_abcdatalog_as_an_assistant_game2</title><script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Bua7Xe8DjTYYtLUzej4JKAJLpm3u_mFdXTXt5g7y7EPUMsJ2sY9hbGt9fAVJ3lkPGPd0qu18-jFTyoOP48s9yQb8iOxu7-Yuv8T3rSIDMl_6GLdkBXl4Ba8bQO0x0jaU3hDiAG_8U_FDtJCVjTa7Z95jKDPvkrcdXXsy2clDSGTpPnNrObV5zmXW_R5nEIdH" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cDovL2xvY2FsaG9zdDo4ODg4L25iY29udmVydC9odG1sL2RhdGFsb2ctbWFzdGVybWluZC91c2luZ19teV9yZXN0X2FiY2RhdGFsb2dfYXNfYW5fYXNzaXN0YW50X2dhbWUyLmlweW5iP2Rvd25sb2FkPXRydWU"/><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14761,7 +14761,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span> <span class="o">=</span> <span class="n">ExpertSystemMasterMindAssistant</span><span class="p">(</span><span class="n">servlet_url</span><span class="o">=</span><span class="n">servlet_url</span><span class="p">)</span>
-
+<span class="n">es</span><span class="o">.</span><span class="n">resetkb</span><span class="p">()</span> <span class="c1"># as the server might have a non empty KB!</span>
 <span class="n">es</span><span class="o">.</span><span class="n">submitkbfn</span><span class="p">(</span><span class="n">datalog_filename</span><span class="o">=</span><span class="n">datalog_filename</span><span class="p">)</span>
 <span class="n">ansdict</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">getkbstat</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- getkbstat -&#39;</span><span class="p">)</span> <span class="c1">#,ansdict)</span>
@@ -14787,16 +14787,16 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>delete reply: success= True status_code= 200 text: {&#34;KB size&#34;:0,&#34;elapsed_ms&#34;:0,&#34;ret_msg&#34;:&#34;KB deleted&#34;}
+<pre>delete reply: success= True status_code= 200 text: {&#34;KB size&#34;:0,&#34;elapsed_ms&#34;:15,&#34;ret_msg&#34;:&#34;KB deleted&#34;}
 
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:6659,&#34;elapsed_ms&#34;:347,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:6659,&#34;elapsed_ms&#34;:332,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6740,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:13:54.439Z&#34;,&#34;ans_kb_sz&#34;:53,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6660,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:01.418Z&#34;,&#34;ans_kb_sz&#34;:53,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
 - getkbstat -
 elapsed_ms : 0
-ans_kb_text_sz : 6740
-ans_kb_load_epoch : 2023-10-30T01:13:54.439Z
+ans_kb_text_sz : 6660
+ans_kb_load_epoch : 2023-10-30T14:09:01.418Z
 ans_kb_sz : 53
 ret_msg : valid KB.
 </pre>
@@ -14878,7 +14878,7 @@ api_isa_solution_exante(c0, c0, c1, c3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#assert False</span>
@@ -14905,7 +14905,7 @@ api_isa_solution_exante(c0, c0, c1, c3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">guess1</span> <span class="o">=</span> <span class="s1">&#39;c0,c0,c1,c1&#39;</span>
@@ -14932,11 +14932,11 @@ api_isa_solution_exante(c0, c0, c1, c3)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g0,c0,c0,c1,c1). api_isa_fback(g0,b,o,o,o). % follows(g0,g-1,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:79,&#34;elapsed_ms&#34;:1302,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:79,&#34;elapsed_ms&#34;:1118,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6660,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:14:07.270Z&#34;,&#34;ans_kb_sz&#34;:55,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6660,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:02.775Z&#34;,&#34;ans_kb_sz&#34;:55,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6660, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:14:07.270Z&#39;, &#39;ans_kb_sz&#39;: 55, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6660, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:02.775Z&#39;, &#39;ans_kb_sz&#39;: 55, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -14950,7 +14950,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6660, &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
@@ -14977,7 +14977,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6660, &#39;
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 24
+submitquery get reply: success= True status_code= 200 elapsed_ms: 15
 len(ans): 1
 ans.head 100 :
 ===
@@ -15007,7 +15007,7 @@ api_isa_validguessnfeedback(g0, c0, c0, c1, c1, b, o, o, o)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15033,7 +15033,7 @@ api_isa_validguessnfeedback(g0, c0, c0, c1, c1, b, o, o, o)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 15
+submitquery get reply: success= True status_code= 200 elapsed_ms: 0
 len(ans): 500
 ans.head 10 :
 ===
@@ -15061,7 +15061,7 @@ api_isa_validguess_evenafter_all_gg(c0, c1, c2, c5)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nextguess</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">util_take_an_option</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mesok&#39;</span><span class="p">)</span>
@@ -15095,7 +15095,7 @@ api_isa_validguess_evenafter_all_gg(c0, c1, c2, c5)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -15126,7 +15126,7 @@ api_isa_validguess_evenafter_all_gg(c0, c1, c2, c5)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="n">nextguess</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,w,o,o&#39;</span><span class="p">)</span>
@@ -15152,11 +15152,11 @@ api_isa_validguess_evenafter_all_gg(c0, c1, c2, c5)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g1,c1, c4, c3, c1). api_isa_fback(g1,b,w,o,o).  follows(g1,g0,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:3411,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:3955,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6740,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:15:25.343Z&#34;,&#34;ans_kb_sz&#34;:58,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6740,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:07.062Z&#34;,&#34;ans_kb_sz&#34;:58,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6740, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:15:25.343Z&#39;, &#39;ans_kb_sz&#39;: 58, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6740, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:07.062Z&#39;, &#39;ans_kb_sz&#39;: 58, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -15170,7 +15170,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6740, &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
@@ -15197,7 +15197,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6740, &#39;
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 22
+submitquery get reply: success= True status_code= 200 elapsed_ms: 15
 len(ans): 2
 ans.head 100 :
 ===
@@ -15228,7 +15228,7 @@ api_isa_validguessnfeedback(g1, c1, c4, c3, c1, b, w, o, o)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15293,7 +15293,7 @@ api_isa_validguess_evenafter_all_gg(c0, c4, c4, c3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ctime(time())</span>
@@ -15328,7 +15328,7 @@ api_isa_validguess_evenafter_all_gg(c0, c4, c4, c3)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -15348,7 +15348,7 @@ api_isa_validguess_evenafter_all_gg(c0, c4, c4, c3)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="n">nextguess</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;w,w,o,o&#39;</span><span class="p">)</span>
@@ -15374,11 +15374,11 @@ api_isa_validguess_evenafter_all_gg(c0, c4, c4, c3)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g2,c1, c3, c1, c2). api_isa_fback(g2,w,w,o,o).  follows(g2,g1,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:9587,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:7911,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6821,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:16:20.574Z&#34;,&#34;ans_kb_sz&#34;:61,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6821,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:15.142Z&#34;,&#34;ans_kb_sz&#34;:61,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6821, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:16:20.574Z&#39;, &#39;ans_kb_sz&#39;: 61, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6821, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:15.142Z&#39;, &#39;ans_kb_sz&#39;: 61, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -15392,7 +15392,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6821, &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ctime(time()) # 7s later</span>
@@ -15419,7 +15419,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6821, &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15473,7 +15473,7 @@ api_isa_validguess_evenafter_all_gg(c2, c1, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ctime(time()) # 0s later</span>
@@ -15508,7 +15508,7 @@ api_isa_validguess_evenafter_all_gg(c2, c1, c4, c1)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
 
 
@@ -15539,7 +15539,7 @@ api_isa_validguess_evenafter_all_gg(c2, c1, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="n">nextguess</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,w,o,o&#39;</span><span class="p">)</span>
@@ -15565,11 +15565,11 @@ api_isa_validguess_evenafter_all_gg(c2, c1, c4, c1)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g3,c2, c5, c2, c1). api_isa_fback(g3,b,w,o,o).  follows(g3,g2,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:10829,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:9268,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:16,&#34;ans_kb_text_sz&#34;:6902,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:17:06.666Z&#34;,&#34;ans_kb_sz&#34;:64,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6902,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:24.595Z&#34;,&#34;ans_kb_sz&#34;:64,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 16, &#39;ans_kb_text_sz&#39;: 6902, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:17:06.666Z&#39;, &#39;ans_kb_sz&#39;: 64, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6902, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:24.595Z&#39;, &#39;ans_kb_sz&#39;: 64, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -15594,7 +15594,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 16, &#39;ans_kb_text_sz&#39;: 6902, &#39
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15620,7 +15620,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 16, &#39;ans_kb_text_sz&#39;: 6902, &#39
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 16
+submitquery get reply: success= True status_code= 200 elapsed_ms: 0
 len(ans): 16
 ans.head 10 :
 ===
@@ -15648,7 +15648,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c5, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nextguess</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">util_take_an_option</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mesok&#39;</span><span class="p">)</span>
@@ -15682,7 +15682,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c5, c1)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -15713,7 +15713,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c5, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="n">nextguess</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,o&#39;</span><span class="p">)</span>
@@ -15739,11 +15739,11 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c5, c1)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g4,c5, c2, c4, c1). api_isa_fback(g4,b,b,b,o).  follows(g4,g3,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:12256,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:15596,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6983,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:17:54.960Z&#34;,&#34;ans_kb_sz&#34;:67,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:6983,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:40.313Z&#34;,&#34;ans_kb_sz&#34;:67,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6983, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:17:54.960Z&#39;, &#39;ans_kb_sz&#39;: 67, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6983, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:40.313Z&#39;, &#39;ans_kb_sz&#39;: 67, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -15768,7 +15768,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6983, &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15794,7 +15794,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 6983, &#39;
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 16
+submitquery get reply: success= True status_code= 200 elapsed_ms: 0
 len(ans): 5
 ans.head 10 :
 ===
@@ -15817,7 +15817,7 @@ api_isa_validguess_evenafter_all_gg(c5, c2, c5, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nextguess</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">util_take_an_option</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mesok&#39;</span><span class="p">)</span>
@@ -15851,7 +15851,7 @@ api_isa_validguess_evenafter_all_gg(c5, c2, c5, c1)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
 
 
@@ -15871,7 +15871,7 @@ api_isa_validguess_evenafter_all_gg(c5, c2, c5, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">learnmore_GuessAndFeedback</span><span class="p">(</span><span class="n">gg</span><span class="o">=</span><span class="n">nextguess</span><span class="p">,</span><span class="n">fb</span><span class="o">=</span><span class="s1">&#39;b,b,b,b&#39;</span><span class="p">)</span>
@@ -15897,11 +15897,11 @@ api_isa_validguess_evenafter_all_gg(c5, c2, c5, c1)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>adding: api_isa_guess(g5,c4, c2, c4, c1). api_isa_fback(g5,b,b,b,b).  follows(g5,g4,gg).
-post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:9344,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
+post reply: success= True status_code= 201 text: {&#34;KB size&#34;:80,&#34;elapsed_ms&#34;:19125,&#34;ret_msg&#34;:&#34;KB loaded&#34;,&#34;uc&#34;:&#34;learnmore&#34;}
 
-getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:10,&#34;ans_kb_text_sz&#34;:7064,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T01:19:04.862Z&#34;,&#34;ans_kb_sz&#34;:70,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
+getkbstat get reply: success= True status_code= 200 text: {&#34;elapsed_ms&#34;:0,&#34;ans_kb_text_sz&#34;:7064,&#34;ans_kb_load_epoch&#34;:&#34;2023-10-30T14:09:59.554Z&#34;,&#34;ans_kb_sz&#34;:70,&#34;ret_msg&#34;:&#34;valid KB.&#34;}
 
-getkbstat(LMGS): {&#39;elapsed_ms&#39;: 10, &#39;ans_kb_text_sz&#39;: 7064, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T01:19:04.862Z&#39;, &#39;ans_kb_sz&#39;: 70, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
+getkbstat(LMGS): {&#39;elapsed_ms&#39;: 0, &#39;ans_kb_text_sz&#39;: 7064, &#39;ans_kb_load_epoch&#39;: &#39;2023-10-30T14:09:59.554Z&#39;, &#39;ans_kb_sz&#39;: 70, &#39;ret_msg&#39;: &#39;valid KB.&#39;}
 </pre>
 </div>
 </div>
@@ -15915,7 +15915,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 10, &#39;ans_kb_text_sz&#39;: 7064, &#39
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ans</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">get_new_advice</span><span class="p">()</span>
@@ -15941,7 +15941,7 @@ getkbstat(LMGS): {&#39;elapsed_ms&#39;: 10, &#39;ans_kb_text_sz&#39;: 7064, &#39
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguess_evenafter_all_gg(CH0,CH1,CH2,CH3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 16
+submitquery get reply: success= True status_code= 200 elapsed_ms: 6
 len(ans): 1
 ans.head 10 :
 ===
@@ -15960,7 +15960,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
@@ -16000,7 +16000,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nextguess</span>
@@ -16021,7 +16021,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
 
 
@@ -16052,10 +16052,171 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[1296, 500, 144, 55, 16, 5, 1]</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">funnel</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">)</span>
+<span class="n">devnull</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">species</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">))</span>
+<span class="n">weight_counts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;To explore&quot;</span><span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">),</span>
+    <span class="s2">&quot;Ruled out&quot;</span><span class="p">:</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">6</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">likely</span> <span class="k">for</span> <span class="n">likely</span> <span class="ow">in</span> <span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="c1">#print(weight_counts)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="c1">#bottom = np.array(0,[ 0 for likely in es.funnel] # np.zeros(len(es.funnel))</span>
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">))</span>
+                  
+<span class="k">for</span> <span class="n">boolean</span><span class="p">,</span> <span class="n">weight_count</span> <span class="ow">in</span> <span class="n">weight_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1">#print(boolean, weight_count,&#39;s&#39;,len(species),&#39;wgc&#39;,len(weight_count),&#39;bl&#39;,len(boolean),&#39;bt&#39;,len(bottom))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">weight_count</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">boolean</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">+=</span> <span class="n">weight_count</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;branch-and-bound&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;guesses made&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;combinations&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYsAAAEWCAYAAACXGLsWAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/YYfK9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAi80lEQVR4nO3deZhU1ZnH8e9PEHFBUWSM0mh3jDpqRJB2i2NkJG5xHQeJjgsqE8QYd000JgETnTGj0SgxOkRFdHBFE9e4BGUwY0RBUVQ0oqI0QUVEXFFa3vnjnoaCBm5109VVTf8+z1NP33vuuee+VWK/fc85da4iAjMzs5VZo9wBmJlZ5XOyMDOzXE4WZmaWy8nCzMxyOVmYmVkuJwszM8vlZGEVSdIMSd8pcww3SrqoTNfuJ6luJceHS/qf1oxpBXFUSwpJHcsdi5WWk4WZmeVysrA2zX/RmrUOJwurZDtLelnSPEmjJHVu6J6R9GNJ7wCjJG0o6X5Jc1Ld+yVVNTQiabykX0r6P0kfS3pE0sYFx/9J0pOSPpQ0U9LxBTFsKOmBdN5ESVuuKFhJB0p6TtJHqZ3hBccaumsGSXpb0vuSLig4vnbq9pon6WVg5yI+n86Sbk+xPStpx4L2tk3v+0NJL0k6ZJnP498L9o+X9JeC/ZA0VNJr6fyrJSkd6yDpshT/G8CBRcRpqwEnC6tkRwP7AVsCWwM/TeVfAzYCtgCGkP07HpX2Nwc+B367TFv/BpwA/APQCTgHQNIWwJ+AEUB3oDcwpeC8I4ELgQ2B6cDFK4n3U+A4oCvZL9GTJR22TJ1/ArYB+gM/l7RtKh+W3ueW6T0PWsl1GhwK3En2WdwC/FHSmpLWBO4DHknv91RgjKRtimizwUFkCasXMDDFBPD9dKwPUAsMaEKb1oY5WVgl+21EzIyID8h+SR+VyhcBwyLii4j4PCLmRsRdEfFZRHyc6u61TFujIuJvEfE5cAdZUoAsifw5Im6NiIWprSkF5/0hIp6OiHpgTMF5jUTE+IiYGhGLIuIF4NblxHFhivl54Hmg4W5gIHBxRHwQETOBq4r4fCZHxNiIWAhcDnQGdkuv9YBLIuLLiHgMuJ8ln18xLomIDyPibeBxlrzvgcBvCv67/GcT2rQ2zMnCKtnMgu23gM3S9pyIWNBwQNI6kv5b0luSPgImAF0ldSg4/52C7c/IfpkC9AReX0kMyz1P0k8kfZJe16ayXSU9nrrD5gNDgY2LaS+9t2Xfb8P7O7rgWn8qqLO4fkQsAupSO5sBM1NZYXs9VvI+l9XkOG315mRhlaxnwfbmwN/T9rJLJZ9N1rWza0SsD3w7lauIa8wk6/ppkoj4j4hYL72GpuJbgHuBnhGxAXBtkTEAzKbx+2241piCax1QUGdxfUlrAFVkn9HfgZ6prLC9WWn7U2CdgmNfKzLGlcZpqzcnC6tkp0iqkrQRcAFw+wrqdSEbp/gw1R3WhGuMAb4jaaCkjpK6SerdzHi7AB9ExAJJu5B1cRXrDuD8NFhfRTbOkKevpMPTjLAzgC+Ap4CJZHcDP0pjGP2Ag4Hb0nlTgMPTHdk3gMFNjPO09N9lQ+C8JpxrbZiThVWyW8gGad8g6ypa0RfkfgOsDbxP9svyoWIvkPrkv0t2d/IB2S/SHVd2zkr8APiFpI+Bn5P9Yi3WhWRdOm+SveebizjnHuB7wDzgWODwNO7yJVlyOIDsM/kdcFxEvJLOuwL4EngXGE2WMIv1e+BhsvGWZ4G7m3CutWHyw4/MzCyP7yzMzCyXk4WZmeVysjAzs1xOFmZmlmu1XIRt4403jurq6mafP3XW/JYLZhk79NigZG3z9+dK1zbAZn1K17ZjX7G2Gnsp4wbHviKrEPvkyZPfj4juyzu2Ws6Gqq2tjUmTJjX7/OrzHmjBaJY245ISrrs2vISJCGB46ZKoY19Z+2009lLGDY59hW03P3ZJkyOidnnH3A1lZma5nCzMzCyXk4WZmeVaLQe4zWz1sXDhQurq6liwYMHSB/ZrymoqTTRtWunahrLH3rlzZ6qqqlhzzTWLbtbJwswqWl1dHV26dKG6upr0wL7M3xes+KRVtdm2+XVWRRljjwjmzp1LXV0dNTU1RTfrbigzq2gLFiygW7duSycKazZJdOvWrfGdWg4nCzOreE4ULas5n6eThZmZ5fKYhZm1KS39pdkZp2220uNz586lf//+ALzzzjt06NCB7t2zLzk//fTTdOrUqUXjWdbwX1/LeuuuwzlDjyvpdfI4WZiZrUS3bt2YMmUKAMOHD2e99dbjnHPOKW9QK1FfX0/Hji3/q93dUGZmTTRu3Dj69OnDDjvswIknnsgXX3zRqM7rr7/O/vvvT9++fdlzzz155ZVXqK+vZ+edd2b8k9lyROf/5wguuOS3AFTveiA/uug37NB/ILsceCzT33y7UZtTXnyV3Q46jl7fGci/DD6beR9+BEC/Ad/njJ9fSu0BR3PllVcyefJk9tprL/r27ct+++3H7NmzV/k9lyxZSLpB0nuSXiwou1TSK5JekPQHSV0Ljp0vabqkVyXtV1C+fyqbLsnP+zWzslqwYAHHH388t99+O1OnTqW+vp5rrrmmUb0hQ4YwYsQIJk+ezGWXXcYPfvADOnbsyI033sjJ5/8Hf54wkYcef5JhZ520+JwNuqzH1HF38MPjv8cZwy5r1OZxZ/yMX11wOi/8+Q52+MdvcOHl/7342JcL65n0pzGcdtppnHrqqYwdO5bJkydz4okncsEFF6zy+y7lncWNwP7LlD0KfDMiegF/A84HkLQdcCSwfTrnd5I6SOoAXE32LOHtgKNSXTOzsvjqq6+oqalh6623BmDQoEFMmDBhqTqffPIJTz75JEcccQS9e/fmpJNOWvzX/fbbb8+x/3ogBx1/OjdcPoxOnZZ8Me6ow/ZPP/fjr5OnLtXm/I8+5sP5n7DX7n2z6x5xEBMmLlm99nuH7AvAq6++yosvvsg+++xD7969ueiii6irq1vl912yMYuImCCpepmyRwp2nwIGpO1Dgdsi4gvgTUnTgV3SsekR8QaApNtS3ZdLFbeZ2apatGgRXbt2XTzWsaypr0yn6/pdeO/9D5YqL5zS2tTpreuuszaQfelu++23569//WvTgs5RzjGLE4E/pe0ewMyCY3WpbEXljUgaImmSpElz5swpQbhmZtChQwdmzJjB9OnTAbj55pvZa6+9lqqz/vrrU1NTw5133glkv8Cff/55AO6++24++HA+E+66jlN/+l98OP/jxefdfu8ji3/u3neHpdrcYP0ubLhBF56Y+Gx23bseYK/ddmoU3zbbbMOcOXMWJ4uFCxfy0ksvrfL7LstsKEkXAPXAmJZqMyJGAiMhe55FS7VrZpVl8TNhSv3QqRXo3Lkzo0aN4ogjjlg8YD106NBG9caMGcPJJ5/MRRddxMKFCznyyCPp0aMH5513HuPGXEnPHl/jhyd8j9N/fimjr/wFAPPmf0Sv7wxkrU6duPXq/2jU5ujf/IKh513MZwsW8PXNqxh1+fBGdTp16sTYsWM57bTTmD9/PvX19Zxxxhlsv/32q/S+Wz1ZSDoeOAjoH0uevDQL6FlQrSqVsZJyM7NWNXz48MXbzz238mRVU1PDQw891Kj8b3/72+JEd9rgo5Y6du7Jx/GrC05f+ppnL0lEvb+5DU/df1OjNseP/f1S+7179240jrKqWrUbStL+wI+AQyLis4JD9wJHSlpLUg2wFfA08AywlaQaSZ3IBsHvbc2YzcyshHcWkm4F+gEbS6oDhpHNfloLeDQN3jwVEUMj4iVJd5ANXNcDp0TEV6mdHwIPAx2AGyJi1TvfzMwqzIyJpXucc0so5Wyoo5ZTfP1K6l8MXLyc8geBB1swNDMzayJ/g9vMzHI5WZiZWS4nCzMzy+VVZ82sbRm+Qcu2N2R8bpUOHTqwww47UF9fT01NDTfffDNdu3ZdYf3x48dz2WWXcf/99xcdRr8B3+eyn51J7Y6rtqLR+PHj6dSpE9/61rdWqZ1l+c7CzCzH2muvzZQpU3jxxRfZaKONuPrqq8sd0gqNHz+eJ598ssXbdbIwM2uC3XffnVmzsu8G9+vXj0mTsuXG33//faqrqxvV//TTTznxxBPZZZdd6NOnD/fccw8An3++gCNPPo9t9zqcfxl8Np8vaLzMOcC4JybSZ9+j2KH/QE48azhffPElkC1p/v4H8wCY9PzL9BvwfWbM/DvXXnstV1xxBb179+aJJ55osfftZGFmVqSvvvqKcePGccghhxR9zsUXX8zee+/N008/zeOPP865557Lp599zjU3jWWdtTsz7X/v5sKzT2LyC9ManbtgwRccf+Zwbr/mEqaOu4P6+q+45qY7V3it6p6bMXToUM4880ymTJnCnnvu2az3uTxOFmZmOT7//HN69+7N1772Nd5991322Wefos995JFHuOSSS+jduzf9+vVjwYIFvD1rNhMmPssxh38XgF7bbU2vbbdqdO6rr79FzeabsfWWWwANy5I/2zJvqomcLMzMcjSMWbz11ltExOIxi44dO7Jo0SIgeyjS8kQEd911F1OmTGHKlCm8/fbbbLvV11c5po4dO7BoUba83oLlPKmvpTlZmJkVaZ111uGqq67i17/+NfX19VRXVzN58mQAxo4du9xz9ttvP0aMGEHDuqkNCxB+e9eduOWP2UKDL74ynRemvdbo3G223IIZM2cvfsTqzXc9yF67ZQ8/qq7abHHX1V0PjFt8TpcuXfj4448btbWqPHXWzNqW4fOzn2VaorxPnz706tWLW2+9lXPOOYeBAwcycuRIDjzwwOXW/9nPfsYZZ5xBr169WLRoETU1Ndw/8pecfNwATjhrONvudTjbblVD317bNjq3c+e1GHX5MI446cfUf/UVO++4HUOPzZ4ZN+ysIQw++xf87NLf0W/32sXnHHzwwQwYMIB77rmHESNGtNi4hZasEr76qK2tjYYZCs1RfV7pFvRavBZ/KbT0/PNG7c8vYduOfcXtt9HYWyjuadOmse22jX+RljRZbNandG1DRcS+vM9V0uSIqF1efXdDmZlZLicLMzPL5WRhZhVvdewuL6fmfJ5OFmZW0Tp37szcuXOdMFpIRDB37lw6d+7cpPM8G8rMKlpVVRV1dXXMmTNn6QMfvle6i85v/G3qFlXm2Dt37kxVVVWTmnWyMLOKtuaaa1JTU9P4wPDdSnfRUs5AgzYZu7uhzMwsl5OFmZnlcrIwM7NcThZmZpbLycLMzHI5WZiZWS4nCzMzy1WyZCHpBknvSXqxoGwjSY9Kei393DCVS9JVkqZLekHSTgXnDEr1X5M0qFTxmpnZipXyzuJGYP9lys4DxkXEVsC4tA9wALBVeg0BroEsuQDDgF2BXYBhDQnGzMxaT8mSRURMAD5YpvhQYHTaHg0cVlB+U2SeArpK2hTYD3g0Ij6IiHnAozROQGZmVmKtPWaxSUTMTtvvAJuk7R7AzIJ6dalsReWNSBoiaZKkSY3WkDEzs1VStgHuyJaQbLFlJCNiZETURkRt9+7dW6pZMzOj9ZPFu6l7ifSzYenFWUDPgnpVqWxF5WZm1opaO1ncCzTMaBoE3FNQflyaFbUbMD91Vz0M7CtpwzSwvW8qMzOzVlSyJcol3Qr0AzaWVEc2q+kS4A5Jg4G3gIGp+oPAd4HpwGfACQAR8YGkXwLPpHq/iIhlB83NzKzESpYsIuKoFRzqv5y6AZyygnZuAG5owdDMzKyJ/A1uMzPL5WRhZma5nCzMzCyXk4WZmeVysjAzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL5WRhZma5nCzMzCyXk4WZmeVysjAzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL5WRhZma5nCzMzCyXk4WZmeVysjAzs1xOFmZmlquoZCFpD0nrpu1jJF0uaYvShmZmZpWi2DuLa4DPJO0InA28DtxUsqjMzKyiFJss6iMigEOB30bE1UCX5l5U0pmSXpL0oqRbJXWWVCNpoqTpkm6X1CnVXSvtT0/Hq5t7XTMza55ik8XHks4HjgEekLQGsGZzLiipB3AaUBsR3wQ6AEcCvwKuiIhvAPOAwemUwcC8VH5FqmdmZq2o2GTxPeALYHBEvANUAZeuwnU7AmtL6gisA8wG9gbGpuOjgcPS9qFpn3S8vyStwrXNzKyJOhZTKSWIywv236aZYxYRMUvSZcDbwOfAI8Bk4MOIqE/V6oAeabsHMDOdWy9pPtANeL851zczs6YrdjbU4ZJekzRf0keSPpb0UXMuKGlDsruFGmAzYF1g/+a0tUy7QyRNkjRpzpw5q9qcmZkVKLYb6r+AQyJig4hYPyK6RMT6zbzmd4A3I2JORCwE7gb2ALqmbinIurlmpe1ZQE+AdHwDYO6yjUbEyIiojYja7t27NzM0MzNbnmKTxbsRMa2Frvk2sJukddLYQ3/gZeBxYECqMwi4J23fm/ZJxx9LM7PMzKyVFDVmAUySdDvwR7KBbgAi4u6mXjAiJkoaCzwL1APPASOBB4DbJF2Uyq5Pp1wP3CxpOvAB2cwpMzNrRcUmi/WBz4B9C8qCrAupySJiGDBsmeI3gF2WU3cBcERzrmNmZi2j2NlQJ5Q6EDMzq1zFzoaqkvQHSe+l112SqkodnJmZVYZiB7hHkQ00b5Ze96UyMzNrB4pNFt0jYlRE1KfXjYDnp5qZtRPFJou5aWnyDul1DMv5roOZma2eik0WJwIDgXfI1nEaAHjQ28ysnSh2NtRbwCEljsXMzCrUSpOFpB9FxH9JGkH2vYqlRMRpJYvMzMwqRt6dRcMSH5NKHYiZmVWulSaLiLgvbX4WEXcWHpPkb1WbmbUTxQ5wn19kmZmZrYbyxiwOAL4L9JB0VcGh9ckWATQzs3Ygb8zi72TjFYeQPc2uwcfAmaUKyszMKkvemMXzwPOSbkkPKjIzs3ao2CXKqyX9J7Ad0LmhMCK+XpKozMysojRlIcFryMYp/hm4CfifUgVlZmaVpdhksXZEjAMUEW9FxHDgwNKFZWZmlaTYbqgvJK0BvCbph8AsYL3ShWVmZpWk2DuL04F1gNOAvsCxwKBSBWVmZpWl2IUEn0mbn+DVZs3M2p2ikoWkrYFzgS0Kz4mIvUsUl5mZVZBixyzuBK4Ffg98VbpwzMysEhWbLOoj4pqSRmJmZhWr2AHu+yT9QNKmkjZqeJU0MjMzqxjF3lk0zHw6t6AsAH+D28ysHSh2NlRNS15UUlfgOuCbZEnnROBV4HagGpgBDIyIeZIEXEm2+u1nwPER8WxLxmNmZiuXt0T53hHxmKTDl3c8Iu5u5nWvBB6KiAGSOpF9h+MnwLiIuETSecB5wI+BA4Ct0mtXsmVHdm3mdc3MrBny7iz2Ah4DDl7OsQCanCwkbQB8GzgeICK+BL6UdCjQL1UbDYwnSxaHAjdFRABPSeoqadOImN3Ua5uZWfPkLVE+LP1syS/i1QBzgFGSdiR7TsbpwCYFCeAdYJO03QOYWXB+XSpbKllIGgIMAdh8881bMFwzMytqNpSkbpKukvSspMmSrpTUrZnX7AjsBFwTEX2AT8m6nBZLdxHRlEYjYmRE1EZEbffu3ZsZmpmZLU+xU2dvI7sb+FdgQNq+vZnXrAPqImJi2h9LljzelbQpQPr5Xjo+C+hZcH5VKjMzs1ZSbLLYNCJ+GRFvptdFLOkmapKIeAeYKWmbVNQfeBm4lyVTdAcB96Tte4HjlNkNmO/xCjOz1lXs9ywekXQkcEfaHwA8vArXPRUYk2ZCvUG2OOEawB2SBgNvAQNT3QfJps1OJ5s664UMzcxaWd7U2Y/Jxg4EnMGSp+OtQbYC7TnNuWhETAFql3Oo/3LqBnBKc65jZmYtI282VJfWCsTMzCpXsd1QSOpF9u3qwiXKm/ulPDMza0OKfZ7FDUAv4CVgUSpu1pfyzMys7Sn2zmK3iNiupJGYmVnFKnbq7F8lOVmYmbVTxd5Z3ESWMN4BviCbHRUR0atkkZmZWcUoNllcDxwLTGXJmIWZmbUTxSaLORFxb0kjMTOzilVssnhO0i3AfWTdUICnzpqZtRfFJou1yZLEvgVlnjprZtZOFPtYVa/HZGbWjhX7pbwqYASwRyp6Ajg9IupKFZg1XfWCW0ra/oyStm5mlazY71mMIlsqfLP0ui+VmZlZO1BssugeEaMioj69bgT8ODozs3ai2GQxV9Ixkjqk1zHA3FIGZmZmlaPYZHEi2cOI3gFmkz386PgSxWRmZhWm2KmzvwAGRcQ8AEkbAZeRJREzM1vNFXtn0ashUQBExAdAn9KEZGZmlabYZLGGpA0bdtKdRdEPTjIzs7at2F/4vyZbdfbOtH8EcHFpQjIzs0pT7De4b5I0Cdg7FR0eES+XLiwzM6skRXclpeTgBGFm1g4VO2ZhZmbtmJOFmZnlcrIwM7NcZUsWadmQ5yTdn/ZrJE2UNF3S7ZI6pfK10v70dLy6XDGbmbVX5byzOB2YVrD/K+CKiPgGMA8YnMoHA/NS+RWpnpmZtaKyJIv0fIwDgevSvsim5Y5NVUYDh6XtQ9M+6Xj/VN/MzFpJue4sfgP8CFiU9rsBH0ZEfdqvA3qk7R7ATIB0fH6qvxRJQyRNkjRpzpw5JQzdzKz9afVkIekg4L2ImNyS7UbEyIiojYja7t39qA0zs5ZUjvWd9gAOkfRdoDOwPnAl0FVSx3T3UAXMSvVnAT2BOkkdgQ3wszTMzFpVq99ZRMT5EVEVEdXAkcBjEXE08DjZczIABgH3pO170z7p+GMREa0YsplZu1dJ37P4MXCWpOlkYxLXp/LrgW6p/CzgvDLFZ2bWbpV1mfGIGA+MT9tvALssp84CslVuzcysTCrpzsLMzCqUk4WZmeVysjAzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL5WRhZma5nCzMzCyXk4WZmeVysjAzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL5WRhZma5nCzMzCyXk4WZmeVysjAzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL5WRhZma5Wj1ZSOop6XFJL0t6SdLpqXwjSY9Kei393DCVS9JVkqZLekHSTq0ds5lZe1eOO4t64OyI2A7YDThF0nbAecC4iNgKGJf2AQ4AtkqvIcA1rR+ymVn71urJIiJmR8SzaftjYBrQAzgUGJ2qjQYOS9uHAjdF5imgq6RNWzdqM7P2raxjFpKqgT7ARGCTiJidDr0DbJK2ewAzC06rS2XLtjVE0iRJk+bMmVO6oM3M2qGyJQtJ6wF3AWdExEeFxyIigGhKexExMiJqI6K2e/fuLRipmZmVJVlIWpMsUYyJiLtT8bsN3Uvp53upfBbQs+D0qlRmZmatpByzoQRcD0yLiMsLDt0LDErbg4B7CsqPS7OidgPmF3RXmZlZK+hYhmvuARwLTJU0JZX9BLgEuEPSYOAtYGA69iDwXWA68BlwQqtGa2ZmrZ8sIuIvgFZwuP9y6gdwSkmDMjOzlfI3uM3MLJeThZmZ5XKyMDOzXE4WZmaWqxyzocwaqV5wS0nbn1HS1s1Wf76zMDOzXE4WZmaWy8nCzMxyOVmYmVkuJwszM8vlZGFmZrmcLMzMLJeThZmZ5XKyMDOzXE4WZmaWy8nCzMxyOVmYmVkuJwszM8vlZGFmZrm8RLnZKvLy6tYe+M7CzMxyOVmYmVkuJwszM8vlZGFmZrmcLMzMLFebmQ0laX/gSqADcF1EXFLmkMzavFLO5JpRspatHNrEnYWkDsDVwAHAdsBRkrYrb1RmZu1HW7mz2AWYHhFvAEi6DTgUeLmsUZlZ2fiuqHUpIsodQy5JA4D9I+Lf0/6xwK4R8cOCOkOAIWl3G+DVVgpvY+D9VrpWS3Ps5eHYy6Otxt6acW8REd2Xd6Ct3FnkioiRwMjWvq6kSRFR29rXbQmOvTwce3m01dgrJe42MWYBzAJ6FuxXpTIzM2sFbSVZPANsJalGUifgSODeMsdkZtZutIluqIiol/RD4GGyqbM3RMRLZQ6rQat3fbUgx14ejr082mrsFRF3mxjgNjOz8mor3VBmZlZGThZmZpbLyWIVSNpf0quSpks6r9zxFEvSDZLek/RiuWNpKkk9JT0u6WVJL0k6vdwxFUNSZ0lPS3o+xX1huWNqKkkdJD0n6f5yx9IUkmZImippiqRJ5Y6nKSR1lTRW0iuSpknavWyxeMyiedISJH8D9gHqyGZsHRURFf+tcknfBj4BboqIb5Y7nqaQtCmwaUQ8K6kLMBk4rNI/d0kC1o2ITyStCfwFOD0inipzaEWTdBZQC6wfEQeVO55iSZoB1EZEm/tCnqTRwBMRcV2aCbpORHxYjlh8Z9F8i5cgiYgvgYYlSCpeREwAPih3HM0REbMj4tm0/TEwDehR3qjyReaTtLtmerWZv9QkVQEHAteVO5b2QtIGwLeB6wEi4styJQpwslgVPYCZBft1tIFfWqsTSdVAH2BimUMpSurGmQK8BzwaEW0i7uQ3wI+ARWWOozkCeETS5LQsUFtRA8wBRqXuv+skrVuuYJwsrE2StB5wF3BGRHxU7niKERFfRURvshUIdpHUJroAJR0EvBcRk8sdSzP9U0TsRLZq9SmpG7Yt6AjsBFwTEX2AT4GyjY06WTSflyApk9TnfxcwJiLuLnc8TZW6Eh4H9i9zKMXaAzgk9f3fBuwt6X/KG1LxImJW+vke8AeyLuS2oA6oK7gDHUuWPMrCyaL5vARJGaSB4uuBaRFxebnjKZak7pK6pu21ySZGvFLWoIoUEedHRFVEVJP9O38sIo4pc1hFkbRumghB6sLZF2gTswAj4h1gpqRtUlF/yvhYhjax3EclqvAlSFZK0q1AP2BjSXXAsIi4vrxRFW0P4Fhgaur/B/hJRDxYvpCKsikwOs2iWwO4IyLa1BTUNmoT4A/Z3xh0BG6JiIfKG1KTnAqMSX+QvgGcUK5APHXWzMxyuRvKzMxyOVmYmVkuJwszM8vlZGFmZrmcLMzMLJeThdlqLq26unG547C2zcnCzMxyOVlYuyDpZ+nZI3+RdKukc1L5eEm1aXvjtKRFw6J/l0p6RtILkk5K5ZtKmpCejfCipD1T3RvT/lRJZ6a6W0p6KC1g94Skf0zlR6S6z0uasJxY+0n6X0n3SHpD0iWSjk7Pw5gqactU72BJE9Mic3+WtEkq7ybpkfTcjOsAFbR9TGpniqT/Tl8SNMvlZGGrPUk7A/8K7Ei2mFxtEacNBuZHxM7AzsD3JdUA/wY8nBYE3BGYAvQGekTENyNiB2BUamMkcGpE9AXOAX6Xyn8O7BcROwKHrOD6OwJDgW3JvrG+dUTsQrZE+Kmpzl+A3dIic7eRrQoLMAz4S0RsT7YW0ubpc9gW+B6wR4r/K+DoIj4LMy/3Ye3CHsA9EbEAWCDpviLO2RfoJWlA2t8A2IpsTbAb0mKGf4yIKZLeAL4uaQTwANly2OsB3wLuTEtNAKyVfv4fcKOkO4AVLYT4TETMBpD0OvBIKp8K/HPargJuTw+E6gS8mcq/DRwOEBEPSJqXyvsDfYFnUkxrky2XbpbLycLau3qW3GF3LigX2V3Bw8uekJa4PpDsF/7lEXGTpB2B/cjuBgYCZwAfpr/glxIRQyXtmtqYLKlvRMxdptoXBduLCvYXseT/2xHA5RFxr6R+wPCc9ypgdEScn1PPrBF3Q1l78H/Awcqeg70eUPhI0Blkf20DDCgofxg4Od1BIGnrtILpFsC7EfF7si6hndJMozUi4i7gp8BO6Rkbb0o6Ip2vlFCQtGVETIyIn5M93KZwqfum2IAly+IPKiifQNZdhqQDgA1T+ThggKR/SMc2Su/HLJfvLGy1FxHPSLoXeAF4l6wrZ346fBlwh7InqD1QcNp1QDXwbFoWfQ5wGNlqvedKWkj2HPPjyJ6QOEpSwx9fDX+5Hw1cI+mnZI9RvQ14HrhU0lZkf+mPS2XNMZysm2se8BjZk9UALgRulfQS8CTwdvocXk6xPJJiXQicArzVzOtbO+JVZ61dkLReRHwiaR2yv7yHNDzL28zy+c7C2ouRkrYjG5cY7URh1jS+szAzs1we4DYzs1xOFmZmlsvJwszMcjlZmJlZLicLMzPL9f9K68n4vh1nVAAAAABJRU5ErkJggg==
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span> <span class="nb">round</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># print next/curr</span>
 </pre></div>
 
      </div>
@@ -16079,47 +16240,6 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[1296, 500, 144, 55, 16, 5, 1]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span> <span class="nb">round</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">es</span><span class="o">.</span><span class="n">funnel</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> <span class="c1"># print next/curr</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>[0.39, 0.29, 0.38, 0.29, 0.31, 0.2]</pre>
 </div>
 
@@ -16134,7 +16254,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="n">es</span><span class="o">.</span><span class="n">print_submitted_guessnfeedbacks</span><span class="p">()</span>
@@ -16160,7 +16280,7 @@ api_isa_validguess_evenafter_all_gg(c4, c2, c4, c1)
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>submitting query: api_isa_validguessnfeedback(GID,GC0,GC1,GC2,GC3,FC0,FC1,FC2,FC3)?
-submitquery get reply: success= True status_code= 200 elapsed_ms: 15
+submitquery get reply: success= True status_code= 200 elapsed_ms: 16
 len(ans): 6
 ans.head 100 :
 ===
@@ -16184,7 +16304,7 @@ api_isa_validguessnfeedback(g5, c4, c2, c4, c1, b, b, b, b)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#assert success</span>
@@ -16195,15 +16315,15 @@ api_isa_validguessnfeedback(g5, c4, c2, c4, c1, b, b, b, b)
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">devnull</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">submitkb</span><span class="p">(</span><span class="n">datalog_text</span><span class="o">=</span><span class="s2">&quot;null.&quot;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">devnull</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">resetkb</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16211,6 +16331,69 @@ api_isa_validguessnfeedback(g5, c4, c2, c4, c1, b, b, b, b)
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>delete reply: success= True status_code= 200 text: {&#34;KB size&#34;:0,&#34;elapsed_ms&#34;:0,&#34;ret_msg&#34;:&#34;KB deleted&#34;}
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;END.&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>END.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16219,7 +16402,7 @@ api_isa_validguessnfeedback(g5, c4, c2, c4, c1, b, b, b, b)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;END.&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
      </div>
