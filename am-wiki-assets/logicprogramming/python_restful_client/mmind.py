@@ -10,7 +10,7 @@ class ExpertSystemREST():
 	def __init__(self,*,servlet_url):
 		self.servlet_url = servlet_url
 		
-	def submitkbfn(self,*,datalog_filename,mode):
+	def submitkbfn(self,*,datalog_filename,mode='w'):
 		with open(datalog_filename) as f:
 			content = f.read()
 			return self.submitkb(datalog_text=content,mode=mode)
@@ -103,44 +103,36 @@ class ExpertSystemMasterMind(ExpertSystemREST):
 
 
 
+class ExpertSystemMasterMindAssistant(ExpertSystemMasterMind):
 
+	def util_csv2a(self,csv):
+		return csv.replace(" ","").split(',')		
 
-class ExpertSystemMasterMindUser(ExpertSystemMasterMind):
-
-	def util_get_feedback(self,*,secret,guess):
-		#blank=chr(32) # " "
-		sz=4
-		secreta = secret.replace(" ","").split(',')
-		guessa = guess.replace(" ","").split(',')
-		assert len(secreta)==sz and len(guessa)==sz
-		bb=0
-		ww=0
-		for hh in range(0,4): # black loop
-			if guessa[hh] == secreta[hh]:
-				bb+=1
-				secreta[hh]='@b'
-				guessa[hh]='#b'
-		for hh in range(0,4): # white loop
-			if guessa[hh] != '#b' and guessa[hh] in secreta:
-				hw = secreta.index(guessa[hh])
-				ww+=1
-				secreta[hw]='@w'
-
-		return ['b'] * bb + ['w'] * ww + ['o'] * (sz-bb-ww)
+	def util_get_kurtosis(self,guess):
+		if type(guess)==str:
+			guess = self.util_csv2a(guess)
+		assert type(guess)==list
+		guess0counts = { i : guess.count(i) for i in guess} # {'c2': 1, 'c3': 2, 'c4': 1}
+		kurt = sorted(guess0counts.values(),reverse=True) # you will have: 3-1
+		kurts = '-'.join([str(k) for k in kurt])
+		return kurts
 	
+	def util_get_kurtosis_n(self,guess):
+		kurts = self.util_get_kurtosis(guess)
+		ascend = ["1-1-1-1", "2-1-1", "2-2", "3-1", "4"]
+		kurtn = ascend.index(kurts)
+		return kurtn
+
 	def util_get_array_from_answer(self,ans,returnarray):
 		ax=ans.index('(')+1
 		zx=ans.index(')')
 		scut = ans[ax:zx]
-		scuta = scut.replace(" ","").split(',')
+		scuta = self.util_csv2a(scut)
 		if returnarray: return scuta
 		return scut
-	
-	def util_csv2a(self,csv):
-		return csv.replace(" ","").split(',')
-		
-	
+
 	def util_take_an_option(self,ans,mode):
+		# needs: util_get_array_from_answer util_get_kurtosis_n util_get_kurtosis util_csv2a
 		if mode == 'first':
 			pick = 0
 			scut = self.util_get_array_from_answer(ans[pick],False)
@@ -169,21 +161,32 @@ class ExpertSystemMasterMindUser(ExpertSystemMasterMind):
 			return sorted_tuples[mi][1]
 		assert False, 'unkown mode'
 		
-		
-	def util_get_kurtosis(self,guess):
-		if type(guess)==str:
-			guess = self.util_csv2a(guess)
-		assert type(guess)==list
-		guess0counts = { i : guess.count(i) for i in guess} # {'c2': 1, 'c3': 2, 'c4': 1}
-		kurt = sorted(guess0counts.values(),reverse=True) # you will have: 3-1
-		kurts = '-'.join([str(k) for k in kurt])
-		return kurts
+
+class ExpertSystemMasterMindUser(ExpertSystemMasterMindAssistant):
+
+	def util_get_feedback(self,*,secret,guess):
+		#blank=chr(32) # " "
+		sz=4
+		secreta = self.util_csv2a(secret)
+		guessa = self.util_csv2a(guess)
+		assert len(secreta)==sz and len(guessa)==sz
+		bb=0
+		ww=0
+		for hh in range(0,4): # black loop
+			if guessa[hh] == secreta[hh]:
+				bb+=1
+				secreta[hh]='@b'
+				guessa[hh]='#b'
+		for hh in range(0,4): # white loop
+			if guessa[hh] != '#b' and guessa[hh] in secreta:
+				hw = secreta.index(guessa[hh])
+				ww+=1
+				secreta[hw]='@w'
+
+		return ['b'] * bb + ['w'] * ww + ['o'] * (sz-bb-ww)
 	
-	def util_get_kurtosis_n(self,guess):
-		kurts = self.util_get_kurtosis(guess)
-		ascend = ["1-1-1-1", "2-1-1", "2-2", "3-1", "4"]
-		kurtn = ascend.index(kurts)
-		return kurtn
+	
+
 
 	def one_game_loop(self,*,datalog_filename,first_guess,secret,subseqpickmode): # loop: cracking the secret
 		self.guess=0
@@ -211,7 +214,7 @@ class ExpertSystemMasterMindUser(ExpertSystemMasterMind):
 			print('print_submitted_guessnfeedbacks:',alenfb)
 			ans = self.get_new_advice()
 			options = len(ans)
-			#assert options > 0, 'no options!'
+			assert options > 0, 'no options! the model is likely incorrect!'
 			if options>0: nextguess = self.util_take_an_option(ans,subseqpickmode)
 		
 		SUCCESS = ", ".join(secret) == nextguess
