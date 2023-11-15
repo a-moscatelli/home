@@ -77,6 +77,25 @@ public class HelloWorld extends HttpServlet {
         // AcbDatalog: You can choose what sort of engine you want here.
         en_next = SemiNaiveEngine.newEngine();
         en_next.init(prog);
+		
+		// 2023-11-10
+		// addFact https://github.com/HarvardPL/AbcDatalog/blob/master/src/main/java/edu/harvard/seas/pl/abcdatalog/engine/bottomup/sequential/SemiNaiveEvalManager.java
+		// addFactAsynchronously DatalogExecutor.java src/main/java/edu/harvard/seas/pl/abcdatalog/executor/DatalogExecutor.java
+		// src/main/java/edu/harvard/seas/pl/abcdatalog/executor/ExecutorExample.java
+		// addFactAsynchronously
+		// src/test/java/edu/harvard/seas/pl/abcdatalog/executor/DatalogParallelExecutorTest.java
+		
+		/*
+		String newFacts = "edge(2,3). edge(3,4). edge(4,0).";
+		t = new DatalogTokenizer(new StringReader(newFacts));
+		while (t.hasNext()) {
+			waitAndAdd(ex, DatalogParser.parseClauseAsPositiveAtom(t));
+		}
+		*/
+		// https://github.com/HarvardPL/AbcDatalog/blob/bb8fe49d697375131964871fda6fa397f0dcefa0/src/main/java/edu/harvard/seas/pl/abcdatalog/executor/ExecutorExample.java#L71
+		
+		
+		
 		// the new values en_online, kb_online and kb_sz are (re)assigned only of the text was parsed successfully.
 		// if not, the previous kb_online remains.
         //kb_next = kb_;
