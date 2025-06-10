@@ -1,2 +1,2 @@
-# wiki assets
-[wiki link](https://www.a-moscatelli.info)
+## wiki assets for the website:
+https://www.a-moscatelli.info
